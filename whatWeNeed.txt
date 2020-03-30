@@ -1,0 +1,23 @@
+    Sa se conceapa o aplicatie Web care gestioneaza colectii de jucarii confectionate din diverse materiale, 
+inclusiv realizeaza managementul proprietatilor aferente: categorie, valoare, dimensiuni, imagini, 
+destinatari (copii mici, (pre)scolari, adolescenti), stare de functionare si altele.
+    Sistemul va oferi suport pentru activitati de cumparare/licitare a acestor jucarii, plus administrarea utilizatorilor.
+    Se vor genera statistici diverse ce pot fi exportate in formate deschise – minimal, CSV si PDF.
+    Se va realiza, de asemenea, un clasament al celor mai populare produse, disponibil si ca flux de date RSS.
+
+
+-Frame(cele care mereu raman pe pagina in partea de sus impreuna cu Log-ul)
+    -> Contul meu ( date personale, comenzile mele, produsele mele)  /sau/ Login - SignUp
+    -> Favorite
+    -> Cosul meu -> finalizare comanda
+    -> add toy ( un bulina colorata pe o laterala sau ceva)
+    -> search bar / Categorii
+-Pagina principala
+    ->produse promovate / best sells / reduceri
+
+-Pagina produs ( poze - descriere - specificatii - ranking )
+
+-Pagina user ( vizualizare produse, statistica: de cand vinde / cat a vandut / ranting )
+
+
+
