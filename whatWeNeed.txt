@@ -19,5 +19,13 @@ destinatari (copii mici, (pre)scolari, adolescenti), stare de functionare si alt
 
 -Pagina user ( vizualizare produse, statistica: de cand vinde / cat a vandut / ranting )
 
-
+Update pagini:
+-Main
+-produs
+-produse
+-login-register
+-account
+-favorite
+-cart
+-comanda
 
