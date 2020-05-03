@@ -1,16 +1,13 @@
 *{
 	margin: 0px;
-	padding: 0px;
+    padding: 0px;
     box-sizing: border-box;
 }
 
 html{
     min-width: 320px;
 }
-body {
-    font-family: 'Poppins', sans-serif;
-    background-color: wheat;
-}
+
 header {
     display: flex;
     flex-wrap: wrap;
@@ -27,23 +24,25 @@ img.logo
 }
 .logo-container{
     flex: 1;
+    font-size: 1.5rem;
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    margin-right: 1rem;
 }
 
 .search-box{
     flex: 2;
     background-color: white;
     border-radius: 2em;
-    height: 2em;
+    height: 3em;
     padding: 0.5em;
     padding-right: 1em;
     min-width: 150px;
 }
 .search-text {
     width: 85%;
+    height: 100%;
     border: none;
     background: none;
     outline: none;
@@ -51,13 +50,13 @@ img.logo
     padding-left: 1em;
     margin-right: -1em;
     color: black;
-    font-size: 1em;
+    font-size: 2;
 }
 .search-box:hover{
-    size: 10em;
+    /*size: 10em;*/
 }
 .searchButton {
-    height: 2em;
+    height: 3em;
     background: none;
     border: none;
     color: red;
@@ -80,8 +79,8 @@ img.logo
     font-size: 1.5em;
 }
 img.nav_img{
-    height: 2em;
-    width: 2em;
+    height: 2.5em;
+    width: 2.5em;
 }
 .nav_text{
     padding-left: 0.5em;
@@ -98,6 +97,100 @@ img.nav_img{
         display: none;
     }
 }
-@media screen and (max-width: 600px) {
+/*###################################Page#########################################*/
 
+body{
+    background-color: blanchedalmond;
+}
+
+#slider {
+    margin: auto;
+    overflow: hidden;
+    max-width: 1300px;
+}
+#slider figure {
+	position: relative;
+	width: 500%;
+	margin: 0;
+	left: 0;
+	animation: 20s slider infinite;
+}
+#slider figure img {
+    width: 20%;
+    height: 10%;
+	float: left;
+}
+
+@keyframes slider {
+	0% {
+		left: 0;
+	}
+	20% {
+		left: 0;
+	}
+	25% {
+		left: -100%;
+	}
+	45% {
+		left: -100%;
+	}
+	50% {
+		left: -200%;
+	}
+	70% {
+		left: -200%;
+	}
+	75% {
+		left: -300%;
+	}
+	95% {
+		left: -300%;
+	}
+	100% {
+		left: -400%;
+	}
+}
+
+#produse{
+    margin: auto;
+    max-width: 1300px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: white;
+}
+
+.produs{
+    font-size: 1.5em;
+    margin: 30px;
+    background-color:blanchedalmond;
+}
+.produs img{
+    max-width: 250px;
+}
+.produs .nume{
+    text-align: center;
+    font-weight: bold;
+    margin-top:15px;
+}
+.produs .details{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top:15px;
+}
+.produs button{
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+    color: white;
+    background-color: brown;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.produs button:hover {
+    background-color: lightsalmon;
 }
