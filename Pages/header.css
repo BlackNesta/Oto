@@ -1,0 +1,114 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    min-width: 320px;
+}
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 1em;
+    align-items: center;
+    background-color: brown;
+    padding-left: 10%;
+    padding-right: 5%;
+}
+
+img.logo {
+    max-width: 4em;
+    max-height: 4em;
+}
+
+.logo-container {
+    flex: 1;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+}
+
+.search-box {
+    flex: 2;
+    background-color: white;
+    border-radius: 2em;
+    height: 3em;
+    padding: 0.5em;
+    padding-right: 1em;
+    min-width: 150px;
+}
+
+.search-box:hover {
+    height: 3.5em;
+}
+
+.search-box:hover .searchButton {
+    height: 3.5em;
+}
+
+.search-text {
+    width: 85%;
+    height: 100%;
+    border: none;
+    background: none;
+    outline: none;
+    float: left;
+    padding-left: 1em;
+    margin-right: -1em;
+    color: black;
+    font-size: 1em;
+}
+
+.searchButton {
+    height: 3em;
+    background: none;
+    border: none;
+    color: red;
+    float: right;
+    padding-bottom: 0.5em;
+}
+
+.nav {
+    flex: 2;
+    display: flex;
+    margin-left: 2em;
+}
+
+.nav_comp {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin-right: 1em;
+    text-decoration: none;
+}
+
+.nav_comp:hover {
+    font-size: 1.5em;
+}
+
+img.nav_img {
+    height: 2.5em;
+    width: 2.5em;
+}
+
+.nav_text {
+    padding-left: 0.5em;
+    color: black;
+}
+
+@media screen and (max-width: 1024px) {
+    .logo-title {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .nav_text {
+        display: none;
+    }
+}
