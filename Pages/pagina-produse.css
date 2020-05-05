@@ -14,13 +14,19 @@ section {
 .filtre-container {
     position: absolute;
     top: 0;
-    width: 210px;
+    width: 200px;
     background-color: wheat;
     padding: 20px;
-    margin: 5px 10px;
+    margin: 0px 10px;
+}
+
+.checkbox-filtre input {
+    position: absolute;
+    visibility: hidden;
 }
 
 .filtre-title {
+    display: block;
     text-align: center;
     font-size: 1.6em;
 }
@@ -28,23 +34,25 @@ section {
 .filtru-container {
     font-size: 1.1em;
     margin-top: 2em;
+    min-width: 200px;
 }
 
-.filtru-title
-{
+.filtru-title {
     font-size: 1.2em;
     padding: 10px;
 }
 
-.filtru input{
+.filtru input {
+    position: absolute;
     visibility: hidden;
 }
+
 .filtru label {
     position: relative;
-    left: 10px;
+    left: 15px;
 }
 
-.filtru span::before, .filtru span::after {
+.filtru span::before {
     content: '';
     position: absolute;
     top: 0;
@@ -64,7 +72,6 @@ section {
     background-color: blanchedalmond;
     border-radius: 50px;
     transition: background-color .25s;
-
 }
 
 .filtru input[type="radio"]:checked+label span.radio::before {
@@ -78,18 +85,49 @@ section {
     background-color: blanchedalmond;
     border-radius: 25%;
     transition: background-color .25s;
-
 }
 
 .filtru input[type="checkbox"]:checked+label span.checkbox::before {
     background-color: brown;
 }
 
+@media screen and (max-width: 1023px) {
+    section {
+        margin-top: 0;
+    }
+    .filtre-container {
+        position: relative;
+        z-index: 1;
+        width: 100%;
+        margin: 0px;
+    }
+    .filtre-title:hover {
+        cursor: pointer;
+        font-weight: bold;
+    }
+    .checkbox-filtre input:checked~.filtre {
+        display: none;
+    }
+    .filtre {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    .filtru-container {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .filtru-container {
+        min-width: 200px;
+    }
+}
+
 /* ##########################   Produse    ##############   */
 
 .produse-container {
-    position: relative;
-    padding-left: 200px;
+    padding-left: 220px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -108,10 +146,11 @@ section {
     padding-bottom: 60px;
 }
 
-.produs a{
+.produs a {
     text-decoration: none;
     color: black;
 }
+
 .produs img {
     max-width: 300px;
 }
@@ -143,4 +182,10 @@ section {
 
 .produs button:hover {
     background-color: lightsalmon;
+}
+
+@media screen and (max-width: 1023px) {
+    .produse-container {
+        padding-left: 0px;
+    }
 }
