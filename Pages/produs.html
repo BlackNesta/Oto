@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Online Toys</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./produs.css" />
+</head>
+<header>
+    <div class="logo-container">
+        <a href="main.html">
+            <img class="logo" src="./img/toy.png" alt="logo" />
+        </a>
+        <h4 class="logo-title">Online Toys</h4>
+    </div>
+    <div class="search-box">
+        <input class="search-text" type="text" placeholder="Search.." name="search">
+        <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+    <div class="nav">
+        <a class="nav_comp" href="acount.html">
+            <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
+            <h class="nav_text">Cont</h>
+        </a>
+        <a class="nav_comp" href="#">
+            <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
+            <h class="nav_text">Favorite</h>
+        </a>
+        <a class="nav_comp" href="#">
+            <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
+            <h class="nav_text">Cos</h>
+        </a>
+    </div>
+</header>
+
+<body>
+
+    <section>
+        <div class="slider-container">
+            <div class="slides">
+                <img class="slide-img" src="img/toy1.png" onclick="currentDiv(1)">
+                <img class="slide-img" src="img/toy2.png" onclick="currentDiv(2)">
+                <img class="slide-img" src="img/toy3.png" onclick="currentDiv(3)">
+                <img class="slide-img" src="img/toy4.png" onclick="currentDiv(4)">
+                <img class="slide-img" src="img/toy5.png" onclick="currentDiv(5)">
+            </div>
+            <div class="slide-curent-container">
+                <img class="slide-curent" src="img/toy1.png">
+                <img class="slide-curent" src="img/toy2.png">
+                <img class="slide-curent" src="img/toy3.png">
+                <img class="slide-curent" src="img/toy4.png">
+                <img class="slide-curent" src="img/toy5.png">
+            </div>
+            
+        </div>
+
+        <div class="produs">
+            <div class="produs-title">
+                Jucarie de plus Mappy Fluffy Friends, Ursul cu pui</div>
+            <div class="pret">99 lei</div>
+            <div>
+                <button>Adauga in Cos</button>
+            </div>
+            <div>
+                <button>Adauga al Favorite</button>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+<script>
+    /* source: https://www.w3schools.com/w3css/w3css_slideshow.asp  */
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("slide-curent");
+        var dots = document.getElementsByClassName("slide-img");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].style.opacity = "60%";
+        }
+        x[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].style.opacity = "100%";
+    }
+</script>
+
+</html>
