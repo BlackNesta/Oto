@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./account-style.css" />
 </head>
 
 <header>
@@ -41,42 +42,80 @@
 </header>
 
 <body>
-    <section>
-        <h1>Datele contului</h1>
-        <img class="acc_img" src="./img/account_icon.png" alt="account">
 
-        <div>
-            <label for="nume">Nume: </label>
-            <input type="text" name="nume" id="nume" value="Popescu">
-        </div>
-        <div>
-            <label for="prenume">Prenume: </label>
-            <input type="text" name="prenume" id="prenume" value="Ion">
-        </div>
-        <div>
-            <label for="parola">Parola: </label>
-            <input type="password" name="parola" id="parola" value="1234567">
-        </div>
-        <div>
-            <label for="reparola">Reintroduceti parola: </label>
-            <input type="password" name="reparola" id="reparola">
-        </div>
-        <div>
-            <label for="teleon">Telefon: </label>
-            <input type="tel" name="telefon" id="teleon" value="+40">
-        </div>
-        <div>
-            <label for="email">Email: </label>
-            <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
-        </div>
-        <div>
+    <section class="account">
 
-            <label for="adresa">Adresa: </label>
-            <input type="text" name="adresa" id="adresa">
+        <div class="stanga">
+            <div class="title">Contul meu</div>
+
+            <div class="acc_img">
+                <img src="./img/account_icon.png" alt="account" class="account-img">
+            </div>
+            <div class="logout-btn">
+                <input type="submit" name="" value="Logout">
+            </div>
+        </div>
+        <div class="dreapta">
+            <div class="linie">
+                <label for="nume">Nume: </label>
+                <input type="text" name="nume" id="nume" value="Popescu">
+            </div>
+            <div class="linie">
+                <label for="prenume">Prenume: </label>
+                <input type="text" name="prenume" id="prenume" value="Ion">
+            </div>
+            <div class="linie">
+                <label for="parola">Parola: </label>
+                <input type="password" name="parola" id="parola" value="1234567">
+            </div>
+            <div class="linie">
+                <label for="reparola">Reintroduceti parola: </label>
+                <input type="password" name="reparola" id="reparola">
+            </div>
+            <div class="linie">
+                <label for="teleon">Telefon: </label>
+                <input type="tel" name="telefon" id="teleon" value="+40">
+            </div>
+            <div class="linie">
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
+            </div>
+            <div class="linie">
+                <label for="adresa">Adresa: </label>
+                <input type="text" name="adresa" id="adresa">
+            </div>
+            <div class="submit-btn">
+                <input type="submit" value="Submit">
+            </div>
         </div>
     </section>
-    <section>
+    <section class="comenzi">
         <h1>Comenzile mele</h1>
+        <div>
+            <span>ID Comanda</span>
+            <span>Data</span>
+            <span>Total</span>
+            <span>Status</span>
+            <span>Plata</span>
+            <span>Detalii</span>
+        </div>
+        <div>
+            <span>112</span>
+            <span>29.02.1999</span>
+            <span>426.9 Ron</span>
+            <span>Livrat</span>
+            <span>Cash</span>
+            <span><a href="#">Vezi comanda</a></span>
+        </div>
+
+        <div>
+            <span>122</span>
+            <span>09.12.2020</span>
+            <span>62.49 Ron</span>
+            <span>Transportare</span>
+            <span>Card</span>
+            <span><a href="#">Vezi comanda</a></span>
+        </div>
     </section>
 </body>
 
