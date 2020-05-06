@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Online Toys</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="./header.css" />
 </head>
 
@@ -24,7 +25,7 @@
         </button>
     </div>
     <div class="nav">
-        <a class="nav_comp" href="acount.html">
+        <a class="nav_comp" href="account.html">
             <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
             <h class="nav_text">Cont</h>
         </a>
@@ -42,32 +43,41 @@
 <body>
     <section>
         <h1>Datele contului</h1>
-        <img class = "acc_img" src = "./img/account_icon.png" alt="account">
+        <img class="acc_img" src="./img/account_icon.png" alt="account">
 
-        <label for = "nume">Nume: </label>
-        <input type = "text" name="nume" id="nume" value = "Popescu">
+        <div>
+            <label for="nume">Nume: </label>
+            <input type="text" name="nume" id="nume" value="Popescu">
+        </div>
+        <div>
+            <label for="prenume">Prenume: </label>
+            <input type="text" name="prenume" id="prenume" value="Ion">
+        </div>
+        <div>
+            <label for="parola">Parola: </label>
+            <input type="password" name="parola" id="parola" value="1234567">
+        </div>
+        <div>
+            <label for="reparola">Reintroduceti parola: </label>
+            <input type="password" name="reparola" id="reparola">
+        </div>
+        <div>
+            <label for="teleon">Telefon: </label>
+            <input type="tel" name="telefon" id="teleon" value="+40">
+        </div>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
+        </div>
+        <div>
 
-        <label for = "prenume">Prenume: </label>
-        <input type="text" name = "prenume" id="prenume" value="Ion">
-
-        <label for="parola">Parola: </label>
-        <input type="password" name="parola" id="parola" value="1234567">
-
-        <label for="reparola">Reintroduceti parola: </label>
-        <input type="password" name="reparola" id="reparola">
-
-        <label for="teleon">Telefon: </label>
-        <input type="tel" name="telefon" id="teleon" value="+40">
-
-        <label for="email">Email: </label>
-        <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
-
-        <label for="adresa">Adresa: </label>
-        <input type="text" name="adresa" id="adresa">
-
+            <label for="adresa">Adresa: </label>
+            <input type="text" name="adresa" id="adresa">
+        </div>
     </section>
     <section>
         <h1>Comenzile mele</h1>
     </section>
 </body>
+
 </html>
