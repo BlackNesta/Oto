@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./account-style.css"/>
 </head>
 
 <header>
@@ -41,16 +42,19 @@
 </header>
 
 <body>
-    <section class="section account-section">
-        <h1>Contul meu</h1>
-        <div>
-            <input type="submit" name="" value="Logout">
-        </div>
+    <section class = "account">
+        <section class="left">
+            <div class="title">
+                Contul meu
+            </div>
+            <div class="account-img">
+                <img src="./img/account_icon.png" alt="account" >
+            </div>
 
-        <div>
-            <img class="acc_img" src="./img/account_icon.png" alt="account" class="account-img">
-        </div>
-
+            <div>
+                <input type="submit" name="" value="Logout">
+            </div>
+        </section>
         <div>
             <label for="nume">Nume: </label>
             <input type="text" name="nume" id="nume" value="Popescu">
@@ -83,7 +87,7 @@
             <input type="submit" value="Submit">
         </div>
     </section>
-    <section class="section comand-section">
+    <section class="comenzi">
         <h1>Comenzile mele</h1>
         <div>
             <span>ID Comanda</span>

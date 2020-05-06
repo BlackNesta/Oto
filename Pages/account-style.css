@@ -1,0 +1,14 @@
+body {
+    background-color: blanchedalmond;
+}
+
+section{
+    max-width: 1300px;
+    margin: auto;
+}
+
+.account-img img{
+    width: 200px;
+    height: 200px;
+    background-color: purple;
+}
