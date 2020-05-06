@@ -2,10 +2,13 @@ body {
     background-color: blanchedalmond;
 }
 
-section {
-    position: relative;
+section{
     max-width: 1300px;
     margin: auto;
+}
+
+section.top{
+    position: relative;
     margin-top: 50px;
     display: flex;
     flex-wrap: wrap;

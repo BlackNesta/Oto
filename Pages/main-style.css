@@ -160,6 +160,7 @@ body {
     margin: 10px;
     padding-top: 10px;
     padding-bottom: 50px;
+    transition: padding 0.5s ease;
 }
 
 .produs:hover {
