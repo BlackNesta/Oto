@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Online Toys</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="./header.css" />
+  <link rel="stylesheet" href="./main-style.css" />
+</head>
+<header>
+  <div class="logo-container">
+    <a href="main.html">
+      <img class="logo" src="./img/toy.png" alt="logo" />
+    </a>
+    <h4 class="logo-title">Online Toys</h4>
+  </div>
+  <div class="search-box">
+    <input class="search-text" type="text" placeholder="Search.." name="search">
+    <button type="submit" class="searchButton">
+      <i class="fa fa-search"></i>
+    </button>
+  </div>
+  <div class="nav">
+    <a class="nav_comp" href="account.html">
+      <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
+      <h class="nav_text">Cont</h>
+    </a>
+    <a class="nav_comp" href="favorite.html">
+      <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
+      <h class="nav_text">Favorite</h>
+    </a>
+    <a class="nav_comp" href="cart.html">
+      <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
+      <h class="nav_text">Cos</h>
+    </a>
+  </div>
+</header>
+
+<body>
+    <h1>Detalii comanda</h1>
+    <div>
+        Persoana Fizica
+        <div class="date">
+            <div>
+                <label for="nume">Nume: </label>
+                <input type="text" name="nume" id="nume" value="Popescu">
+            </div>
+            <div>
+                <label for="prenume">Prenume: </label>
+                <input type="text" name="prenume" id="prenume" value="Ion">
+            </div>
+            <div>
+                <label for="teleon">Telefon: </label>
+                <input type="tel" name="telefon" id="teleon" value="+40">
+            </div>
+            <div>
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
+            </div>
+            <div>
+                <label for="adresa">Adresa: </label>
+                <input type="text" name="adresa" id="adresa">
+            </div>
+        </div>
+
+    </div>
+
+    <div>
+        Persoana juridica
+
+        <div class="date">
+            <div>
+                <label for="numecompanie">Nume companie: </label>
+                <input type="text" name="numecompanie" id="numemecompanie">
+            </div>
+            <div>
+                <label for="cui">Cod unic de Inregistrare: </label>
+                <input type="text" name="cui" id="cui">
+            </div>
+            <div>
+                <label for="banca">Banca: </label>
+                <input type="text" name="banca" id="banca">
+            </div>
+            <div>
+                <label for="cont">Cont: </label>
+                <input type="text" name="cont" id="cont">
+            </div>
+            <div>
+                <label for="sediu">Sediul central: </label>
+                <input type="text" name="sediu" id="sediu">
+            </div>
+        </div>
+    </div>
+
+    <div>
+        Metoda de plata
+        <div>
+            <label for="card">Plata cu cardul</label>
+            <input type="radio" name="plata" id="card">
+        </div>
+        <div>
+            <label for="ordin">Ordin de plata</label>
+            <input type="radio" name="plata" id="ordin">
+        </div>
+        <div>
+            <label for="ramburs">Plata ramburs la curier</label>
+            <input type="radio" name="plata" id="ramburs">
+        </div>
+    </div>
+
+    <div>
+        Tip livrare
+        <div>
+            <label for="standard">Standard (Gratuit)</label>
+            <input type="radio" name="livrare" id="standar">
+        </div>
+        <div>
+            <label for="rapida">Livrare rapida (20Ron)</label>
+            <input type="radio" name="livrare" id="rapida">
+        </div>
+    </div>
+    <div>
+        Sumar:
+        <div>Pret produse: 480Ron</div>
+        <div>Pret Livare: 0Ron</div>
+        <div>Total: 500 Ron</div>
+    </div>
+    <div>
+        <input type="submit" value="Plaseaza comanda">
+    </div>
+</body>
+
+</html>

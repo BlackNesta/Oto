@@ -9,74 +9,117 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
         integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./account-style.css"/>
 </head>
 
 <header>
     <div class="logo-container">
-        <a href="main.html">
-            <img class="logo" src="./img/toy.png" alt="logo" />
-        </a>
-        <h4 class="logo-title">Online Toys</h4>
+      <a href="main.html">
+        <img class="logo" src="./img/toy.png" alt="logo" />
+      </a>
+      <h4 class="logo-title">Online Toys</h4>
     </div>
     <div class="search-box">
-        <input class="search-text" type="text" placeholder="Search.." name="search">
-        <button type="submit" class="searchButton">
-            <i class="fa fa-search"></i>
-        </button>
+      <input class="search-text" type="text" placeholder="Search.." name="search">
+      <button type="submit" class="searchButton">
+        <i class="fa fa-search"></i>
+      </button>
     </div>
     <div class="nav">
-        <a class="nav_comp" href="account.html">
-            <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
-            <h class="nav_text">Cont</h>
-        </a>
-        <a class="nav_comp" href="#">
-            <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
-            <h class="nav_text">Favorite</h>
-        </a>
-        <a class="nav_comp" href="#">
-            <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
-            <h class="nav_text">Cos</h>
-        </a>
+      <a class="nav_comp" href="account.html">
+        <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
+        <h class="nav_text">Cont</h>
+      </a>
+      <a class="nav_comp" href="favorite.html">
+        <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
+        <h class="nav_text">Favorite</h>
+      </a>
+      <a class="nav_comp" href="cart.html">
+        <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
+        <h class="nav_text">Cos</h>
+      </a>
     </div>
-</header>
+  </header>
 
 <body>
-    <section>
-        <h1>Datele contului</h1>
-        <img class="acc_img" src="./img/account_icon.png" alt="account">
+    <section class = "account">
+        <div class="title">
+            Contul meu
+        </div>
+        <div class="date-flex">
+            <section class="left">
+                <div class="account-img">
+                    <img src="./img/account_icon.png" alt="account" >
+                </div>
+                <div class="logout">
+                    <input type="submit" name="" value="Logout">
+                </div>
+            </section>
 
-        <div>
-            <label for="nume">Nume: </label>
-            <input type="text" name="nume" id="nume" value="Popescu">
-        </div>
-        <div>
-            <label for="prenume">Prenume: </label>
-            <input type="text" name="prenume" id="prenume" value="Ion">
-        </div>
-        <div>
-            <label for="parola">Parola: </label>
-            <input type="password" name="parola" id="parola" value="1234567">
-        </div>
-        <div>
-            <label for="reparola">Reintroduceti parola: </label>
-            <input type="password" name="reparola" id="reparola">
-        </div>
-        <div>
-            <label for="teleon">Telefon: </label>
-            <input type="tel" name="telefon" id="teleon" value="+40">
-        </div>
-        <div>
-            <label for="email">Email: </label>
-            <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
-        </div>
-        <div>
-
-            <label for="adresa">Adresa: </label>
-            <input type="text" name="adresa" id="adresa">
+            <section class="right">
+            <div class="date">
+                <div>
+                    <label for="nume">Nume: </label>
+                    <input type="text" name="nume" id="nume" value="Popescu">
+                </div>
+                <div>
+                    <label for="prenume">Prenume: </label>
+                    <input type="text" name="prenume" id="prenume" value="Ion">
+                </div>
+                <div>
+                    <label for="parola">Parola: </label>
+                    <input type="password" name="parola" id="parola" value="1234567">
+                </div>
+                <div>
+                    <label for="reparola">Reintroduceti parola: </label>
+                    <input type="password" name="reparola" id="reparola">
+                </div>
+                <div>
+                    <label for="teleon">Telefon: </label>
+                    <input type="tel" name="telefon" id="teleon" value="+40">
+                </div>
+                <div>
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
+                </div>
+                <div>
+                    <label for="adresa">Adresa: </label>
+                    <input type="text" name="adresa" id="adresa">
+                </div>
+                <div>
+                    <input type="submit" value="Submit">
+                </div>
+            </div>
+            </section>
         </div>
     </section>
-    <section>
+    <section class="comenzi">
         <h1>Comenzile mele</h1>
+        <div>
+            <span>ID Comanda</span>
+            <span>Data</span>
+            <span>Total</span>
+            <span>Status</span>
+            <span>Plata</span>
+            <span>Detalii</span>
+        </div>
+        <div>
+            <span>112</span>
+            <span>29.02.1999</span>
+            <span>426.9 Ron</span>
+            <span>Livrat</span>
+            <span>Cash</span>
+            <span><a href="#">Vezi comanda</a></span>
+        </div>
+
+        <div>
+            <span>122</span>
+            <span>09.12.2020</span>
+            <span>62.49 Ron</span>
+            <span>Transportare</span>
+            <span>Card</span>
+            <span><a href="#">Vezi comanda</a></span>
+        </div>
     </section>
 </body>
 
