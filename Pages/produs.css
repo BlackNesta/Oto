@@ -73,10 +73,10 @@ section.top{
 @media screen and (max-width: 600px) {
     .slider-container {
         margin-left: 50px;
-        max-width: 320px;
+        width: 320px;
     }
     .slide-curent-container {
-        max-width: 320px;
+        width: 320px;
         margin-left: 0px;
     }
     .slides {
@@ -130,4 +130,88 @@ section.top{
 .produs button:hover {
     background-color: wheat;
     color: black;
+}
+
+/* ##########################   Bot    ##############   */
+
+section.bot{
+    max-width: 1300px;
+    margin: auto;
+    /*
+    background-color: violet; 
+    */
+}
+
+.tabs-container{
+    display: flex;
+    padding: 50px;  
+    padding-bottom: 0px;  
+    align-items: flex-end;
+}
+
+.tab{
+    text-align: center;
+    width: 150px;
+    padding: 2px 15px;
+    font-size: 1.3em;
+    margin-top: 12px;
+    margin-left: 1px;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+    background-color: brown;
+    color: white;
+    transition: 0.25s;
+
+}
+
+.tab:hover{
+    margin-top: 0px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.tab:first-of-type{
+    background-color: wheat;
+    color: black;
+}
+
+.content{
+    padding: 0px 50px;  
+}
+.tab-content{
+    background-color: wheat;  
+    font-size: 1.1em;
+    padding: 1em;
+    margin-bottom: 50px;
+    border-top-right-radius: 0.5em;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+    display: none;
+}
+.tab-content:first-of-type{
+    display: block ;
+}
+
+
+@media screen and (max-width: 600px) {
+    .tabs-container{
+        flex-direction: column  ;
+        align-items: center;
+    }
+    .tab{
+        padding: 10px 15px;
+        margin-top: 0px;
+        margin-bottom: 15px;
+        border-radius: 0.5em;
+        cursor: pointer;
+    }
+    .tab:hover{
+        width: 170px;
+        margin-bottom: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .tab-content{
+        border-top-left-radius: 0.5em;
+    }
 }

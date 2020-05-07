@@ -74,9 +74,23 @@
         </div>
     </section>
     <section class="bot">
-        <div>Descriere</div>
-        <div>Specificatii</div>
-        <div>Recenzi</div>
+        <div class="tabs-container">
+            <div class="tab" onclick="displayTab(1)">Descriere</div>
+            <div class="tab" onclick="displayTab(2)">Specificatii</div>
+            <div class="tab" onclick="displayTab(3)">Recenzi</div>
+        </div>
+        <div class="content">
+            <div class="tab-content">
+                content1<br>
+                content1<br>
+            </div>
+            <div class="tab-content">
+                content2
+            </div>
+            <div class="tab-content">
+                content3
+            </div>
+        </div>
     </section>
 
 </body>
@@ -101,6 +115,24 @@
         x[slideIndex - 1].style.display = "block";
         dots[slideIndex - 1].style.opacity = "100%";
     }
+
+    function displayTab(slideIndex) {
+        var i;
+        var content = document.getElementsByClassName("tab-content");
+        var tabs = document.getElementsByClassName("tab");
+        for (i = 0; i < content.length; i++) {
+            content[i].style.display = "none";
+        }
+        for (i = 0; i < tabs.length; i++) {
+            tabs[i].style.color = "white";
+            tabs[i].style.backgroundColor = "brown";
+        }
+        content[slideIndex - 1].style.display = "block";
+        tabs[slideIndex - 1].style.color = "black";
+        tabs[slideIndex - 1].style.backgroundColor = "wheat";
+    }
+
+
 </script>
 
 </html>
