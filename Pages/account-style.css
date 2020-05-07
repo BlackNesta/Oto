@@ -2,34 +2,117 @@ body {
     background-color: blanchedalmond;
 }
 
-section{
+section {
     max-width: 1300px;
     margin: auto;
 }
 
-
-.account-img img{
-    
-    background-color: purple;  
-    width: 200px;
-    height: 200px;
+.account{
+    background-color: wheat;
 }
 
-.left {
-    background-color: red;
-    padding: 0;
-    margin: 0;
-    width: 300px;
-    height: 300px;
-    display: flex;
-    padding: 50px;
-    flex-wrap: wrap;
-    margin: 0px;
-    margin-top: 20px;
-    align-content: center;
+.title {
+    font-size: 2em;
+    text-align: center;
+    margin: 50px;
 }
 
 .date-flex {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.left {
+    max-width: 350px;
+    min-width: 320px;
+    padding: 25px;
+    margin: 0px;
+    flex: 1;
+}
+
+.account-img img {
+    background-color: purple;
+    width: 100%;
+}
+
+.logout {
+    text-align: center;
+    margin-top: 25px;
+}
+
+.right{
+    flex: 1;
+    max-width: 350px;
+    margin: 0;
+    font-size: 1.2em;
+    padding: 25px;
+}
+
+.linie-date{
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.linie-date label{
+    flex: 1;
+    float: right;
+}
+.linie-date input{
+    flex: 1;
+    max-width: 200px;
+    max-height: 25px ;
+}
+
+.submit-btn{
+    text-align: center;
+}
+
+
+@media screen and (max-width: 350px) {
+
+    .left{
+        max-width: 320px;
+    }
+    .right{
+        max-width: 320px;
+    }
+}
+
+/*######################## Comenzi */
+
+.header-comenzi{
+    display: flex;
+    justify-content: space-around;
+    background-color: brown;
+    color:white;
+    padding: 10px 0px;
+}
+.header-comenzi span{
+    width: 150px;
+    text-align: center;
+}
+
+.comanda{
+    display: flex;
+    justify-content: space-around;
+    background-color: wheat;
+    padding: 10px 0px;
+
+}
+.comanda span{
+    width: 150px;
+    text-align: center;
+}
+
+.detalii-comanda .produs{
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0px;
+}
+
+.detalii-comanda .produs div{
+    width: 150px;
+    text-align: center;
 }
