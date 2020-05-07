@@ -1,0 +1,40 @@
+body {
+    background-color: blanchedalmond;
+}
+
+section {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.section-title{
+    font-size: 2em;
+    text-align: center;
+    padding: 50px 0px;
+}
+
+.produs{
+    display: flex;
+    justify-content: space-around;
+    background-color: wheat;
+    margin: 15px 0px;
+    padding: 15px 0px;
+}
+
+.produs a {
+    width: 200px;
+    height: 200px;
+}
+
+.produs img{
+    width: 100%;
+}
+.detalii-produs{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.produs-title{
+    font-size: 1.5em;
+}
