@@ -11,6 +11,7 @@ section {
     font-size: 2em;
     text-align: center;
     padding: 50px 0px;
+    
 }
 
 .produs{
@@ -45,4 +46,28 @@ section {
     align-items: center;
     justify-content: space-evenly;
     margin: 50px;
+}
+
+.pret{
+    font-size: 1.5em;
+    margin: 10px;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    transition: padding 0.5s ease;
+}
+
+.button {
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+    color: white;
+    background-color: brown;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: lightsalmon;
 }
