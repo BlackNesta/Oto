@@ -9,12 +9,16 @@ section {
 
 .account{
     background-color: wheat;
+    margin-top: 50px;
+    padding: 25px 0px;
 }
 
-.title {
+.account .title {
     font-size: 2em;
     text-align: center;
-    margin: 50px;
+}
+.account .title span{
+    
 }
 
 .date-flex {
@@ -33,11 +37,6 @@ section {
 
 .account-img img {
     width: 100%;
-}
-
-.logout {
-    text-align: center;
-    margin-top: 25px;
 }
 
 .right{
@@ -62,10 +61,17 @@ section {
     flex: 1;
     max-width: 200px;
     max-height: 25px ;
+    border: none;
+    padding: 14px 10px;
+    border-radius: 12px;
 }
 
-.submit-btn{
+.btn{
     text-align: center;
+    margin-top: 25px;
+}
+.btn input{
+    width: 100px;
 }
 
 
@@ -80,6 +86,16 @@ section {
 }
 
 /*######################## Comenzi */
+
+.comenzi{
+    margin-top: 25p;
+    margin-bottom: 50px;
+}
+.comenzi .title {
+    font-size: 2em;
+    text-align: center;
+    padding: 25px 0px;
+}
 
 .header-comenzi{
     display: flex;
@@ -105,6 +121,14 @@ section {
     text-align: center;
 }
 
+.detalii-comanda{
+    transition: 0.5s;
+    display: none;
+    transition: all 0.5s ease;
+}
+.detalii-comanda .produs-header{
+    border-top: 1px solid brown;
+}
 .detalii-comanda .produs{
     display: flex;
     justify-content: space-around;
@@ -128,7 +152,7 @@ section {
     font-weight: bold;
 }
 
-button:hover {
+.button:hover {
     background-color: lightsalmon;
 }
 

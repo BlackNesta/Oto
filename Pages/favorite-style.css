@@ -5,6 +5,7 @@ body {
 section {
     max-width: 1300px;
     margin: auto;
+    margin-bottom: 50px;
 }
 
 .section-title{
@@ -15,6 +16,7 @@ section {
 
 .produs{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     background-color: wheat;
     margin: 15px 0px;
@@ -37,6 +39,8 @@ section {
 }
 .produs-title{
     font-size: 1.5em;
+    text-align: center;
+    padding: 15px 10px;
 }
 
 .button {
@@ -49,6 +53,7 @@ section {
     border: none;
     border-radius: .3em;
     font-weight: bold;
+    margin: 5px 0;
 }
 
 .button:hover {
@@ -59,6 +64,6 @@ section {
     font-size: 1.5em;
     margin: 10px;
     padding-top: 10px;
-    padding-bottom: 50px;
+    padding-bottom: 10px;
     transition: padding 0.5s ease;
 }

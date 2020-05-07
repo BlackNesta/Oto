@@ -44,15 +44,16 @@
 <body>
     <section class="account">
         <div class="title">
-            Contul meu
+            Contul meu -
+            <span class="username">utilizator124</span>
         </div>
         <div class="date-flex">
             <section class="left">
                 <div class="account-img">
                     <img src="./img/account_icon.png" alt="account">
                 </div>
-                <div class="logout">
-                    <input type="submit" name="" value="Logout" class="button">
+                <div class="btn">
+                    <a href="/login-register.html"><input type="submit" name="" value="Logout" class="button"></a>
                 </div>
             </section>
 
@@ -86,7 +87,7 @@
                         <label for="adresa">Adresa: </label>
                         <input type="text" name="adresa" id="adresa">
                     </div>
-                    <div class="submit-btn">
+                    <div class="btn">
                         <input type="submit" value="Submit" class="button">
                     </div>
                 </div>
@@ -110,7 +111,7 @@
                 <span>426.90 Ron</span>
                 <span>Livrat</span>
                 <span>Cash</span>
-                <button class="button">Vezi comanda</button>
+                <button class="button btn-comanda" onclick="displayComanda(1)">Vezi comanda</button>
             </div>
             <div class="detalii-comanda">
                 <div class="produs produs-header">
@@ -138,7 +139,7 @@
                 <span>62.49 Ron</span>
                 <span>Transportare</span>
                 <span>Card</span>
-                <button class="button">Vezi comanda</button>
+                <button class="button btn-comanda" onclick="displayComanda(2)">Vezi comanda</button>
             </div>
             <div class="detalii-comanda">
                 <div class="produs produs-header">
@@ -188,5 +189,26 @@
         -->
     </section>
 </body>
+<script>
+    function displayComanda(slideIndex) {
+        var i;
+        var comanda = document.getElementsByClassName("detalii-comanda");
+        var button = document.getElementsByClassName("btn-comanda")
+        /*for (i = 0; i < comanda.length; i++) {
+            comanda[i].style.display = "none";
+        }*/
+        if (comanda[slideIndex - 1].style.display == "block")
+            comanda[slideIndex - 1].style.display = "none";
+        else
+            comanda[slideIndex - 1].style.display = "block";
+
+        if (button[slideIndex - 1].textContent == "Vezi comanda")
+            button[slideIndex - 1].textContent = "Ascunde comanda";
+        else
+            button[slideIndex - 1].textContent = "Vezi comanda"
+    }
+
+
+</script>
 
 </html>
