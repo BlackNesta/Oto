@@ -38,11 +38,3 @@ section {
 .produs-title{
     font-size: 1.5em;
 }
-
-.total-comanda {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    margin: 50px;
-}
