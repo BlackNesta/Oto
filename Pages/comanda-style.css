@@ -1,0 +1,78 @@
+body {
+    background-color: blanchedalmond;
+    
+}
+
+section {
+    max-width: 1300px;
+    margin: auto;
+}
+
+.client {
+    max-width: 450px;
+    min-height: 220px;
+    padding: 25px;
+    margin: 20px;
+    flex: 1;
+    background-color: blanchedalmond;
+}
+
+.client-header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: wheat;
+    padding: 70px;
+    margin:20px;
+}
+
+.client .title {
+    
+    font-size: 2em;
+    text-align: center;
+}
+
+.linie-date{
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+}
+
+.linie-date label{
+    flex: 1;
+    float: right;
+}
+.linie-date input{
+    flex: 1;
+    max-width: 200px;
+    max-height: 25px ;
+    border: none;
+    padding: 14px 10px;
+    border-radius: 12px;
+}
+
+.detalii {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: wheat;
+    padding: 70px;
+}
+
+h1{
+    text-align: center;
+}
+
+.title {
+    font-size: 2.2em;
+    text-align: center;
+}
+
+.date{
+    max-width: 450px;
+    min-height: 220px;
+    padding: 25px;
+    margin: 20px;
+    flex: 1;
+    background-color: blanchedalmond;
+}

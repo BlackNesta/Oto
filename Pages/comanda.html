@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
     integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="./header.css" />
-  <link rel="stylesheet" href="./main-style.css" />
+  <link rel="stylesheet" href="./comanda-style.css" />
 </head>
 <header>
   <div class="logo-container">
@@ -41,27 +41,28 @@
 </header>
 
 <body>
-    <h1>Detalii comanda</h1>
-    <div>
-        Persoana Fizica
+    <div class="title">Detalii comanda</div>
+    <section class="client-header">
+    <div class="client">
+        <div class="title">Persoana Fizica</div>
         <div class="date">
-            <div>
+            <div class="linie-date">
                 <label for="nume">Nume: </label>
                 <input type="text" name="nume" id="nume" value="Popescu">
             </div>
-            <div>
+            <div class="linie-date">
                 <label for="prenume">Prenume: </label>
                 <input type="text" name="prenume" id="prenume" value="Ion">
             </div>
-            <div>
+            <div class="linie-date">
                 <label for="teleon">Telefon: </label>
                 <input type="tel" name="telefon" id="teleon" value="+40">
             </div>
-            <div>
+            <div class="linie-date">
                 <label for="email">Email: </label>
                 <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
             </div>
-            <div>
+            <div class="linie-date">
                 <label for="adresa">Adresa: </label>
                 <input type="text" name="adresa" id="adresa">
             </div>
@@ -69,59 +70,65 @@
 
     </div>
 
-    <div>
-        Persoana juridica
+    <div class="client">
+       
+       <div class="title"> Persoana juridica </div>
 
         <div class="date">
-            <div>
+            <div class="linie-date">
                 <label for="numecompanie">Nume companie: </label>
                 <input type="text" name="numecompanie" id="numemecompanie">
             </div>
-            <div>
+            <div class="linie-date">
                 <label for="cui">Cod unic de Inregistrare: </label>
                 <input type="text" name="cui" id="cui">
             </div>
-            <div>
+            <div class="linie-date">
                 <label for="banca">Banca: </label>
                 <input type="text" name="banca" id="banca">
             </div>
-            <div>
+            <div class="linie-date">
                 <label for="cont">Cont: </label>
                 <input type="text" name="cont" id="cont">
             </div>
-            <div>
+            <div class="linie-date">
                 <label for="sediu">Sediul central: </label>
                 <input type="text" name="sediu" id="sediu">
             </div>
         </div>
     </div>
+    </section>
 
-    <div>
-        Metoda de plata
-        <div>
+    <div class="detalii">
+    
+        <div class="title">Metoda de plata </div>
+        <div class="date">
+        <div class="linie-date">
             <label for="card">Plata cu cardul</label>
             <input type="radio" name="plata" id="card">
         </div>
-        <div>
+        <div class="linie-date">
             <label for="ordin">Ordin de plata</label>
             <input type="radio" name="plata" id="ordin">
         </div>
-        <div>
+        <div class="linie-date">
             <label for="ramburs">Plata ramburs la curier</label>
             <input type="radio" name="plata" id="ramburs">
         </div>
     </div>
 
-    <div>
-        Tip livrare
-        <div>
+    
+    <div class="title">Livrare </div>
+        <div class="date">
+        <div class="linie-date">
             <label for="standard">Standard (Gratuit)</label>
             <input type="radio" name="livrare" id="standar">
         </div>
-        <div>
+        <div class="linie-date">
             <label for="rapida">Livrare rapida (20Ron)</label>
             <input type="radio" name="livrare" id="rapida">
         </div>
+    </div>
     </div>
     <div>
         Sumar:
