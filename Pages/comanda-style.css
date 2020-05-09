@@ -101,16 +101,16 @@ h1{
 }
 
 .right button {
-    text-align: center;
-    vertical-align: middle;
-    padding: .67em .67em;
-    cursor: pointer;
-    color: white;
-    background-color: brown;
+    width: 100%;
+    margin-bottom: 2em;
+    font-size: 1.3em;
+    padding: 0.5em 0.5em;
     border: none;
-    border-radius: .3em;
-    font-weight: bold;
-    margin: 10px;
+    border-radius: 1em;
+    cursor: pointer;
+    background-color: brown;
+    color: white;
+    transition: 0.25s;
 }
 .right button:hover {
     background-color: lightsalmon;
