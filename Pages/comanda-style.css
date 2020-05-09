@@ -78,3 +78,40 @@ h1{
     flex: 1;
     background-color: blanchedalmond;
 }
+
+.sumar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: wheat;
+    padding: 20px;
+    margin:20px;
+}
+
+.pret {
+    font-size: 1.2em;
+    text-align: left;
+    margin: 10px;
+}
+
+.title-sumar {
+    font-size: 2.2em;
+    text-align: left;
+    margin: 10px;
+}
+
+.right button {
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+    color: white;
+    background-color: brown;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+    margin: 10px;
+}
+.right button:hover {
+    background-color: lightsalmon;
+}
