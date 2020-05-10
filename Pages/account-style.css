@@ -105,6 +105,9 @@ section {
     width: 150px;
     text-align: center;
 }
+.align-center{
+    align-self: center;
+}
 
 .comanda{
     display: flex;
