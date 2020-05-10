@@ -155,48 +155,11 @@ section {
     border: none;
     padding: 15px;
     transition: 0.5s;
-    background-color: blanchedalmond;
-}
-
-<<<<<<< HEAD
-.sumar {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: wheat;
-    padding: 20px;
-    margin:20px;
-}
-
-.pret {
-    font-size: 1.2em;
-    text-align: left;
-    margin: 10px;
-}
-
-.title-sumar {
-    font-size: 2.2em;
-    text-align: left;
-    margin: 10px;
-}
-
-.right button {
-    width: 100%;
-    margin-bottom: 2em;
-    font-size: 1.3em;
-    padding: 0.5em 0.5em;
-    border: none;
-    border-radius: 1em;
-    cursor: pointer;
     background-color: brown;
-    color: white;
-    transition: 0.25s;
 }
-.right button:hover {
-    background-color: lightsalmon;
-=======
+
 .rezumat input:hover {
-    background-color: brown;
+    background-color: lightsalmon;
     color: white;
 }
 
@@ -211,5 +174,4 @@ section {
     .rezumat {
         max-width: 320px;
     }
->>>>>>> 91e3386bd9f2708be808ab7dc649178346f11f3a
 }
