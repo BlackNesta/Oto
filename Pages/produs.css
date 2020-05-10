@@ -175,18 +175,22 @@ section.bot{
     border-top-right-radius: 0.5em;
     background-color: brown;
     color: white;
-    transition: 0.25s;
+    transition: 0.3s ease;
+    opacity: 70%;
 
 }
+
 
 .tab:hover{
     margin-top: 0px;
     padding-top: 6px;
     padding-bottom: 10px;
+    opacity: 100%;
 }
 .tab:first-of-type{
     background-color: wheat;
     color: black;
+    opacity: 100%;
 }
 
 .content{

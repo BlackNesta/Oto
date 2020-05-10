@@ -2,132 +2,157 @@
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <title>Online Toys</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-  <link rel="stylesheet" href="./header.css" />
-  <link rel="stylesheet" href="./comanda-style.css" />
+    <meta charset="utf-8">
+    <title>Online Toys</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./header.css" />
+    <link rel="stylesheet" href="./comanda-style.css" />
 </head>
 <header>
-  <div class="logo-container">
-    <a href="main.html">
-      <img class="logo" src="./img/toy.png" alt="logo" />
-    </a>
-    <h4 class="logo-title">Online Toys</h4>
-  </div>
-  <div class="search-box">
-    <input class="search-text" type="text" placeholder="Search.." name="search">
-    <button type="submit" class="searchButton">
-      <i class="fa fa-search"></i>
-    </button>
-  </div>
-  <div class="nav">
-    <a class="nav_comp" href="account.html">
-      <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
-      <h class="nav_text">Cont</h>
-    </a>
-    <a class="nav_comp" href="favorite.html">
-      <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
-      <h class="nav_text">Favorite</h>
-    </a>
-    <a class="nav_comp" href="cart.html">
-      <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
-      <h class="nav_text">Cos</h>
-    </a>
-  </div>
+    <div class="logo-container">
+        <a href="main.html">
+            <img class="logo" src="./img/toy.png" alt="logo" />
+        </a>
+        <h4 class="logo-title">Online Toys</h4>
+    </div>
+    <div class="search-box">
+        <input class="search-text" type="text" placeholder="Search.." name="search">
+        <button type="submit" class="searchButton">
+            <i class="fa fa-search"></i>
+        </button>
+    </div>
+    <div class="nav">
+        <a class="nav_comp" href="account.html">
+            <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
+            <h class="nav_text">Cont</h>
+        </a>
+        <a class="nav_comp" href="favorite.html">
+            <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
+            <h class="nav_text">Favorite</h>
+        </a>
+        <a class="nav_comp" href="cart.html">
+            <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
+            <h class="nav_text">Cos</h>
+        </a>
+    </div>
 </header>
 
 <body>
-    <div class="title">Detalii comanda</div>
-    <section class="client-header">
-    <div class="client">
-        <div class="title">Persoana Fizica</div>
-        <div class="date">
-            <div class="linie-date">
-                <label for="nume">Nume: </label>
-                <input type="text" name="nume" id="nume" value="Popescu">
+    <section>
+        <div class="title">Detalii comanda</div>
+
+        <div class="client">
+            <div class="selector-container">
+                <div class="selector" onclick="hidePJ()">
+                    <input type="radio" name="tip-persoana" id="fizica" checked>
+                    <label for="fizica">
+                        <span class="filtre-title">
+                            <div>Persoana fizica</div>
+                        </span>
+                    </label>
+                </div>
+                <div class="selector" onclick="showPJ()">
+                    <input type="radio" name="tip-persoana" id="juridica">
+                    <label for="juridica">
+                        <span class="filtre-title">
+                            <div>Persoana juridica</div>
+                        </span>
+                    </label>
+                </div>
             </div>
-            <div class="linie-date">
-                <label for="prenume">Prenume: </label>
-                <input type="text" name="prenume" id="prenume" value="Ion">
-            </div>
-            <div class="linie-date">
-                <label for="teleon">Telefon: </label>
-                <input type="tel" name="telefon" id="teleon" value="+40">
-            </div>
-            <div class="linie-date">
-                <label for="email">Email: </label>
-                <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
-            </div>
-            <div class="linie-date">
-                <label for="adresa">Adresa: </label>
-                <input type="text" name="adresa" id="adresa">
+
+            <div class="date">
+                <div class="linie-date">
+                    <label for="nume">Nume: </label>
+                    <input type="text" name="nume" id="nume" value="Popescu">
+                </div>
+                <div class="linie-date">
+                    <label for="prenume">Prenume: </label>
+                    <input type="text" name="prenume" id="prenume" value="Ion">
+                </div>
+                <div class="linie-date">
+                    <label for="teleon">Telefon: </label>
+                    <input type="tel" name="telefon" id="teleon" value="+40">
+                </div>
+                <div class="linie-date">
+                    <label for="email">Email: </label>
+                    <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
+                </div>
+                <div class="linie-date">
+                    <label for="adresa">Adresa: </label>
+                    <input type="text" name="adresa" id="adresa">
+                </div>
+                <div class="linie-date PJ">
+                    <label for="numecompanie">Nume companie: </label>
+                    <input type="text" name="numecompanie" id="numemecompanie">
+                </div>
+                <div class="linie-date  PJ">
+                    <label for="cui">Cod unic de Inregistrare: </label>
+                    <input type="text" name="cui" id="cui">
+                </div>
+                <div class="linie-date  PJ">
+                    <label for="banca">Banca: </label>
+                    <input type="text" name="banca" id="banca">
+                </div>
+                <div class="linie-date  PJ">
+                    <label for="cont">Cont: </label>
+                    <input type="text" name="cont" id="cont">
+                </div>
+                <div class="linie-date  PJ">
+                    <label for="sediu">Sediul central: </label>
+                    <input type="text" name="sediu" id="sediu">
+                </div>
             </div>
         </div>
 
-    </div>
-
-    <div class="client">
-       
-       <div class="title"> Persoana juridica </div>
-
-        <div class="date">
-            <div class="linie-date">
-                <label for="numecompanie">Nume companie: </label>
-                <input type="text" name="numecompanie" id="numemecompanie">
-            </div>
-            <div class="linie-date">
-                <label for="cui">Cod unic de Inregistrare: </label>
-                <input type="text" name="cui" id="cui">
-            </div>
-            <div class="linie-date">
-                <label for="banca">Banca: </label>
-                <input type="text" name="banca" id="banca">
-            </div>
-            <div class="linie-date">
-                <label for="cont">Cont: </label>
-                <input type="text" name="cont" id="cont">
-            </div>
-            <div class="linie-date">
-                <label for="sediu">Sediul central: </label>
-                <input type="text" name="sediu" id="sediu">
-            </div>
-        </div>
-    </div>
-    </section>
-
-    <div class="detalii">
-    
-        
-        <div class="date">
+        <div class="options-container">
             <div class="title">Metoda de plata </div>
-            <div class="linie-date">
-            <label for="card">Plata cu cardul</label>
-            <input type="radio" name="plata" id="card">
+            <div class="selector">
+                <input type="radio" name="plata" id="card" checked>
+                <label for="card">
+                    <div>Plata cu cardul</div>
+                </label>
+            </div>
+            <div class="selector">
+                <input type="radio" name="plata" id="ordin">
+                <label for="ordin">
+                    <div>Ordin de plata</div>
+                </label>
+            </div>
+            <div class="selector">
+                <input type="radio" name="plata" id="ramburs">
+                <label for="ramburs">
+                    <div> ramburs la curier</div>
+                </label>
+            </div>
         </div>
-        <div class="linie-date">
-            <label for="ordin">Ordin de plata</label>
-            <input type="radio" name="plata" id="ordin">
-        </div>
-        <div class="linie-date">
-            <label for="ramburs">Plata ramburs la curier</label>
-            <input type="radio" name="plata" id="ramburs">
-        </div>
-    </div>
 
-        <div class="date">
+        <div class="options-container">
             <div class="title">Livrare </div>
-            <div class="linie-date">
-            <label for="standard">Standard (Gratuit)</label>
-            <input type="radio" name="livrare" id="standar">
+            <div class="selector">
+                <input type="radio" name="livrare" id="standard" checked>
+                <label for="standard">
+                    <div>Standard (Gratuit)</div>
+                </label>
+            </div>
+            <div class="selector">
+                <input type="radio" name="livrare" id="rapida">
+                <label for="rapida">
+                    <div>Livrare rapida (20Ron)</div>
+                </label>
+            </div>
         </div>
-        <div class="linie-date">
-            <label for="rapida">Livrare rapida (20Ron)</label>
-            <input type="radio" name="livrare" id="rapida">
+
+        <div class="rezumat">
+            <div>Pret produse: 480Ron</div>
+            <div>Pret Livare: 20Ron</div>
+            <div>Total: 500 Ron</div>
+            <input type="submit" value="Plaseaza comanda">
         </div>
+<<<<<<< HEAD
     </div>
     </div>
 
@@ -143,6 +168,25 @@
             <button class="plaseaza">Plaseaza comanda </button>
         </div>
     </div>
+=======
+    </section>
+>>>>>>> 91e3386bd9f2708be808ab7dc649178346f11f3a
 </body>
+<script>
+    function hidePJ() {
+        var PJ = document.getElementsByClassName("PJ");
+        for (i = 0; i < PJ.length; i++) {
+            PJ[i].style.visibility = "hidden";
+            PJ[i].style.position = "absolute";
+        }
+    }
+    function showPJ() {
+        var PJ = document.getElementsByClassName("PJ");
+        for (i = 0; i < PJ.length; i++) {
+            PJ[i].style.visibility = "visible";
+            PJ[i].style.position = "static";
+        }
+    }
+</script>
 
 </html>
