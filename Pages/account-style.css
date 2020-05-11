@@ -114,7 +114,7 @@ section {
     justify-content: space-around;
     background-color: wheat;
     padding: 10px 0px;
-
+    border-top: 1px solid brown;
 }
 .comanda span{
     width: 150px;
@@ -127,7 +127,7 @@ section {
     transition: all 0.5s ease;
 }
 .detalii-comanda .produs-header{
-    border-top: 1px solid brown;
+    background-color: wheat;
 }
 .detalii-comanda .produs{
     display: flex;
