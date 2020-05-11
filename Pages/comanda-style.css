@@ -155,11 +155,11 @@ section {
     border: none;
     padding: 15px;
     transition: 0.5s;
-    background-color: blanchedalmond;
+    background-color: brown;
 }
 
 .rezumat input:hover {
-    background-color: brown;
+    background-color: lightsalmon;
     color: white;
 }
 
