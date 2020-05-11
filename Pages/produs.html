@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="ro">
 
 <head>
     <meta charset="utf-8">
@@ -11,52 +11,53 @@
     <link rel="stylesheet" href="./header.css" />
     <link rel="stylesheet" href="./produs.css" />
 </head>
-<header>
-    <div class="logo-container">
-        <a href="main.html">
-            <img class="logo" src="./img/toy.png" alt="logo" />
-        </a>
-        <h4 class="logo-title">Online Toys</h4>
-    </div>
-    <div class="search-box">
-        <input class="search-text" type="text" placeholder="Search.." name="search">
-        <button type="submit" class="searchButton">
-            <i class="fa fa-search"></i>
-        </button>
-    </div>
-    <div class="nav">
-        <a class="nav_comp" href="account.html">
-            <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
-            <h class="nav_text">Cont</h>
-        </a>
-        <a class="nav_comp" href="favorite.html">
-            <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
-            <h class="nav_text">Favorite</h>
-        </a>
-        <a class="nav_comp" href="cart.html">
-            <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
-            <h class="nav_text">Cos</h>
-        </a>
-    </div>
-</header>
 
 <body>
+    <header>
+        <div class="logo-container">
+            <a href="main.html">
+                <img class="logo" src="./img/toy.png" alt="logo" />
+            </a>
+            <h4 class="logo-title">Online Toys</h4>
+        </div>
+        <div class="search-box">
+            <input class="search-text" type="text" placeholder="Search.." name="search">
+            <button type="submit" class="searchButton">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        <div class="nav">
+            <a class="nav_comp" href="account.html">
+                <img class="nav_img" src="./img/account_icon.png" alt="acount" />
+                <div class="nav_text">Cont</div>
+            </a>
+            <a class="nav_comp" href="favorite.html">
+                <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
+                <div class="nav_text">Favorite</div>
+            </a>
+            <a class="nav_comp" href="cart.html">
+                <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
+                <div class="nav_text">Cos</div>
+            </a>
+        </div>
+    </header>
 
-    <section class="top">
+
+    <div class="section top">
         <div class="slider-container">
             <div class="slides">
-                <img class="slide-img" src="img/toy1.png" onclick="currentDiv(1)">
-                <img class="slide-img" src="img/toy2.png" onclick="currentDiv(2)">
-                <img class="slide-img" src="img/toy3.png" onclick="currentDiv(3)">
-                <img class="slide-img" src="img/toy4.png" onclick="currentDiv(4)">
-                <img class="slide-img" src="img/toy5.png" onclick="currentDiv(5)">
+                <img class="slide-img" src="img/toy1.png" alt="img1" onclick="currentDiv(1)">
+                <img class="slide-img" src="img/toy2.png" alt="img2" onclick="currentDiv(2)">
+                <img class="slide-img" src="img/toy3.png" alt="img3" onclick="currentDiv(3)">
+                <img class="slide-img" src="img/toy4.png" alt="img4" onclick="currentDiv(4)">
+                <img class="slide-img" src="img/toy5.png" alt="img5" onclick="currentDiv(5)">
             </div>
             <div class="slide-curent-container">
-                <img class="slide-curent" src="img/toy1.png">
-                <img class="slide-curent" src="img/toy2.png">
-                <img class="slide-curent" src="img/toy3.png">
-                <img class="slide-curent" src="img/toy4.png">
-                <img class="slide-curent" src="img/toy5.png">
+                <img class="slide-curent" src="img/toy1.png" alt="img1">
+                <img class="slide-curent" src="img/toy2.png" alt="img2">
+                <img class="slide-curent" src="img/toy3.png" alt="img3">
+                <img class="slide-curent" src="img/toy4.png" alt="img4">
+                <img class="slide-curent" src="img/toy5.png" alt="img5">
             </div>
 
         </div>
@@ -74,8 +75,8 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section class="bot">
+    </div>
+    <div class="section bot">
         <div class="tabs-container">
             <div class="tab" onclick="displayTab(1)">Descriere</div>
             <div class="tab" onclick="displayTab(2)">Specificatii</div>
@@ -93,50 +94,50 @@
                 content3
             </div>
         </div>
-    </section>
+    </div>
 
+    <script>
+        /* source: https://www.w3schools.com/w3css/w3css_slideshow.asp  */
+        function currentDiv(n) {
+            showDivs(slideIndex = n);
+        }
+    
+        function showDivs(n) {
+            var i;
+            var x = document.getElementsByClassName("slide-curent");
+            var dots = document.getElementsByClassName("slide-img");
+            if (n > x.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = x.length }
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].style.opacity = "60%";
+            }
+            x[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].style.opacity = "100%";
+        }
+    
+        function displayTab(slideIndex) {
+            var i;
+            var content = document.getElementsByClassName("tab-content");
+            var tabs = document.getElementsByClassName("tab");
+            for (i = 0; i < content.length; i++) {
+                content[i].style.display = "none";
+            }
+            for (i = 0; i < tabs.length; i++) {
+                tabs[i].style.color = "white";
+                tabs[i].style.backgroundColor = "brown";
+                tabs[i].style.opacity = "70%";
+            }
+            content[slideIndex - 1].style.display = "block";
+            tabs[slideIndex - 1].style.color = "black";
+            tabs[slideIndex - 1].style.backgroundColor = "wheat";
+            tabs[slideIndex - 1].style.opacity = "100%";
+        }
+    
+    
+    </script>
 </body>
-<script>
-    /* source: https://www.w3schools.com/w3css/w3css_slideshow.asp  */
-    function currentDiv(n) {
-        showDivs(slideIndex = n);
-    }
-
-    function showDivs(n) {
-        var i;
-        var x = document.getElementsByClassName("slide-curent");
-        var dots = document.getElementsByClassName("slide-img");
-        if (n > x.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = x.length }
-        for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].style.opacity = "60%";
-        }
-        x[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].style.opacity = "100%";
-    }
-
-    function displayTab(slideIndex) {
-        var i;
-        var content = document.getElementsByClassName("tab-content");
-        var tabs = document.getElementsByClassName("tab");
-        for (i = 0; i < content.length; i++) {
-            content[i].style.display = "none";
-        }
-        for (i = 0; i < tabs.length; i++) {
-            tabs[i].style.color = "white";
-            tabs[i].style.backgroundColor = "brown";
-            tabs[i].style.opacity = "70%";
-        }
-        content[slideIndex - 1].style.display = "block";
-        tabs[slideIndex - 1].style.color = "black";
-        tabs[slideIndex - 1].style.backgroundColor = "wheat";
-        tabs[slideIndex - 1].style.opacity = "100%";
-    }
-
-
-</script>
 
 </html>

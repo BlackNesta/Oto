@@ -2,12 +2,12 @@ body {
     background-color: blanchedalmond;
 }
 
-section{
+.section{
     max-width: 1300px;
     margin: auto;
 }
 
-section.top{
+.section.top{
     position: relative;
     padding: 50px;;
     display: flex;
@@ -149,7 +149,7 @@ section.top{
 
 /* ##########################   Bot    ##############   */
 
-section.bot{
+.section.bot{
     max-width: 1300px;
     margin: auto;
     /*
