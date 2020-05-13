@@ -146,6 +146,15 @@ body {
 
 /*####### Produse #######*/
 
+#title-produse{
+    margin: auto;
+    max-width: 1300px;
+    font-size: 2em;
+    padding: 10px;
+    margin-top: 20px;
+    border-bottom: 2px solid brown;
+}
+
 #produse {
     margin: auto;
     max-width: 1300px;
@@ -153,6 +162,7 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     background-color: blanchedalmond;
+    margin-bottom: 50px;
 }
 
 .produs {
@@ -204,4 +214,9 @@ body {
 
 .produs button:hover {
     background-color: lightsalmon;
+}
+@media screen and (max-width: 1300px) {
+    #title-produse{
+        text-align: center;
+    }
 }

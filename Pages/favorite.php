@@ -14,7 +14,7 @@
 
 <header>
   <div class="logo-container">
-    <a href="main.html">
+    <a href="main.php">
       <img class="logo" src="./img/toy.png" alt="logo" />
     </a>
     <h4 class="logo-title">Online Toys</h4>
@@ -26,15 +26,15 @@
     </button>
   </div>
   <div class="nav">
-    <a class="nav_comp" href="account.html">
+    <a class="nav_comp" href="account.php">
       <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
       <h class="nav_text">Cont</h>
     </a>
-    <a class="nav_comp" href="favorite.html">
+    <a class="nav_comp" href="favorite.php">
       <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
       <h class="nav_text">Favorite</h>
     </a>
-    <a class="nav_comp" href="cart.html">
+    <a class="nav_comp" href="cart.php">
       <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
       <h class="nav_text">Cos</h>
     </a>
@@ -46,7 +46,7 @@
     <div class="section-title">Favorite</div>
 
     <div class="produs">
-      <a href="./produs.html"><img src="img/toy1.png" /></a>
+      <a href="./produs.php"><img src="img/toy1.png" /></a>
       <div class="detalii-produs">
         <span class="produs-title">Ursulet de plus foarte dragalas</span>
         <span class="pret">Pret:399</span>
@@ -62,7 +62,7 @@
     </div>
 
     <div class="produs">
-      <a href="./produs.html"><img src="img/toy4.png" /></a>
+      <a href="./produs.php"><img src="img/toy4.png" /></a>
       <div class="detalii-produs">
         <span class="produs-title">Ursulet de plus foarte dragalas</span>
         <span class="pret">Pret: 299Ron</span>
@@ -79,7 +79,7 @@
 
 
     <div class="produs">
-      <a href="./produs.html"><img src="img/toy2.png" /></a>
+      <a href="./produs.php"><img src="img/toy2.png" /></a>
       <div class="detalii-produs">
         <span class="produs-title">Ursulet de plus foarte pufos</span>
         <span class="pret">Pret: 199Ron</span>
@@ -95,7 +95,7 @@
     </div>
 
     <div class="produs">
-      <a href="./produs.html"><img src="img/toy3.png" /></a>
+      <a href="./produs.php"><img src="img/toy3.png" /></a>
       <div class="detalii-produs">
         <span class="produs-title">Ursulet de plus pufos si dragalas</span>
         <span class="pret">Pret: 499Ron</span>

@@ -6,15 +6,14 @@
     <title>Online Toys</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="./header.css" />
     <link rel="stylesheet" href="./account-style.css" />
 </head>
 
 <header>
     <div class="logo-container">
-        <a href="main.html">
+        <a href="main.php">
             <img class="logo" src="./img/toy.png" alt="logo" />
         </a>
         <h4 class="logo-title">Online Toys</h4>
@@ -26,15 +25,15 @@
         </button>
     </div>
     <div class="nav">
-        <a class="nav_comp" href="account.html">
+        <a class="nav_comp" href="account.php">
             <img class="nav_img" hre src="./img/account_icon.png" alt="acount" />
             <h class="nav_text">Cont</h>
         </a>
-        <a class="nav_comp" href="favorite.html">
+        <a class="nav_comp" href="favorite.php">
             <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
             <h class="nav_text">Favorite</h>
         </a>
-        <a class="nav_comp" href="cart.html">
+        <a class="nav_comp" href="cart.php">
             <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
             <h class="nav_text">Cos</h>
         </a>
@@ -53,7 +52,7 @@
                     <img src="./img/account_icon.png" alt="account">
                 </div>
                 <div class="btn">
-                    <a href="./login-register.html"><input type="submit" name="" value="Logout" class="button"></a>
+                    <a href="./login-register.php"><input type="submit" name="" value="Logout" class="button"></a>
                 </div>
             </section>
 
@@ -207,8 +206,6 @@
         else
             button[slideIndex - 1].textContent = "Vezi comanda"
     }
-
-
 </script>
 
 </html>

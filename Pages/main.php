@@ -15,7 +15,7 @@
 <body>
   <header>
     <div class="logo-container">
-      <a href="main.html">
+      <a href="main.php">
         <img class="logo" src="./img/toy.png" alt="logo" />
       </a>
       <h4 class="logo-title">Online Toys</h4>
@@ -27,15 +27,15 @@
       </button>
     </div>
     <div class="nav">
-      <a class="nav_comp" href="account.html">
+      <a class="nav_comp" href="account.php">
         <img class="nav_img" src="./img/account_icon.png" alt="acount" />
         <div class="nav_text">Cont</div>
       </a>
-      <a class="nav_comp" href="favorite.html">
+      <a class="nav_comp" href="favorite.php">
         <img class="nav_img" src="./img/heart_incon.png" alt="favorites" />
         <div class="nav_text">Favorite</div>
       </a>
-      <a class="nav_comp" href="cart.html">
+      <a class="nav_comp" href="cart.php">
         <img class="nav_img" src="./img/cart_icon.png" alt="cart" />
         <div class="nav_text">Cos</div>
       </a>
@@ -56,11 +56,11 @@
   <div id="categorii">
     <button class="drop-btn">Categorii </button>
     <div class="dropup-content">
-      <a href="pagina-produse.html">Jucării bebeluși</a>
-      <a href="pagina-produse.html">Jucării creative</a>
-      <a href="pagina-produse.html">Jucării de pluș</a>
-      <a href="pagina-produse.html">Mașini, trenulețe</a>
-      <a href="pagina-produse.html">Păpuși</a>
+      <a href="pagina-produse.php?c=1">Jucării bebeluși</a>
+      <a href="pagina-produse.php?c=2">Jucării creative</a>
+      <a href="pagina-produse.php?c=3">Jucării de pluș</a>
+      <a href="pagina-produse.php?c=4">Mașini, trenulețe</a>
+      <a href="pagina-produse.php?c=5">Păpuși</a>
     </div>
     <!-- Varianta dropdown pozitie relativa 
     <div class="dropdown-content">
@@ -71,95 +71,86 @@
     -->
   </div>
 
+  <div id="title-produse"> Cele mai populare jucarii</div>
   <div id="produse">
     <div class="produs">
-      <a href="produs.html">
+      <a href="produs.php">
         <img src="img/desk.png" alt="img-produs">
         <div class="nume">Birou</div>
       </a>
       <div class="details">
         <span class="price">$199.99</span>
-        <button >Adauga in cos</button>
+        <button>Adauga in cos</button>
       </div>
     </div>
     <div class="produs">
-      <a href="produs.html">
+      <a href="produs.php">
         <img src="img/desk2.png" alt="img-produs">
         <div class="nume">Birou2</div>
       </a>
       <div class="details">
         <span class="price">$299.99</span>
-        <button >Adauga in cos</button>
+        <button>Adauga in cos</button>
       </div>
     </div>
     <div class="produs">
-      <a href="produs.html">
+      <a href="produs.php">
         <img src="img/desk3.png" alt="img-produs">
         <div class="nume">Birou3</div>
       </a>
       <div class="details">
         <span class="price">$399.99</span>
-        <button >Adauga in cos</button>
+        <button>Adauga in cos</button>
       </div>
     </div>
     <div class="produs">
-      <a href="produs.html">
+      <a href="produs.php">
         <img src="img/desk.png" alt="img-produs">
         <div class="nume">Birou</div>
       </a>
       <div class="details">
         <span class="price">$199.99</span>
-        <button >Adauga in cos</button>
+        <button>Adauga in cos</button>
       </div>
     </div>
     <div class="produs">
-      <a href="produs.html">
+      <a href="produs.php">
         <img src="img/desk2.png" alt="img-produs">
         <div class="nume">Birou2</div>
       </a>
       <div class="details">
         <span class="price">$299.99</span>
-        <button >Adauga in cos</button>
+        <button>Adauga in cos</button>
       </div>
     </div>
     <div class="produs">
-      <a href="produs.html">
+      <a href="produs.php">
         <img src="img/desk3.png" alt="img-produs">
         <div class="nume">Birou3</div>
       </a>
       <div class="details">
         <span class="price">$399.99</span>
-        <button >Adauga in cos</button>
+        <button>Adauga in cos</button>
       </div>
     </div>
     <div class="produs">
-      <a href="produs.html">
+      <a href="produs.php">
         <img src="img/desk.png" alt="img-produs">
         <div class="nume">Birou</div>
       </a>
       <div class="details">
         <span class="price">$199.99</span>
-        <button >Adauga in cos</button>
+        <button>Adauga in cos</button>
       </div>
     </div>
     <div class="produs">
-      <a href="produs.html">
+      <a href="produs.php">
         <img src="img/desk2.png" alt="img-produs">
         <div class="nume">Birou2</div>
       </a>
       <div class="details">
         <span class="price">$299.99</span>
-        <button >Adauga in cos</button>
-      </div>
-    </div>
-    <div class="produs">
-      <a href="produs.html">
-        <img src="img/desk3.png" alt="img-produs">
-        <div class="nume">Birou3</div>
-      </a>
-      <div class="details">
-        <span class="price">$399.99</span>
-        <button >Adauga in cos</button>
+        <button>Adauga in cos</button>
       </div>
     </div>
   </div>
