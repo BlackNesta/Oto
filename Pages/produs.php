@@ -55,11 +55,6 @@ $id_produs = $_GET['id'];
                     if ($img_prd['img' . $i] != NULL)
                         echo '<img class="slide-curent" src="img/' . $img_prd["img" . $i] . '" alt="img' . $i . '">';
                 ?>
-                <img class="slide-curent" src="img/toy1.png" alt="img1">
-                <img class="slide-curent" src="img/toy2.png" alt="img2">
-                <img class="slide-curent" src="img/toy3.png" alt="img3">
-                <img class="slide-curent" src="img/toy4.png" alt="img4">
-                <img class="slide-curent" src="img/toy5.png" alt="img5">
             </div>
 
         </div>
@@ -86,25 +81,30 @@ $id_produs = $_GET['id'];
         <div class="content">
             <div class="tab-content">
                 <?php
-                echo '<b>' . $produs['nume'] . '</b><br>';
+                echo '<b>' . $produs['nume'] . '</b><br><br>';
                 echo '&emsp;' . $produs['descriere'];
                 ?>
             </div>
-            <div class="tab-content">
+            <div class="tab-content specs">
                 <div>Categorie:&nbsp; <?php echo $produs['categorie'] ?></div>
                 <div>Destinatar:&nbsp; <?php echo $produs['destinatar'] ?></div>
                 <div>Varsta:&nbsp; <?php echo $produs['varsta'] ?></div>
             </div>
             <div class="tab-content">
                 <?php
-                $recenzii = mysqli_query($conn, "SELECT autor, data, text FROM  recenzii_produs");
+                $recenzii = mysqli_query(
+                    $conn,
+                    "SELECT autor, data, text FROM  recenzii_produs where id_produs='" . $produs["id"] . "' order by data desc" 
+                );
+                if (mysqli_num_rows($recenzii) == 0)
+                    echo "<h4> Niciun comentariu momentan</h4>";
                 while ($recenzie = mysqli_fetch_assoc($recenzii)) {
                     echo '<div class="recenzie">
                             <div class="rec_header">
-                                <div class="autor">'. $recenzie['autor'] . '</div>
-                                <div class="data">'. $recenzie['data'] . '</div>
+                                <div class="autor">' . $recenzie['autor'] . '</div>
+                                <div class="data">' . $recenzie['data'] . '</div>
                             </div>
-                            <div class="text"> &emsp;'. $recenzie['text'] . '</div>
+                            <div class="text"> &emsp;' . $recenzie['text'] . '</div>
                           </div> ';
                 }
                 ?>

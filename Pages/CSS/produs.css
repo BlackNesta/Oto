@@ -2,14 +2,15 @@ body {
     background-color: blanchedalmond;
 }
 
-.section{
+.section {
     max-width: 1300px;
     margin: auto;
 }
 
-.section.top{
+.section.top {
     position: relative;
-    padding: 50px;;
+    padding: 50px;
+    ;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -72,7 +73,7 @@ body {
 }
 
 @media screen and (max-width: 1024px) {
-    .produs-detalii{
+    .produs-detalii {
         margin: auto;
     }
 }
@@ -111,7 +112,6 @@ body {
     padding-right: 50px;
     flex: 1;
     background-color: wheat;
-
 }
 
 .produs .produs-title {
@@ -119,9 +119,10 @@ body {
     margin-bottom: 1.5em;
 }
 
-.produs .produs-detalii{
+.produs .produs-detalii {
     width: 220px;
 }
+
 .produs .pret {
     width: 100%;
     font-size: 1.3em;
@@ -149,7 +150,7 @@ body {
 
 /* ##########################   Bot    ##############   */
 
-.section.bot{
+.section.bot {
     max-width: 1300px;
     margin: auto;
     /*
@@ -157,14 +158,14 @@ body {
     */
 }
 
-.tabs-container{
+.tabs-container {
     display: flex;
-    padding: 50px;  
-    padding-bottom: 0px;  
+    padding: 50px;
+    padding-bottom: 0px;
     align-items: flex-end;
 }
 
-.tab{
+.tab {
     text-align: center;
     width: 150px;
     padding: 2px 15px;
@@ -177,27 +178,27 @@ body {
     color: white;
     transition: 0.3s ease;
     opacity: 70%;
-
 }
 
-
-.tab:hover{
+.tab:hover {
     margin-top: 0px;
     padding-top: 6px;
     padding-bottom: 10px;
     opacity: 100%;
 }
-.tab:first-of-type{
+
+.tab:first-of-type {
     background-color: wheat;
     color: black;
     opacity: 100%;
 }
 
-.content{
-    padding: 0px 50px;  
+.content {
+    padding: 0px 50px;
 }
-.tab-content{
-    background-color: wheat;  
+
+.tab-content {
+    background-color: wheat;
     font-size: 1.1em;
     padding: 1em;
     margin-bottom: 50px;
@@ -206,40 +207,42 @@ body {
     border-bottom-right-radius: 0.5em;
     display: none;
 }
-.tab-content:first-of-type{
-    display: block ;
+
+.tab-content:first-of-type {
+    display: block;
 }
 
-
 @media screen and (max-width: 600px) {
-    .tabs-container{
-        flex-direction: column  ;
+    .tabs-container {
+        flex-direction: column;
         align-items: center;
     }
-    .tab{
+    .tab {
         padding: 10px 15px;
         margin-top: 0px;
         margin-bottom: 15px;
         border-radius: 0.5em;
         cursor: pointer;
     }
-    .tab:hover{
+    .tab:hover {
         width: 170px;
         margin-bottom: 15px;
         padding-top: 10px;
         padding-bottom: 10px;
     }
-
-    .tab-content{
+    .tab-content {
         border-top-left-radius: 0.5em;
     }
-    .content{
-        padding: 0px;  
+    .content {
+        padding: 0px;
     }
 }
 
+.specs div {
+    margin: 20px;
+}
 
-.recenzie{
+.recenzie {
     background-color: blanchedalmond;
     display: flex;
     align-items: baseline;
@@ -247,25 +250,31 @@ body {
     border-radius: 0.5em;
 }
 
-.rec_header{
+.rec_header {
     text-align: center;
-    padding: 20px;
-    padding-right: 0px;    
+    margin: 20px;
+    margin-right: 0px;
     min-width: 150px;
 }
-.autor{
+
+.autor {
     font-weight: bold;
 }
-.data{
+
+.data {
     font-size: 0.8em;
 }
 
-.text{
-    padding: 20px;
+.text {
+    margin: 20px;
 }
 
 @media screen and (max-width: 600px) {
-    .recenzie{
+    .recenzie {
         flex-wrap: wrap;
     }
+    .rec_header {
+        margin-bottom: 0px;
+    }
+    
 }
