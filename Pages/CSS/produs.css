@@ -233,4 +233,39 @@ body {
     .tab-content{
         border-top-left-radius: 0.5em;
     }
+    .content{
+        padding: 0px;  
+    }
+}
+
+
+.recenzie{
+    background-color: blanchedalmond;
+    display: flex;
+    align-items: baseline;
+    margin-bottom: 20px;
+    border-radius: 0.5em;
+}
+
+.rec_header{
+    text-align: center;
+    padding: 20px;
+    padding-right: 0px;    
+    min-width: 150px;
+}
+.autor{
+    font-weight: bold;
+}
+.data{
+    font-size: 0.8em;
+}
+
+.text{
+    padding: 20px;
+}
+
+@media screen and (max-width: 600px) {
+    .recenzie{
+        flex-wrap: wrap;
+    }
 }

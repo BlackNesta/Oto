@@ -50,7 +50,7 @@ $id_produs = $_GET['id'];
                 ?>
             </div>
             <div class="slide-curent-container">
-            <?php
+                <?php
                 for ($i = 1; $i <= 5; $i++)
                     if ($img_prd['img' . $i] != NULL)
                         echo '<img class="slide-curent" src="img/' . $img_prd["img" . $i] . '" alt="img' . $i . '">';
@@ -86,18 +86,27 @@ $id_produs = $_GET['id'];
         <div class="content">
             <div class="tab-content">
                 <?php
-                echo '<b>'.$produs['nume'].'</b><br>';
-                 echo '&emsp;'.$produs['descriere'];
+                echo '<b>' . $produs['nume'] . '</b><br>';
+                echo '&emsp;' . $produs['descriere'];
                 ?>
             </div>
             <div class="tab-content">
-                <div>Categorie:&nbsp; <?php echo $produs['categorie']?></div>
-                <div>Destinatar:&nbsp; <?php echo $produs['destinatar']?></div>
-                <div>Varsta:&nbsp; <?php echo $produs['varsta']?></div>
+                <div>Categorie:&nbsp; <?php echo $produs['categorie'] ?></div>
+                <div>Destinatar:&nbsp; <?php echo $produs['destinatar'] ?></div>
+                <div>Varsta:&nbsp; <?php echo $produs['varsta'] ?></div>
             </div>
             <div class="tab-content">
-            <?php
-                
+                <?php
+                $recenzii = mysqli_query($conn, "SELECT autor, data, text FROM  recenzii_produs");
+                while ($recenzie = mysqli_fetch_assoc($recenzii)) {
+                    echo '<div class="recenzie">
+                            <div class="rec_header">
+                                <div class="autor">'. $recenzie['autor'] . '</div>
+                                <div class="data">'. $recenzie['data'] . '</div>
+                            </div>
+                            <div class="text"> &emsp;'. $recenzie['text'] . '</div>
+                          </div> ';
+                }
                 ?>
             </div>
         </div>
