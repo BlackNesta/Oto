@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="/CSS/header.css" />
-  <link rel="stylesheet" href="/CSS/pagina-produse.css" />
+  <link rel="stylesheet" href="./CSS/pagina-produse.css" />
 </head>
 
 <body>
@@ -89,12 +89,12 @@
           <div class="filtru-container">
             <div class="filtru-title"> Varsta </div>
             <div class="filtru">
-              <input id="v1" type="Checkbox" name="varsta" value="copii-mici">
-              <label for="v1"><span class="checkbox">copii-mici</span></label>
+              <input id="v1" type="Checkbox" name="varsta" value="prescolari">
+              <label for="v1"><span class="checkbox">prescolari</span></label>
             </div>
             <div class="filtru">
-              <input id="v2" type="Checkbox" name="varsta" value="pre-scolar">
-              <label for="v2"><span class="checkbox">pre-scolar</span></label>
+              <input id="v2" type="Checkbox" name="varsta" value="scolari">
+              <label for="v2"><span class="checkbox">scolari</span></label>
             </div>
             <div class="filtru">
               <input id="v3" type="Checkbox" name="varsta" value="adolescenti">

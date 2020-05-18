@@ -1,3 +1,11 @@
+<?php
+
+if (empty($_GET["id"])) {
+    header('Location: produs.php?id=1');
+}
+$id_produs = $_GET['id'];
+?>
+
 <!DOCTYPE html>
 <html lang="ro">
 
@@ -8,22 +16,45 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link rel="stylesheet" href="/CSS/header.css" />
-    <link rel="stylesheet" href="/CSS/produs.css" />
+    <link rel="stylesheet" href="./CSS/produs.css" />
 </head>
 
 <body>
-    <?php include "header.php" ?>
+    <?php
+    include "header.php";
+    include "PHP/db_connection.php";
+
+    $result_produs = mysqli_query($conn, "SELECT * FROM produse where id='" . $id_produs . "'");
+
+    if (!$result_produs)
+        die("Database access failed: " . mysqli_error($conn));
+
+    if (mysqli_num_rows($result_produs) == 0) {
+        echo '<h1 style="text-align:center;"> Produsul cu id ' . $id_produs . ' nu a fost gasit.';
+        exit();
+    }
+
+    $produs = mysqli_fetch_assoc($result_produs);
+
+    $result_img = mysqli_query($conn, "SELECT * FROM imagini_produs where id_produs='" . $produs["id"] . "'");
+    $img_prd = mysqli_fetch_assoc($result_img);
+    ?>
 
     <div class="section top">
         <div class="slider-container">
             <div class="slides">
-                <img class="slide-img" src="img/toy1.png" alt="img1" onclick="currentDiv(1)">
-                <img class="slide-img" src="img/toy2.png" alt="img2" onclick="currentDiv(2)">
-                <img class="slide-img" src="img/toy3.png" alt="img3" onclick="currentDiv(3)">
-                <img class="slide-img" src="img/toy4.png" alt="img4" onclick="currentDiv(4)">
-                <img class="slide-img" src="img/toy5.png" alt="img5" onclick="currentDiv(5)">
+                <?php
+                for ($i = 1; $i <= 5; $i++)
+                    if ($img_prd['img' . $i] != NULL)
+                        echo '<img class="slide-img" src="img/' . $img_prd["img" . $i] . '" alt="img' . $i . '" onclick="currentDiv(' . $i . ')">';
+                ?>
             </div>
             <div class="slide-curent-container">
+            <?php
+                for ($i = 1; $i <= 5; $i++)
+                    if ($img_prd['img' . $i] != NULL)
+                        echo '<img class="slide-curent" src="img/' . $img_prd["img" . $i] . '" alt="img' . $i . '">';
+                ?>
                 <img class="slide-curent" src="img/toy1.png" alt="img1">
                 <img class="slide-curent" src="img/toy2.png" alt="img2">
                 <img class="slide-curent" src="img/toy3.png" alt="img3">
@@ -34,10 +65,9 @@
         </div>
 
         <div class="produs">
-            <div class="produs-title">
-                Jucarie de plus Mappy Fluffy Friends, Ursul cu pui</div>
+            <div class="produs-title"><?php echo $produs['nume'] ?></div>
             <div class="produs-detalii">
-                <div class="pret">99 lei</div>
+                <div class="pret"><?php echo $produs['pret'] ?> lei</div>
                 <div>
                     <button>Adauga in Cos</button>
                 </div>
@@ -55,14 +85,20 @@
         </div>
         <div class="content">
             <div class="tab-content">
-                content1<br>
-                content1<br>
+                <?php
+                echo '<b>'.$produs['nume'].'</b><br>';
+                 echo '&emsp;'.$produs['descriere'];
+                ?>
             </div>
             <div class="tab-content">
-                content2
+                <div>Categorie:&nbsp; <?php echo $produs['categorie']?></div>
+                <div>Destinatar:&nbsp; <?php echo $produs['destinatar']?></div>
+                <div>Varsta:&nbsp; <?php echo $produs['varsta']?></div>
             </div>
             <div class="tab-content">
-                content3
+            <?php
+                
+                ?>
             </div>
         </div>
     </div>
