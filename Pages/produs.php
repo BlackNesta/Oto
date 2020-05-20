@@ -74,9 +74,17 @@ $id_produs = $_GET['id'];
     </div>
     <div class="section bot">
         <div class="tabs-container">
+            <?php
+            $counter_result = mysqli_query(
+                $conn,
+                "SELECT count(*) as n FROM  recenzii_produs where id_produs='" . $produs["id"] . "'"
+            );
+            $recenzii_number = mysqli_fetch_assoc($counter_result);
+            ?>
             <div class="tab" onclick="displayTab(1)">Descriere</div>
             <div class="tab" onclick="displayTab(2)">Specificatii</div>
-            <div class="tab" onclick="displayTab(3)">Recenzi</div>
+            <div class="tab" onclick="displayTab(3), InitReviewsTab()">Recenzii
+                <span style="font-size: 0.7em">(<?php echo $recenzii_number['n'] ?>)</span></div>
         </div>
         <div class="content">
             <div class="tab-content">
@@ -90,11 +98,13 @@ $id_produs = $_GET['id'];
                 <div>Destinatar:&nbsp; <?php echo $produs['destinatar'] ?></div>
                 <div>Varsta:&nbsp; <?php echo $produs['varsta'] ?></div>
             </div>
-            <div class="tab-content">
+            <div class="tab-content" id="recenzii">
                 <?php
+                /*
                 $recenzii = mysqli_query(
                     $conn,
-                    "SELECT autor, data, text FROM  recenzii_produs where id_produs='" . $produs["id"] . "' order by data desc" 
+                    "SELECT autor, data, text FROM  recenzii_produs where id_produs='" . $produs["id"] . "'
+                             order by data desc limit 3"
                 );
                 if (mysqli_num_rows($recenzii) == 0)
                     echo "<h4> Niciun comentariu momentan</h4>";
@@ -107,13 +117,14 @@ $id_produs = $_GET['id'];
                             <div class="text"> &emsp;' . $recenzie['text'] . '</div>
                           </div> ';
                 }
+                */
                 ?>
             </div>
         </div>
     </div>
 
     <script>
-        /* source: https://www.w3schools.com/w3css/w3css_slideshow.asp  */
+        /* source pt slideshow: https://www.w3schools.com/w3css/w3css_slideshow.asp  */
         function currentDiv(n) {
             showDivs(slideIndex = n);
         }
@@ -155,6 +166,54 @@ $id_produs = $_GET['id'];
             tabs[slideIndex - 1].style.backgroundColor = "wheat";
             tabs[slideIndex - 1].style.opacity = "100%";
         }
+
+        var offset = 0;
+
+        async function InitReviewsTab() {
+            var scrollHeight = document.documentElement.scrollHeight;
+            var clientHeight = document.documentElement.clientHeight;
+
+            while (clientHeight >= scrollHeight && offset <= <?php echo $recenzii_number['n'] ?>) {
+                await LoadReviews(<?php echo $id_produs ?>, 1, offset);
+                offset += 1;
+                scrollHeight = document.documentElement.scrollHeight;
+                clientHeight = document.documentElement.clientHeight;
+            }
+        }
+
+        function LoadReviews(id, n, offset) {
+            var xhttp;
+
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("recenzii").innerHTML += this.responseText;
+                }
+            };
+            xhttp.open("GET", "PHP/get_reviews.php?id=" + id + "&n=" + n + "&offset=" + offset, true);
+            xhttp.send();
+            return new Promise(resolve => setTimeout(resolve, 10));
+        }
+
+        window.addEventListener('scroll', () => {
+            var recenzii = document.getElementById('recenzii');
+            if (recenzii.style.display == "block") {
+
+                const {
+                    scrollTop,
+                    scrollHeight,
+                    clientHeight
+                } = document.documentElement;
+
+                if (clientHeight + scrollTop >= scrollHeight - 1) {
+                    LoadReviews(<?php echo $id_produs ?>, 3, offset);
+                    offset += 3;
+                }
+            }
+        });
+        window.addEventListener('resize', () => {
+            InitReviewsTab();
+        });
     </script>
 </body>
 
