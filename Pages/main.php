@@ -31,11 +31,11 @@
   <div id="categorii">
     <button class="drop-btn">Categorii </button>
     <div class="dropup-content">
-      <a href="pagina-produse.php?c=1">Jucării bebeluși</a>
-      <a href="pagina-produse.php?c=2">Jucării creative</a>
-      <a href="pagina-produse.php?c=3">Jucării de pluș</a>
-      <a href="pagina-produse.php?c=4">Mașini, trenulețe</a>
-      <a href="pagina-produse.php?c=5">Păpuși</a>
+      <a href="pagina-produse.php?c=bebelusi">Jucării bebeluși</a>
+      <a href="pagina-produse.php?c=creative">Jucării creative</a>
+      <a href="pagina-produse.php?c=plus">Jucării de pluș</a>
+      <a href="pagina-produse.php?c=masini">Mașini, trenulețe</a>
+      <a href="pagina-produse.php?c=papusi">Păpuși</a>
     </div>
   </div>
   <div id="title-produse"> Cele mai populare jucarii</div>

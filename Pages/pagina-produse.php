@@ -1,3 +1,13 @@
+<?php
+if (empty($_GET["c"])) {
+  header('Location: pagina-produse.php?c=toate');
+}
+$c_array = array("toate", "bebelusi", "creative", "plus", "masini", "papusi");
+if (!in_array($_GET["c"], $c_array)) {
+  header('Location: pagina-produse.php?c=toate');
+}
+?>
+
 <!DOCTYPE html>
 <html lang="ro">
 
@@ -14,11 +24,6 @@
 <body>
   <?php include "header.php" ?>
 
-  <?php
-  //echo $_GET['c'];
-  $_GET['c'] = 7;
-  //echo $_GET['c'];
-  ?>
   <div id="section">
     <div class="filtre-container">
 
@@ -32,26 +37,31 @@
           <div class="filtru-container">
             <div class="filtru-title"> Categorie </div>
             <div class="filtru">
-              <input id="r1" type="radio" name="categorie" value="bebelusi">
-              <label for="r1"><span class="radio">Jucării bebeluși</span></label>
+              <input id="toate" type="radio" name="categorie" value="toate" onclick="changeURL('toate')">
+              <label for="toate"><span class="radio">Toate jucăriile</span></label>
             </div>
             <div class="filtru">
-              <input id="r2" type="radio" name="categorie" value="creative">
-              <label for="r2"><span class="radio">Jucării creative</span></label>
+              <input id="bebelusi" type="radio" name="categorie" value="bebelusi" onclick="changeURL('bebelusi')">
+              <label for="bebelusi"><span class="radio">Jucării bebeluși</span></label>
             </div>
             <div class="filtru">
-              <input id="r3" type="radio" name="categorie" value="plus">
-              <label for="r3"><span class="radio">Jucării de pluș</span></label>
+              <input id="creative" type="radio" name="categorie" value="creative" onclick="changeURL('creative')">
+              <label for="creative"><span class="radio">Jucării creative</span></label>
             </div>
             <div class="filtru">
-              <input id="r4" type="radio" name="categorie" value="masini">
-              <label for="r4"><span class="radio">Mașini-trenulețe</span></label>
+              <input id="plus" type="radio" name="categorie" value="plus" onclick="changeURL('plus')">
+              <label for="plus"><span class="radio">Jucării de pluș</span></label>
             </div>
             <div class="filtru">
-              <input id="r5" type="radio" name="categorie" value="papusi">
-              <label for="r5"><span class="radio">Păpuși</span></label>
+              <input id="masini" type="radio" name="categorie" value="masini" onclick="changeURL('masini')">
+              <label for="masini"><span class="radio">Mașini-trenulețe</span></label>
+            </div>
+            <div class="filtru">
+              <input id="papusi" type="radio" name="categorie" value="papusi" onclick="changeURL('papusi')">
+              <label for="papusi"><span class="radio">Păpuși</span></label>
             </div>
           </div>
+
           <div class="filtru-container">
             <div class="filtru-title"> Pret - lei </div>
             <div class="filtru">
@@ -73,6 +83,10 @@
             <div class="filtru">
               <input id="pret5" type="Checkbox" name="pret" value="200-250">
               <label for="pret5"><span class="checkbox">200-250</span></label>
+            </div>
+            <div class="filtru">
+              <input id="pret5" type="Checkbox" name="pret" value="250+">
+              <label for="pret5"><span class="checkbox">250+</span></label>
             </div>
           </div>
           <div class="filtru-container">
@@ -117,113 +131,15 @@
           <button>Adauga in cos</button>
         </div>
       </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk2.png" alt="img-produs">
-          <div class="nume">Birou2</div>
-        </a>
-        <div class="details">
-          <span class="price">$299.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk3.png" alt="img-produs">
-          <div class="nume">Birou3</div>
-        </a>
-        <div class="details">
-          <span class="price">$399.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk.png" alt="img-produs">
-          <div class="nume">Birou</div>
-        </a>
-        <div class="details">
-          <span class="price">$199.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk2.png" alt="img-produs">
-          <div class="nume">Birou2</div>
-        </a>
-        <div class="details">
-          <span class="price">$299.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk3.png" alt="img-produs">
-          <div class="nume">Birou3</div>
-        </a>
-        <div class="details">
-          <span class="price">$399.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk.png" alt="img-produs">
-          <div class="nume">Birou</div>
-        </a>
-        <div class="details">
-          <span class="price">$199.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk2.png" alt="img-produs">
-          <div class="nume">Birou2</div>
-        </a>
-        <div class="details">
-          <span class="price">$299.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk3.png" alt="img-produs">
-          <div class="nume">Birou3</div>
-        </a>
-        <div class="details">
-          <span class="price">$399.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk.png" alt="img-produs">
-          <div class="nume">Birou</div>
-        </a>
-        <div class="details">
-          <span class="price">$199.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-      <div class="produs">
-        <a href="produs.php">
-          <img src="img/desk2.png" alt="img-produs">
-          <div class="nume">Birou2</div>
-        </a>
-        <div class="details">
-          <span class="price">$299.99</span>
-          <button>Adauga in cos</button>
-        </div>
-      </div>
-
     </div>
 
   </div> <!-- section -->
 </body>
 <script>
-
+  function changeURL(categorie) {
+    history.pushState({}, null, 'pagina-produse.php?c=' + categorie);
+  }
+  document.getElementById("<?php echo $_GET["c"] ?>").checked = true;
 </script>
 
 </html>
