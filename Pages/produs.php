@@ -99,26 +99,7 @@ $id_produs = $_GET['id'];
                 <div>Varsta:&nbsp; <?php echo $produs['varsta'] ?></div>
             </div>
             <div class="tab-content" id="recenzii">
-                <?php
-                /*
-                $recenzii = mysqli_query(
-                    $conn,
-                    "SELECT autor, data, text FROM  recenzii_produs where id_produs='" . $produs["id"] . "'
-                             order by data desc limit 3"
-                );
-                if (mysqli_num_rows($recenzii) == 0)
-                    echo "<h4> Niciun comentariu momentan</h4>";
-                while ($recenzie = mysqli_fetch_assoc($recenzii)) {
-                    echo '<div class="recenzie">
-                            <div class="rec_header">
-                                <div class="autor">' . $recenzie['autor'] . '</div>
-                                <div class="data">' . $recenzie['data'] . '</div>
-                            </div>
-                            <div class="text"> &emsp;' . $recenzie['text'] . '</div>
-                          </div> ';
-                }
-                */
-                ?>
+
             </div>
         </div>
     </div>
