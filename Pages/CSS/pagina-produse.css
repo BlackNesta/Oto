@@ -17,7 +17,9 @@ body {
     width: 200px;
     background-color: wheat;
     padding: 20px;
+    padding-bottom: 50px;
     margin: 0px 10px;
+    margin-bottom: 50px;
 }
 
 .checkbox-filtre input {
@@ -40,6 +42,41 @@ body {
 .filtru-title {
     font-size: 1.2em;
     padding: 10px;
+    position: relative;
+}
+
+.filtru-title span{
+    margin-right: 5px;
+}
+
+.filtru-title img{
+    height: 0.8em;
+    opacity: 50%;
+    transition: opacity 1s;
+}
+
+.filtru-title img:hover{
+    opacity: 100%;
+}
+.filtru-title .explicatie{
+    z-index: 1;
+    position: absolute;
+    display: none;
+    background-color: brown;
+    color: white;
+    margin-left: 10px;
+    padding: 10px;
+    width: 300px;
+    font-size: 0.8em;
+    border-radius: 0.5em;
+}
+
+.filtru-title img:hover + .explicatie{
+    display: inline;
+}
+
+.filtru{
+    padding-left: 15px;
 }
 
 .filtru input {
@@ -116,6 +153,11 @@ body {
     .filtru-container {
         margin-top: 0;
     }
+    .filtru-title .explicatie{
+        width: 200px;
+        left: -20px;
+        top: 2.5em;
+    }
 }
 
 @media screen and (max-width: 320px) {
@@ -189,4 +231,13 @@ body {
     #produse-container {
         padding-left: 0px;
     }
+}
+
+.mesaj_back{
+    font-size: 1.5em;
+    margin-top: 25px;
+    background-color: wheat;
+    padding: 15px;
+    border-radius: 0.5em;
+    box-shadow: grey 0px 0px 5px;   
 }

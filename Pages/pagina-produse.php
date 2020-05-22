@@ -55,7 +55,7 @@ if (!in_array($_GET["c"], $c_array)) {
             </div>
             <div class="filtru">
               <input id="masini" type="radio" name="categorie" value="masini" onclick="setCategorie('masini')">
-              <label for="masini"><span class="radio">Mașini-trenulețe</span></label>
+              <label for="masini"><span class="radio">Mașini,trenulețe</span></label>
             </div>
             <div class="filtru">
               <input id="papusi" type="radio" name="categorie" value="papusi" onclick="setCategorie('papusi')">
@@ -91,7 +91,11 @@ if (!in_array($_GET["c"], $c_array)) {
             </div>
           </div>
           <div class="filtru-container">
-            <div class="filtru-title"> Destinatar </div>
+            <div class="filtru-title">
+              <span>Destinatar</span>
+              <img src="./img/question_mark.png" alt="question_mark">
+              <span class="explicatie">Filtru exclusiv: va selecta doar jucariile care au exact destinatarul ales ( baieti, fete sau baieti-fete) </span>
+            </div>
             <div class="filtru">
               <input id="baieti" type="Checkbox" name="destinatar" value="baieti" onclick="updateDestinatar()">
               <label for="baieti"><span class="checkbox">baieti</span></label>
@@ -102,7 +106,11 @@ if (!in_array($_GET["c"], $c_array)) {
             </div>
           </div>
           <div class="filtru-container">
-            <div class="filtru-title"> Varsta </div>
+            <div class="filtru-title">
+              <span>Varsta</span>
+              <img src="./img/question_mark.png" alt="question_mark">
+              <span class="explicatie">Filtru inclusiv: va selecta jucariile care sunt destinate cel putin unei categorii de varsta alese </span>
+            </div>
             <div class="filtru">
               <input id="prescolari" type="Checkbox" name="varsta" value="prescolari" onclick="updateVarsta()">
               <label for="prescolari"><span class="checkbox">prescolari</span></label>
@@ -125,6 +133,7 @@ if (!in_array($_GET["c"], $c_array)) {
 
     </div> <!-- section -->
 </body>
+
 <script>
   var categorie, pret, destinatar, varsta;
   // initializare pagina:
@@ -148,17 +157,10 @@ if (!in_array($_GET["c"], $c_array)) {
                 echo '"' . $_GET['varsta'] . '"' ?>;
 
     document.getElementById(categorie).checked = true;
-    if (pret != null) {
-      split_pret = pret.split('-');
-      var checkboxes = document.querySelectorAll('input[type=checkbox][name="pret"]')
-      for (var i = 0; i < checkboxes.length; i++) {
-        if (parseInt(checkboxes[i].value.split('-')[0]) >= parseInt(split_pret[0]) &&
-          parseInt(checkboxes[i].value.split('-')[1]) <= parseInt(split_pret[1])) {
-          checkboxes[i].checked = true
-        }
-        console.log(checkboxes[i].value.split('-')[0] + '>=' + split_pret[0] + ' && ' + checkboxes[i].value.split('-')[1] + '<=' + split_pret[1])
-      }
-    }
+    if (pret != null)
+      pret.split(",").forEach(function(entry) {
+        document.getElementById(entry).checked = true;
+      })
     if (destinatar != null)
       destinatar.split(",").forEach(function(entry) {
         document.getElementById(entry).checked = true;
@@ -177,37 +179,13 @@ if (!in_array($_GET["c"], $c_array)) {
   }
 
   function updatePret() {
-    pret = "";
-    var checkboxes = document.querySelectorAll('input[type=checkbox][name="pret"]')
-
-    var first_checked,
-      last_checked;
-
-    for (var i = 0; i < checkboxes.length; i++) {
-      if (checkboxes[i].checked == true) {
-        last_checked = i;
-        if (first_checked == null)
-          first_checked = i;
-      }
-    }
-
-    if (first_checked == null) {
+    pret = [];
+    var checkboxes = document.querySelectorAll('input[type=checkbox][name="pret"]:checked')
+    if (checkboxes.length == 0)
       pret = null;
-    } else {
-
-      for (var i = first_checked; i < last_checked; i++)
-        checkboxes[i].checked = true
-
-      if (first_checked == last_checked)
-        pret = checkboxes[first_checked].value;
-      else {
-        split1 = checkboxes[first_checked].value.split("-");
-        split2 = checkboxes[last_checked].value.split("-");
-        pret = split1[0] + '-' + split2[1];
-      }
-
+    for (var i = 0; i < checkboxes.length; i++) {
+      pret.push(checkboxes[i].value)
     }
-
     changeURL_content();
 
   }
