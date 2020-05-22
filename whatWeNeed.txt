@@ -29,3 +29,13 @@ Update pagini:
 -cart
 -comanda
 
+Modificari BD:
+ produse : +vandute
+
+De modificat baza de date:
+tabela users: +favorite[id_produs, id_produs, ...]
+	      +cos [id_produs, id_produs,...]
+
+sau 
+	+tabela produse_cos: (id_user(fk), id_produs(fk)) - cheie primara
+	+tabela produse_favorite: (id_user(fk), id_produs(fk)) - cheie primara
