@@ -12,24 +12,29 @@
 </head>
 
 <body>
-  <?php include "header.php" ?>
+  <?php 
+    include "header.php";
+    include "./PHP/db_connection.php"; 
+    include "./PHP/user_login.php"; 
+    include "./PHP/user_register.php"; 
+  ?>
 
 
   <div class="fomrs-container">
     <form class="box" action="#" method="post">
       <h1>Login</h1>
-      <input type="text" name="username" placeholder="Nume de utilizator">
-      <input type="password" name="parola" placeholder="Parola">
+      <input type="text" name="lusername" placeholder="Nume de utilizator">
+      <input type="password" name="lparola" placeholder="Parola">
       <input type="submit" name="login" value="Login">
     </form>
     <form class="box" action="#" method="post">
       <h1>Register</h1>
-      <input type="text" name="username" placeholder="Nume de utilizator">
+      <input type="text" name="rusername" placeholder="Nume de utilizator">
       <input type="text" name="name" placeholder="Nume">
       <input type="text" name="first-name" placeholder="Prenume">
-      <input type="text" name="Email" placeholder="Email">
-      <input type="password" name="parola" placeholder="Parola">
-      <input type="password" name="parola2" placeholder="Confirma parola">
+      <input type="text" name="email" placeholder="Email">
+      <input type="password" name="rparola1" placeholder="Parola">
+      <input type="password" name="rparola2" placeholder="Confirma parola">
       <input type="submit" name="Register" value="Register">
     </form>
   </div>
