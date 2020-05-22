@@ -14,7 +14,9 @@
 <body>
   <?php 
     include "header.php";
+    include "./PHP/db_connection.php"; 
     include "./PHP/user_login.php"; 
+    include "./PHP/user_register.php"; 
   ?>
 
 
@@ -30,7 +32,7 @@
       <input type="text" name="rusername" placeholder="Nume de utilizator">
       <input type="text" name="name" placeholder="Nume">
       <input type="text" name="first-name" placeholder="Prenume">
-      <input type="text" name="Email" placeholder="Email">
+      <input type="text" name="email" placeholder="Email">
       <input type="password" name="rparola1" placeholder="Parola">
       <input type="password" name="rparola2" placeholder="Confirma parola">
       <input type="submit" name="Register" value="Register">

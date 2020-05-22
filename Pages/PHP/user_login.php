@@ -1,8 +1,8 @@
 <?php
-    include "db_connection.php";
+    //include "db_connection.php";
 
     function ExistaUser($user) {
-        return ("select count(username) from users where username = " . $user);
+        return ("select count(username) from users where username = " . $user == 1);
     }
 
     function VerificaParola($user, $pass) {
@@ -13,14 +13,17 @@
     }
 
     if (!ExistaUser($_GET["lusername"])) {
-        echo "Nu exista un cont asociat acestui username.";
+        $message =  "Nu exista un cont asociat acestui username.";
+        echo "<script type='text/javascript'>alert('$message');</script>";
     }
 
     else {
         if (VerificaParola($_GET["lusername"] , $_GET["lpassword"]) == false) {
-            echo "Nu ati introdus parola corecta";
+            $message = "Nu ati introdus parola corecta";
+            echo "<script type='text/javascript'>alert('$message');</script>";
         }
         else {
-            echo "Logare reusita!";
+            $message =  "Logare reusita!";
+            echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }
