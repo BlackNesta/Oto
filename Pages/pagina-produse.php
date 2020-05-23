@@ -13,7 +13,7 @@ if (!in_array($_GET["c"], $c_array)) {
 
 <head>
   <meta charset="utf-8">
-  <title>Online Toys</title>
+  <title>Online Toys - Jucarii</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
@@ -128,16 +128,55 @@ if (!in_array($_GET["c"], $c_array)) {
       </div>
     </div>
 
+    <div id="top-bar">
+      <div class="ordonare-container container">
+        Ordoneaza dupa:
+        <select id="ordonare" name="ordonare">
+          <option value="vandute">Cele mai vandute</option>
+          <option value="nume">Nume</option>
+          <option value="pret-ASC">Pret crescator</option>
+          <option value="pret-DESC">Pret descrescator</option>
+        </select>
+      </div>
+      <div class="nr-produse-container container">
+        Numar produse: <span id="nr-produse"> </span>
+      </div>
+      <div class="paginare-container container">
+        Pagina <span id="pagina-curenta">
+          1</span>
+        din
+        <span id="nr-pagini">1</span>
+      </div>
+    </div>
+    <div id="bot-bar">
 
+    </div>
     <div id="produse-container">
 
-    </div> <!-- section -->
+    </div>
+
+
+  </div> <!-- section -->
 </body>
 
 <script>
-  var categorie, pret, destinatar, varsta;
+  var categorie, pret, destinatar, varsta, nr_produse, nr_pagini, prod_per_page = 3,
+    pagina_curenta = 1;
   // initializare pagina:
   PageInit();
+
+  function getCurentURL_parameters() {
+    var url_parameters = '?c=' + categorie;
+    if (pret != null)
+      url_parameters += '&pret=' + pret;
+    if (destinatar != null)
+      url_parameters += '&dest=' + destinatar;
+    if (varsta != null)
+      url_parameters += '&varsta=' + varsta;
+    if (pagina_curenta != 1)
+      url_parameters += '&page=' + pagina_curenta;
+    return url_parameters;
+  }
 
   function PageInit() {
     categorie = "<?php echo $_GET["c"] ?>";
@@ -155,7 +194,10 @@ if (!in_array($_GET["c"], $c_array)) {
                 echo 'null';
               else
                 echo '"' . $_GET['varsta'] . '"' ?>;
-
+    pagina_curenta = <?php if (empty($_GET['page']))
+                        echo '1';
+                      else
+                        echo '"' . $_GET['page'] . '"' ?>;
     document.getElementById(categorie).checked = true;
     if (pret != null)
       pret.split(",").forEach(function(entry) {
@@ -170,12 +212,13 @@ if (!in_array($_GET["c"], $c_array)) {
         document.getElementById(entry).checked = true;
       })
 
-    changeURL_content();
+    changeContent(getCurentURL_parameters());
   }
 
   function setCategorie(value) {
     categorie = value;
-    changeURL_content();
+    pagina_curenta = 1;
+    changeURL();
   }
 
   function updatePret() {
@@ -186,7 +229,8 @@ if (!in_array($_GET["c"], $c_array)) {
     for (var i = 0; i < checkboxes.length; i++) {
       pret.push(checkboxes[i].value)
     }
-    changeURL_content();
+    pagina_curenta = 1;
+    changeURL();
 
   }
 
@@ -199,7 +243,8 @@ if (!in_array($_GET["c"], $c_array)) {
     for (var i = 0; i < checkboxes.length; i++) {
       destinatar.push(checkboxes[i].value)
     }
-    changeURL_content();
+    pagina_curenta = 1;
+    changeURL();
 
   }
 
@@ -213,20 +258,19 @@ if (!in_array($_GET["c"], $c_array)) {
     for (var i = 0; i < checkboxes.length; i++) {
       varsta.push(checkboxes[i].value)
     }
-    changeURL_content();
+    pagina_curenta = 1;
+    changeURL();
 
   }
 
-  function changeURL_content() {
-    var url_parameters = '?c=' + categorie;
-    if (pret != null)
-      url_parameters += '&pret=' + pret;
-    if (destinatar != null)
-      url_parameters += '&dest=' + destinatar;
-    if (varsta != null)
-      url_parameters += '&varsta=' + varsta;
+  function changeURL() {
+    var url_parameters = getCurentURL_parameters();
     history.replaceState({}, null, 'pagina-produse.php' + url_parameters);
 
+    changeContent(url_parameters);
+  }
+
+  function changeProduseList(url_parameters) {
     var xhttp;
     xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function() {
@@ -234,7 +278,68 @@ if (!in_array($_GET["c"], $c_array)) {
         document.getElementById("produse-container").innerHTML = this.responseText;
       }
     };
-    xhttp.open("GET", "PHP/get_products.php" + url_parameters, true);
+    xhttp.open("GET", "PHP/get_products.php" + url_parameters + '&limit=' + prod_per_page, true);
+    xhttp.send();
+
+  }
+
+  function changeContent(url_parameters) {
+
+    changeProduseList(url_parameters);
+
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        nr_produse = this.responseText;
+        document.getElementById("nr-produse").innerText = nr_produse;
+        nr_pagini = parseInt((nr_produse - 1) / prod_per_page, 10) + 1;
+        document.getElementById("nr-pagini").innerText = nr_pagini;
+
+        document.getElementById("bot-bar").innerHTML = "";
+        if (nr_pagini > 1)
+          for (i = 1; i <= nr_pagini; i++) {
+            if (i == pagina_curenta) {
+              console.log(pagina_curenta);
+              pageElement = '<div class="page" id="pageS" onclick="selectPage(' + i + ')"> ' + i + ' </div>';
+            } else
+              pageElement = '<div class="page" id="page" onclick="selectPage(' + i + ')"> ' + i + ' </div>';
+            document.getElementById("bot-bar").innerHTML += pageElement;
+          }
+
+      }
+    };
+    xhttp.open("GET", "PHP/get_products_number.php" + url_parameters, true);
+    xhttp.send();
+  }
+
+
+  function selectPage(pageNr) {
+    var pages = document.getElementsByClassName("page");
+    for (i = 0; i < pages.length; i++) {
+      pages[i].style.backgroundColor = "wheat";
+      pages[i].style.color = "black";
+    }
+    pages[pageNr - 1].style.backgroundColor = "brown";
+    pages[pageNr - 1].style.color = "white";
+    document.getElementById("pagina-curenta").innerText = pageNr;
+    pagina_curenta = pageNr;
+
+    change_page();
+  }
+
+  function change_page(url_parameters) {
+    var url_parameters = getCurentURL_parameters();
+    history.replaceState({}, null, 'pagina-produse.php' + url_parameters);
+
+    changeProduseList(url_parameters);
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("produse-container").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "PHP/get_products.php" + url_parameters + '&limit=' + prod_per_page, true);
     xhttp.send();
   }
 </script>

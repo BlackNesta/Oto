@@ -35,30 +35,7 @@ if (!empty($_GET['varsta'])) {
     }
     $sql = $sql . " ) ";
 }
-if (!empty($_GET['page'])) {
-    $offset = ($_GET['page'] - 1) * $_GET['limit'];
-    $sql = $sql . " LIMIT " . $offset . ", " . $_GET['limit'];
-} else
-    $sql = $sql . " LIMIT " . $_GET['limit'];
 $result_produse = mysqli_query($conn, $sql);
 // Afisare string interogare de control: echo $sql;
-if (mysqli_num_rows($result_produse) == 0)
-    echo '<div class="mesaj_back"> Nu au fost gasite produse conform criteriilor selectate. </div>';
-else {
-    while ($produs = mysqli_fetch_assoc($result_produse)) {
-        $result_img = mysqli_query($conn, "SELECT img1 FROM imagini_produs where id_produs='" . $produs["id"] . "'");
-        $img_prd = mysqli_fetch_assoc($result_img);
+    echo mysqli_num_rows($result_produse);
 
-        echo
-            '<div class="produs">
-                            <a href="produs.php?id=' . $produs["id"] . '">
-                                    <img src="img/' . $img_prd["img1"] . '" alt="img-produs">
-                                    <div class="nume">' . $produs["nume"] . '</div>
-                                    </a>
-                                    <div class="details">
-                                    <span class="price">' . $produs["pret"] . ' lei</span>
-                                    <button>Adauga in cos</button>
-                                    </div>
-                                </div>';
-    }
-}
