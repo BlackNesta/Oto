@@ -13,7 +13,7 @@ if (!$result_produs)
 
 if (mysqli_num_rows($result_produs) == 0) {
     $title = "Produs inexistent";
-}else{
+} else {
     $produs = mysqli_fetch_assoc($result_produs);
     $title = $produs['nume'];
 }
@@ -73,7 +73,7 @@ if (mysqli_num_rows($result_produs) == 0) {
                     <button>Adauga in Cos</button>
                 </div>
                 <div>
-                    <button>Adauga al Favorite</button>
+                    <button>Adauga la Favorite</button>
                 </div>
             </div>
         </div>

@@ -37,5 +37,4 @@ if (!empty($_GET['varsta'])) {
 }
 $result_produse = mysqli_query($conn, $sql);
 // Afisare string interogare de control: echo $sql;
-    echo mysqli_num_rows($result_produse);
-
+echo mysqli_num_rows($result_produse);

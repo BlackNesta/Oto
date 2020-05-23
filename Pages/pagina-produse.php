@@ -131,11 +131,23 @@ if (!in_array($_GET["c"], $c_array)) {
     <div id="top-bar">
       <div class="ordonare-container container">
         Ordoneaza dupa:
-        <select id="ordonare" name="ordonare">
-          <option value="vandute">Cele mai vandute</option>
+        <select id="ordonare" name="ordonare" onchange="setOrd(value)">
+          <option value="id">ID</option>
           <option value="nume">Nume</option>
+          <option value="vandute" selected>Cele mai vandute</option>
           <option value="pret-ASC">Pret crescator</option>
           <option value="pret-DESC">Pret descrescator</option>
+        </select>
+      </div>
+      <div class="prod-per-pagina-container container">
+        Produse pe pagina:
+        <select id="prod-per-pagina" name="prod-per-pagina" onchange="setProdPerPagina(value)">
+          <option value="3">3</option>
+          <option value="4" selected>4</option>
+          <option value="6">6</option>
+          <option value="10">10</option>
+          <option value="18">18</option>
+          <option value="32">32</option>
         </select>
       </div>
       <div class="nr-produse-container container">
@@ -148,20 +160,22 @@ if (!in_array($_GET["c"], $c_array)) {
         <span id="nr-pagini">1</span>
       </div>
     </div>
-    <div id="bot-bar">
 
-    </div>
     <div id="produse-container">
 
     </div>
 
+    <div id="bot-bar">
+
+    </div>
 
   </div> <!-- section -->
 </body>
 
 <script>
-  var categorie, pret, destinatar, varsta, nr_produse, nr_pagini, prod_per_page = 3,
-    pagina_curenta = 1;
+  var categorie, pret, destinatar, varsta, nr_produse, nr_pagini, prod_per_pagina = 4,
+    pagina_curenta = 1,
+    ord = 'vandute';
   // initializare pagina:
   PageInit();
 
@@ -263,24 +277,23 @@ if (!in_array($_GET["c"], $c_array)) {
 
   }
 
+  function setOrd(ordine) {
+    ord = ordine;
+    pagina_curenta = 1;
+    changeURL();
+  }
+
+  function setProdPerPagina(prod_nr) {
+    prod_per_pagina = prod_nr;
+    pagina_curenta = 1;
+    changeURL();
+  }
+
   function changeURL() {
     var url_parameters = getCurentURL_parameters();
     history.replaceState({}, null, 'pagina-produse.php' + url_parameters);
 
     changeContent(url_parameters);
-  }
-
-  function changeProduseList(url_parameters) {
-    var xhttp;
-    xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function() {
-      if (this.readyState == 4 && this.status == 200) {
-        document.getElementById("produse-container").innerHTML = this.responseText;
-      }
-    };
-    xhttp.open("GET", "PHP/get_products.php" + url_parameters + '&limit=' + prod_per_page, true);
-    xhttp.send();
-
   }
 
   function changeContent(url_parameters) {
@@ -293,14 +306,13 @@ if (!in_array($_GET["c"], $c_array)) {
       if (this.readyState == 4 && this.status == 200) {
         nr_produse = this.responseText;
         document.getElementById("nr-produse").innerText = nr_produse;
-        nr_pagini = parseInt((nr_produse - 1) / prod_per_page, 10) + 1;
+        nr_pagini = parseInt((nr_produse - 1) / prod_per_pagina, 10) + 1;
         document.getElementById("nr-pagini").innerText = nr_pagini;
 
         document.getElementById("bot-bar").innerHTML = "";
         if (nr_pagini > 1)
           for (i = 1; i <= nr_pagini; i++) {
             if (i == pagina_curenta) {
-              console.log(pagina_curenta);
               pageElement = '<div class="page" id="pageS" onclick="selectPage(' + i + ')"> ' + i + ' </div>';
             } else
               pageElement = '<div class="page" id="page" onclick="selectPage(' + i + ')"> ' + i + ' </div>';
@@ -313,6 +325,18 @@ if (!in_array($_GET["c"], $c_array)) {
     xhttp.send();
   }
 
+  function changeProduseList(url_parameters) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("produse-container").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "PHP/get_products.php" + url_parameters + '&limit=' + prod_per_pagina + '&ord=' + ord, true);
+    xhttp.send();
+
+  }
 
   function selectPage(pageNr) {
     var pages = document.getElementsByClassName("page");
@@ -339,7 +363,7 @@ if (!in_array($_GET["c"], $c_array)) {
         document.getElementById("produse-container").innerHTML = this.responseText;
       }
     };
-    xhttp.open("GET", "PHP/get_products.php" + url_parameters + '&limit=' + prod_per_page, true);
+    xhttp.open("GET", "PHP/get_products.php" + url_parameters + '&limit=' + prod_per_pagina + '&ord=' + ord, true);
     xhttp.send();
   }
 </script>
