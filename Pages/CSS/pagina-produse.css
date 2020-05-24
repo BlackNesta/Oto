@@ -45,20 +45,21 @@ body {
     position: relative;
 }
 
-.filtru-title span{
+.filtru-title span {
     margin-right: 5px;
 }
 
-.filtru-title img{
+.filtru-title img {
     height: 0.8em;
     opacity: 50%;
     transition: opacity 1s;
 }
 
-.filtru-title img:hover{
+.filtru-title img:hover {
     opacity: 100%;
 }
-.filtru-title .explicatie{
+
+.filtru-title .explicatie {
     z-index: 1;
     position: absolute;
     display: none;
@@ -71,11 +72,11 @@ body {
     border-radius: 0.5em;
 }
 
-.filtru-title img:hover + .explicatie{
+.filtru-title img:hover+.explicatie {
     display: inline;
 }
 
-.filtru{
+.filtru {
     padding-left: 15px;
 }
 
@@ -153,7 +154,7 @@ body {
     .filtru-container {
         margin-top: 0;
     }
-    .filtru-title .explicatie{
+    .filtru-title .explicatie {
         width: 200px;
         left: -20px;
         top: 2.5em;
@@ -163,6 +164,79 @@ body {
 @media screen and (max-width: 320px) {
     .filtru-container {
         min-width: 200px;
+    }
+}
+
+/* ##########################   Top-bar    ##############   */
+
+#top-bar {
+    margin-left: 230px;
+    background-color: wheat;
+    display: flex;
+    flex-wrap: wrap;
+    align-self: start;
+    justify-content: space-around;
+    font-size: 1.1em;
+}
+
+#top-bar .container {
+    padding: 10px;
+    text-align: center;
+}
+
+#top-bar span {
+    margin-left: 5px;
+}
+
+#top-bar select {
+    text-decoration: none;
+    font-size: 1rem;
+    border: none;
+    padding: 3px;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+}
+
+#top-bar select:focus {
+    outline: none;
+}
+
+/* ##########################   Bot-bar    ##############   */
+
+#bot-bar {
+    margin-left: 230px;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.1em;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#bot-bar .page {
+    background-color: wheat;
+    color: black;
+    padding: 5px 10px;
+    margin: 5px;
+    border-radius: 5px;
+}
+
+#bot-bar .page:hover {
+    color: brown;
+    cursor: pointer;
+}
+
+#bot-bar #pageS {
+    background-color: brown;
+    color: white;
+}
+
+@media screen and (max-width: 1023px) {
+    #top-bar {
+        margin-left: 0px;
+    }
+    #bot-bar {
+        margin-left: 0px;
     }
 }
 
@@ -231,13 +305,19 @@ body {
     #produse-container {
         padding-left: 0px;
     }
+    #top-bar {
+        margin-left: 0px;
+    }
+    .filtre-container {
+        padding-bottom: 20px;
+    }
 }
 
-.mesaj_back{
+.mesaj_back {
     font-size: 1.5em;
     margin-top: 25px;
     background-color: wheat;
     padding: 15px;
     border-radius: 0.5em;
-    box-shadow: grey 0px 0px 5px;   
+    box-shadow: grey 0px 0px 5px;
 }
