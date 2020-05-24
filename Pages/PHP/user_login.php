@@ -1,29 +1,30 @@
 <?php
-    //include "db_connection.php";
+    include "db_connection.php";
 
-    function ExistaUser($user) {
-        return ("select count(username) from users where username = " . $user == 1);
+    // Initialize the session
+    session_start();
+ 
+    // Check if the user is already logged in, if yes then redirect him to welcome page
+    if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+        exit;
     }
 
-    function VerificaParola($user, $pass) {
-        if ($pass == "select parola from users where username = " . $user) {
-            return true;
-        }
-        return false;
-    }
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        $myusername = mysqli_real_escape_string($conn, $_POST['lusername']);
+        $mypassword = mysqli_real_escape_string($conn, $_POST["lparola"]);
 
-    if (!ExistaUser($_GET["lusername"])) {
-        $message =  "Nu exista un cont asociat acestui username.";
-        echo "<script type='text/javascript'>alert('$message');</script>";
-    }
+        $sql = "SELECT id FROM users WHERE username = '$myusername' and parola = '$mypassword'";
+      
+        $result = mysqli_query($conn, $sql) or die (mysqli_error($conn));
+        $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
+        $count = mysqli_num_rows($result);
 
-    else {
-        if (VerificaParola($_GET["lusername"] , $_GET["lpassword"]) == false) {
-            $message = "Nu ati introdus parola corecta";
-            echo "<script type='text/javascript'>alert('$message');</script>";
+        if ($count == 1) {
+            $_SESSION['username'] = $myusername;
+            header("Location: ./main.php");
         }
         else {
-            $message =  "Logare reusita!";
-            echo "<script type='text/javascript'>alert('$message');</script>";
+            $error = "Wrong username or password";
         }
     }
+    
