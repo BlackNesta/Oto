@@ -205,12 +205,23 @@ if (mysqli_num_rows($result_produs) == 0) {
 
         function addProductInCart(id_produs) {
             var products = JSON.parse(localStorage.getItem("cartProducts"));
-            if (products == null)
+            var count = JSON.parse(localStorage.getItem("countProducts"));
+            //console.log("Before: " + products + " | " + count);
+            if (products == null) {
                 products = [];
-            //console.log(products);
-            products.push(id_produs);
-            //console.log(products);
+                count = [];
+            }
+            const index = Object.values(products).indexOf(id_produs);
+            if (index > -1) {
+                count[index] = parseInt(count[index]) + 1;
+            } else {
+                products.push(id_produs);
+                count.push(1);
+            }
+
+            //console.log("After: " + products + " | " + count);
             localStorage.setItem("cartProducts", JSON.stringify(products));
+            localStorage.setItem("countProducts", JSON.stringify(count));
         }
     </script>
 </body>
