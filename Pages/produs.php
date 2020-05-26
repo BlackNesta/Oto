@@ -70,7 +70,7 @@ if (mysqli_num_rows($result_produs) == 0) {
             <div class="produs-detalii">
                 <div class="pret"><?php echo $produs['pret'] ?> lei</div>
                 <div>
-                    <button>Adauga in Cos</button>
+                    <button onclick="addProductInCart(<?php echo $id_produs ?>)">Adauga in Cos</button>
                 </div>
                 <div>
                     <button>Adauga la Favorite</button>
@@ -169,17 +169,18 @@ if (mysqli_num_rows($result_produs) == 0) {
         }
 
         function LoadReviews(id, n, offset) {
-            var xhttp;
-
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function() {
-                if (this.readyState == 4 && this.status == 200) {
-                    document.getElementById("recenzii").innerHTML += this.responseText;
-                }
-            };
-            xhttp.open("GET", "PHP/get_reviews.php?id=" + id + "&n=" + n + "&offset=" + offset, true);
-            xhttp.send();
-            return new Promise(resolve => setTimeout(resolve, 10));
+            return new Promise(resolve => {
+                var xhttp;
+                xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        document.getElementById("recenzii").innerHTML += this.responseText;
+                        resolve();
+                    }
+                };
+                xhttp.open("GET", "PHP/get_reviews.php?id=" + id + "&n=" + n + "&offset=" + offset, true);
+                xhttp.send();
+            });
         }
 
         window.addEventListener('scroll', () => {
@@ -201,6 +202,16 @@ if (mysqli_num_rows($result_produs) == 0) {
         window.addEventListener('resize', () => {
             InitReviewsTab();
         });
+
+        function addProductInCart(id_produs) {
+            var products = JSON.parse(localStorage.getItem("cartProducts"));
+            if (products == null)
+                products = [];
+            //console.log(products);
+            products.push(id_produs);
+            //console.log(products);
+            localStorage.setItem("cartProducts", JSON.stringify(products));
+        }
     </script>
 </body>
 

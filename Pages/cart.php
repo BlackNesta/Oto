@@ -16,68 +16,92 @@
 
   <section>
     <div class="section-title">Cosul meu</div>
-    <div class="produs">
-      <a href="./produs.php"><img src="img/toy4.png" /></a>
-      <div class="detalii-produs">
-        <span class="produs-title">Ursulet de plus foarte dragalas</span>
-        <span class="cantitate">
-          <label for="cantitate">Cantitate:</label>
-          <input type="number" name="cantitate" id="cantitate" value="1" min="1"></span>
-        </span>
-      </div>
-      <div class="detalii-produs">
-        <span class="pret">Pret: 299Ron</span>
-        <span>
-          <input type="submit" value="Sterge" class="button">
-        </span>
-      </div>
-    </div>
+    <div id="produse">
 
-    <div class="produs">
-      <a href="./produs.php"><img src="img/toy2.png" /></a>
-      <div class="detalii-produs">
-        <span class="produs-title">
-          Ursulet de plus foarte pufos
-        </span>
-        <span>
-          <label for="cantitate">Cantitate:</label>
-          <input type="number" name="cantitate" id="cantitate" value="1" min="1"></span>
-        </span>
-      </div>
-      <div class="detalii-produs">
-        <span class="pret">Pret: 399Ron</span>
-        <span>
-          <input type="submit" value="Sterge" class="button">
-        </span>
-      </div>
     </div>
-
-    <div class="produs">
-      <a href="./produs.php"><img src="img/toy1.png" /></a>
-      <div class="detalii-produs">
-        <span class="produs-title">Ursulet de plus pufos si dragalas</span>
-        <span>
-          <label for="cantitate">Cantitate:</label>
-          <input type="number" name="cantitate" id="cantitate" value="1" min="1"></span>
-        </span>
-      </div>
-      <div class="detalii-produs">
-        <span class="pret">Pret: 599Ron</span>
-        <span>
-          <input type="submit" value="Sterge" class="button">
-        </span>
-      </div>
-    </div>
-
     <div class="total-comanda">
       <div class="pret">
-        Total: 900Ron
+        Total: <span id="total-value">900<span>Ron
       </div>
       <div class="comanda-btn">
         <a href="comanda.php"><input type="submit" value="Finalizeaza comanda" class="button last-btn"></a>
       </div>
     </div>
   </section>
+
+  <script>
+    //localStorage.clear("cartProducts");
+    var products = localStorage.getItem("cartProducts");
+    console.log((products));
+    if (products == null || products == '[]')
+      document.getElementById("produse").innerHTML = '<h2 style="text-align: center;">Nu aveti niciun produs in cos<h2>';
+    else
+    {
+      LoadCartProducts(products).then(UpdateTotal);
+    }
+
+    function LoadCartProducts(products) {
+      return new Promise(resolve => {
+        var i, cont, val;
+        var ids = '',
+          count = '';
+        productsArray = Object.values(JSON.parse(products));
+        //console.log(productsArray);
+        while (productsArray.length != 0) {
+          i = 0, cont = 0;
+          val = productsArray[i];
+          while (i < productsArray.length) {
+            if (val == productsArray[i]) {
+              productsArray.splice(i, 1);
+              cont++;
+            } else
+              i++;
+          }
+          if (ids == '') {
+            ids += val;
+            count += cont;
+          } else {
+            ids += ',' + val;
+            count += ',' + cont;
+          }
+        }
+        console.log(productsArray);
+        console.log(ids);
+        console.log(count);
+
+        var xhttp;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("produse").innerHTML += this.responseText;
+            resolve();
+          }
+        };
+        xhttp.open("GET", "PHP/get_cart_products.php?items=" + ids + "&count=" + count, true);
+        xhttp.send();
+      });
+    }
+
+    function DeleteProduct(id_produs) {
+      document.getElementById("produs" + id_produs).remove();
+      products = products.replace(id_produs, "");
+      products = products.replace("[,", "[");
+      products = products.replace(",]", "]");
+      products = products.replace(",,", ",");
+      console.log(products);
+      localStorage.setItem("cartProducts", products);
+    }
+
+    function UpdateTotal() {
+      total = 0;
+      preturi = document.getElementsByClassName("pret-value");
+      cantitati = document.getElementsByName("cantitate");
+      for (i = 0; i < preturi.length; i++){
+        total += parseFloat(preturi[i].textContent)*parseInt(cantitati[i].value);
+      }
+      document.getElementById("total-value").textContent = total;
+    }
+  </script>
 </body>
 
 </html>
