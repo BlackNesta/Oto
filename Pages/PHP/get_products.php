@@ -41,6 +41,8 @@ if (!empty($_GET['varsta'])) {
 
 $ord = explode("-", $_GET['ord']);
 $sql = $sql . " ORDER BY " . $ord[0];
+if ($ord[0] == 'vandute')
+    $sql = $sql . " DESC";
 if (count($ord) == 2)
     $sql = $sql . " " . $ord[1];
 
@@ -68,7 +70,7 @@ else {
                                     </a>
                                     <div class="details">
                                     <span class="price">' . $produs["pret"] . ' lei</span>
-                                    <button>Adauga in cos</button>
+                                    <button onclick="addProductInCart(' . $produs["id"] . ')">Adauga in cos</button>
                                     </div>
                                 </div>';
     }

@@ -6,8 +6,7 @@
   <title>Online Toys</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
-    integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
   <link rel="stylesheet" href="./CSS/header.css" />
   <link rel="stylesheet" href="./CSS/main-style.css" />
 </head>
@@ -41,7 +40,7 @@
   <div id="title-produse"> Cele mai populare jucarii</div>
   <div id="produse">
     <?php
-    
+
     $result_produse = mysqli_query($conn, "SELECT id, nume, pret FROM produse ORDER BY vandute desc limit 10");
 
     if (!$result_produse)
@@ -54,13 +53,13 @@
 
         echo
           '<div class="produs">
-            <a href="produs.php?id='.$produs["id"] .'">
+            <a href="produs.php?id=' . $produs["id"] . '">
               <img src="img/' . $img_prd["img1"] . '" alt="img-produs">
               <div class="nume">' . $produs["nume"] . '</div>
             </a>
             <div class="details">
               <span class="price">' . $produs["pret"] . ' lei</span>
-              <button>Adauga in cos</button>
+              <button onclick="addProductInCart(' . $produs["id"] . ')" >Adauga in cos</button>
             </div>
           </div>';
       }
@@ -69,6 +68,7 @@
     mysqli_close($conn);
     ?>
   </div>
+  <script src="JS/addProductInCart.js"></script>
 </body>
 
 </html>

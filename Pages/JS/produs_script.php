@@ -1,0 +1,94 @@
+<script>
+    /* source pt slideshow: https://www.w3schools.com/w3css/w3css_slideshow.asp  */
+    function currentDiv(n) {
+        showDivs(slideIndex = n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("slide-curent");
+        var dots = document.getElementsByClassName("slide-img");
+        if (n > x.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = x.length
+        }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].style.opacity = "60%";
+        }
+        x[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].style.opacity = "100%";
+    }
+
+    function displayTab(slideIndex) {
+        var i;
+        var content = document.getElementsByClassName("tab-content");
+        var tabs = document.getElementsByClassName("tab");
+        for (i = 0; i < content.length; i++) {
+            content[i].style.display = "none";
+        }
+        for (i = 0; i < tabs.length; i++) {
+            tabs[i].style.color = "white";
+            tabs[i].style.backgroundColor = "brown";
+            tabs[i].style.opacity = "70%";
+        }
+        content[slideIndex - 1].style.display = "block";
+        tabs[slideIndex - 1].style.color = "black";
+        tabs[slideIndex - 1].style.backgroundColor = "wheat";
+        tabs[slideIndex - 1].style.opacity = "100%";
+    }
+
+    var offset = 0;
+
+    async function InitReviewsTab() {
+        var scrollHeight = document.documentElement.scrollHeight;
+        var clientHeight = document.documentElement.clientHeight;
+
+        while (clientHeight >= scrollHeight && offset <= <?php echo $recenzii_number['n'] ?>) {
+            await LoadReviews(<?php echo $id_produs ?>, 1, offset);
+            offset += 1;
+            scrollHeight = document.documentElement.scrollHeight;
+            clientHeight = document.documentElement.clientHeight;
+        }
+    }
+
+    function LoadReviews(id, n, offset) {
+        return new Promise(resolve => {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    document.getElementById("recenzii").innerHTML += this.responseText;
+                    resolve();
+                }
+            };
+            xhttp.open("GET", "PHP/get_reviews.php?id=" + id + "&n=" + n + "&offset=" + offset, true);
+            xhttp.send();
+        });
+    }
+
+    window.addEventListener('scroll', () => {
+        var recenzii = document.getElementById('recenzii');
+        if (recenzii.style.display == "block") {
+
+            const {
+                scrollTop,
+                scrollHeight,
+                clientHeight
+            } = document.documentElement;
+
+            if (clientHeight + scrollTop >= scrollHeight - 1) {
+                LoadReviews(<?php echo $id_produs ?>, 3, offset);
+                offset += 3;
+            }
+        }
+    });
+    window.addEventListener('resize', () => {
+        InitReviewsTab();
+    });
+    <?php include "addProductInCart.js" ?>
+</script>
