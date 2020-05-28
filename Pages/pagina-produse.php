@@ -142,11 +142,11 @@ if (!in_array($_GET["c"], $c_array)) {
       <div class="prod-per-pagina-container container">
         Produse pe pagina:
         <select id="prod-per-pagina" name="prod-per-pagina" onchange="setProdPerPagina(value)">
-          <option value="3">3</option>
-          <option value="4" selected>4</option>
-          <option value="6">6</option>
-          <option value="10">10</option>
-          <option value="18">18</option>
+          <option value="4">4</option>
+          <option value="8" selected>8</option>
+          <option value="12">12</option>
+          <option value="16">16</option>
+          <option value="24">24</option>
           <option value="32">32</option>
         </select>
       </div>

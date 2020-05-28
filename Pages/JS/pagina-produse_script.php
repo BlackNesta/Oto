@@ -1,5 +1,5 @@
 <script>
-  var categorie, pret, destinatar, varsta, nr_produse, nr_pagini, prod_per_pagina = 4,
+  var categorie, pret, destinatar, varsta, nr_produse, nr_pagini, prod_per_pagina = 8,
     pagina_curenta = 1,
     ord = 'vandute';
   // initializare pagina:
