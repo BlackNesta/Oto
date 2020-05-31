@@ -23,24 +23,34 @@
   <div class="fomrs-container">
     <form class="box" action="#" method="post">
       <h1>Login</h1>
-      <input type="text" name="lusername" class="form-control" value="">
+      <input type="text" name="lusername" class="form-control" value="" placeholder="Nume de utilizator">
       <div class="help-block"><?php echo $lusername_err; ?></div> 
+
       <input type="password" name="lparola" placeholder="Parola" value="">
       <div class="help-block"><?php echo $lpassword_err; ?></div>
+
       <input type="submit" name="login" value="Login">
     </form>
     <form class="box" action="#" method="post">
       <h1>Register</h1>
       <input type="text" name="rusername" placeholder="Nume de utilizator">
       <div class="help-block"><?php echo $rusername_err; ?></div> 
+
       <input type="text" name="name" placeholder="Nume">
       <div class="help-block"><?php echo $rlastname_err; ?></div> 
+
       <input type="text" name="first-name" placeholder="Prenume">
-      <div class="help-block"><?php echo $rfirstname; ?></div> 
+      <div class="help-block"><?php echo $rfirstname_err; ?></div> 
+
+      <input type="text" name="first-name" placeholder="Email">
+      <div class="help-block"><?php echo $remail_err; ?></div> 
+
       <input type="password" name="rparola1" placeholder="Parola">
       <div class="help-block"><?php echo $rpassworderr_err; ?></div> 
+
       <input type="password" name="rparola2" placeholder="Confirma parola">
       <div class="help-block"><?php echo $rpassword2_err; ?></div> 
+      
       <input type="submit" name="Register" value="Register">
     </form>
   </div>

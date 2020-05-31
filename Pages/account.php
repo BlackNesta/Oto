@@ -24,8 +24,8 @@
     
     <section class="account">
         <div class="title">
-            Contul meu -
-            <span class="username">utilizator124</span>
+            Contul meu: 
+            <span class="username"><?php echo $_SESSION["username"] ?></span>
         </div>
         <div class="date-flex">
             <section class="left">
@@ -37,41 +37,42 @@
                 </div>
             </section>
 
-            <section class="right">
+            <form class="right" mathod="post" autocomplete="off">
                 <div class="date">
                     <div class="linie-date">
                         <label for="nume">Nume: </label>
-                        <input type="text" name="nume" id="nume" value="Popescu">
+                        <input type="text" name="nume" id="nume" value=<?php echo $_SESSION["nume"]?> disabled="disabled">
                     </div>
                     <div class="linie-date">
                         <label for="prenume">Prenume: </label>
-                        <input type="text" name="prenume" id="prenume" value="Ion">
+                        <input type="text" name="prenume" id="prenume"  value=<?php echo $_SESSION["prenume"]?> disabled="disabled">
+                    </div>
+                    <div class="linie-date">
+                        <label for="email">Email: </label>
+                        <input type="text" name="email" id="email"  value=<?php echo $_SESSION["email"]?>>
+                    </div>
+                    <div class="linie-date">
+                        <label for="teleon">Telefon: </label>
+                        <input type="text" name="telefon" id="teleon" value=<?php echo $_SESSION["telefon"]?> >
+                    </div>
+                    
+                    <div class="linie-date">
+                        <label for="adresa">Adresa: </label>
+                        <input type="text" name="adresa" id="adresa"value=<?php echo $_SESSION["adresa"]?> >
                     </div>
                     <div class="linie-date">
                         <label for="parola">Parola: </label>
-                        <input type="password" name="parola" id="parola" value="1234567">
+                        <input type="password" name="parola" id="parola">
                     </div>
                     <div class="linie-date">
                         <label for="reparola">Confirma parola: </label>
                         <input type="password" name="reparola" id="reparola">
                     </div>
-                    <div class="linie-date">
-                        <label for="teleon">Telefon: </label>
-                        <input type="tel" name="telefon" id="teleon" value="+40">
-                    </div>
-                    <div class="linie-date">
-                        <label for="email">Email: </label>
-                        <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
-                    </div>
-                    <div class="linie-date">
-                        <label for="adresa">Adresa: </label>
-                        <input type="text" name="adresa" id="adresa">
-                    </div>
                     <div class="btn">
-                        <input type="submit" value="Submit" class="button">
+                        <input type="submit" value="Update" class="button">
                     </div>
                 </div>
-            </section>
+            </form>
         </div>
     </section>
     <section class="comenzi">
