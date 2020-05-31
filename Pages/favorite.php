@@ -12,8 +12,15 @@
 </head>
 
 <body>
-  <?php include "header.php" ?>
-
+<?php include "header.php" ;
+        session_start();
+ 
+        // Verific daca nu sunt deja logat
+        if(!isset($_SESSION["loggedin"])){
+            header("location: ./login-register.php");
+            exit;
+        }
+    ?>
   <section>
     <div class="section-title">Favorite</div>
 
