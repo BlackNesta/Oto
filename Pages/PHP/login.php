@@ -48,16 +48,16 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     mysqli_stmt_bind_result($stmt, $id, $lusername, $hashed_password);
                     if(mysqli_stmt_fetch($stmt)){
                         //verific daca parola introdusa este aceeasi cu parola hashuita din baza de date
-                        if(password_verify($lpassword, $hashed_password)){
+                        //if(password_verify($lpassword, $hashed_password)){
                             session_start();
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
                             $_SESSION["username"] = $lusername;                            
                             
                             header("location: ./main.php");
-                        } else{
-                            $lpassword_err = "Ati introdus parola gresita.";
-                        }
+                        //} else{
+                            //$lpassword_err = "Ati introdus parola gresita.";
+                        //}
                     }
                 } else{
                     $lusername_err = "Nu exista un cont cu acest username.";
