@@ -1,4 +1,20 @@
 <script>
+    loggedin =
+        <?php
+        if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
+            echo 'true';
+        else
+            echo 'false';
+        ?>;
+    if (loggedin)
+        userId =
+        <?php
+        if (isset($_SESSION["id"]))
+            echo $_SESSION["id"];
+        else
+            echo 0;
+        ?>;
+
     /* source pt slideshow: https://www.w3schools.com/w3css/w3css_slideshow.asp  */
     function currentDiv(n) {
         showDivs(slideIndex = n);
@@ -90,5 +106,47 @@
     window.addEventListener('resize', () => {
         InitReviewsTab();
     });
-    <?php include "addProductInCart.js" ?>
+
+    function addProductInCart(id_produs) {
+        if (!loggedin) {
+            //console.log("nelogat");
+            var products = JSON.parse(localStorage.getItem("cartProducts"));
+            var count = JSON.parse(localStorage.getItem("countProducts"));
+            //console.log("Before: " + products + " | " + count);
+            if (products == null) {
+                products = [];
+                count = [];
+            }
+            const index = Object.values(products).indexOf(id_produs);
+            if (index > -1) {
+                count[index] = parseInt(count[index]) + 1;
+            } else {
+                products.push(id_produs);
+                count.push(1);
+            }
+
+            //console.log("After: " + products + " | " + count);
+            localStorage.setItem("cartProducts", JSON.stringify(products));
+            localStorage.setItem("countProducts", JSON.stringify(count));
+
+        } else {
+            //console.log("logat");
+            insertProductInCartDB(userId, id_produs);
+        }
+    }
+
+    function insertProductInCartDB(userId, id_produs) {
+        return new Promise(resolve => {
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    //console.log(this.responseText);
+                    resolve();
+                }
+            };
+            xhttp.open("GET", "PHP/insert_product_in_cartDB.php?userId=" + userId + "&id_produs=" + id_produs, true);
+            xhttp.send();
+        });
+    }
 </script>

@@ -14,7 +14,8 @@
 <body>
   <?php
   include "header.php";
-  include "PHP/db_connection.php"
+  include "PHP/db_connection.php";
+  session_start();
   ?>
 
   <div id="slider">
@@ -68,7 +69,65 @@
     mysqli_close($conn);
     ?>
   </div>
-  <script src="JS/addProductInCart.js"></script>
+  <script>
+    loggedin =
+      <?php
+      if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
+        echo 'true';
+      else
+        echo 'false';
+      ?>;
+    if (loggedin)
+      userId = 
+      <?php 
+      if (isset($_SESSION["id"]))
+        echo $_SESSION["id"];
+      else
+        echo 0;
+      ?>;
+
+    function addProductInCart(id_produs) {
+      if (!loggedin) {
+
+        var products = JSON.parse(localStorage.getItem("cartProducts"));
+        var count = JSON.parse(localStorage.getItem("countProducts"));
+        //console.log("Before: " + products + " | " + count);
+        if (products == null) {
+          products = [];
+          count = [];
+        }
+        const index = Object.values(products).indexOf(id_produs);
+        if (index > -1) {
+          count[index] = parseInt(count[index]) + 1;
+        } else {
+          products.push(id_produs);
+          count.push(1);
+        }
+
+        //console.log("After: " + products + " | " + count);
+        localStorage.setItem("cartProducts", JSON.stringify(products));
+        localStorage.setItem("countProducts", JSON.stringify(count));
+      } else {
+        //console.log("logat");
+        insertProductInCartDB(userId, id_produs);
+      }
+    }
+
+    function insertProductInCartDB(userId, id_produs) {
+      return new Promise(resolve => {
+        var xhttp;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            //console.log(this.responseText);
+            resolve();
+          }
+        };
+        xhttp.open("GET", "PHP/insert_product_in_cartDB.php?userId=" + userId + "&id_produs=" + id_produs, true);
+        xhttp.send();
+      });
+    }
+  </script>
 </body>
 
 </html>

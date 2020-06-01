@@ -1,33 +1,93 @@
 <script>
-    //localStorage.clear("cartProducts");  localStorage.clear("countProducts");
-    
-    var products = localStorage.getItem("cartProducts");
-    var count = localStorage.getItem("countProducts");
-    //console.log("products: " + products);
-    //console.log("count: " + count);
-    if (products == null || products == '[]')
+
+  loggedin =
+    <?php
+    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
+      echo 'true';
+    else
+      echo 'false';
+    ?>;
+  if (loggedin)
+      userId = 
+      <?php 
+      if (isset($_SESSION["id"]))
+        echo $_SESSION["id"];
+      else
+        echo 0;
+      ?>;
+  var localProducts = localStorage.getItem("cartProducts");
+  var localCount = localStorage.getItem("countProducts");
+  console.log("Local products: " + localProducts);
+  console.log("Local count: " + localCount);
+
+  if (loggedin) {
+    if (localProducts != null && localProducts != '[]')
+      MoveLocalToDb(localProducts, localCount, userId).then(LoadUserCartProducts(userId)).then(UpdateTotal);
+    else
+      LoadUserCartProducts(userId).then(UpdateTotal);
+  } else {
+    if (localProducts == null || localProducts == '[]')
       document.getElementById("produse").innerHTML = '<h2 style="text-align: center;">Nu aveti niciun produs in cos<h2>';
     else {
-      LoadCartProducts(products, count).then(UpdateTotal);
+      LoadLocalCartProducts(localProducts, localCount).then(UpdateTotal);
     }
+  }
 
-    function LoadCartProducts(productsIds, count) {
-      return new Promise(resolve => {
-        var xhttp;
-        xhttp = new XMLHttpRequest();
-        xhttp.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("produse").innerHTML += this.responseText;
-            resolve();
-          }
-        };
-        xhttp.open("GET", "PHP/get_cart_products.php?items=" + productsIds + "&count=" + count, true);
-        xhttp.send();
-      });
-    }
+  function MoveLocalToDb(productsIds, count, userId) {
+    localStorage.clear("cartProducts");
+    localStorage.clear("countProducts");
+    return new Promise(resolve => {
+      var xhttp;
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          //document.getElementById("produse").innerHTML += this.responseText;
+          resolve();
+        }
+      };
+      xhttp.open("GET", "PHP/cart_local_to_db.php?items=" + productsIds + "&count=" + count + "&userId=" + userId, true);
+      xhttp.send();
+    });
+  }
 
-    function DeleteProduct(id_produs) {
-      document.getElementById("produs" + id_produs).remove();
+  function LoadUserCartProducts(userId) {
+    console.log("LoadUserCartProducts...");
+    return new Promise(resolve => {
+      var xhttp;
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("produse").innerHTML += this.responseText;
+          resolve();
+        }
+      };
+      xhttp.open("GET", "PHP/get_user_cart_products.php?userId=" + userId, true);
+      xhttp.send();
+    });
+  }
+
+  function LoadLocalCartProducts(productsIds, count) {
+    return new Promise(resolve => {
+      var xhttp;
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("produse").innerHTML += this.responseText;
+          resolve();
+        }
+      };
+      xhttp.open("GET", "PHP/get_local_cart_products.php?items=" + productsIds + "&count=" + count, true);
+      xhttp.send();
+    });
+  }
+
+  function DeleteProduct(id_produs) {
+
+    document.getElementById("produs" + id_produs).remove();
+
+    if (loggedin) {
+      DeleteProductFromDB(userId, id_produs);
+    } else {
 
       productsObject = JSON.parse(localStorage.getItem("cartProducts"));;
       countObject = JSON.parse(localStorage.getItem("countProducts"));;
@@ -58,36 +118,56 @@
       localStorage.setItem("cartProducts", products);
       localStorage.setItem("countProducts", count);
 
-      if (products == null || products == '[]')
-        document.getElementById("produse").innerHTML = '<h2 style="text-align: center;">Nu aveti niciun produs in cos<h2>';
-
     }
 
-    function ChangeQuantity(id_produs, quantity) {
-      productsObject = JSON.parse(localStorage.getItem("cartProducts"));;
-      countObject = JSON.parse(localStorage.getItem("countProducts"));;
+    UpdateTotal();
+  }
 
-      //console.log("Before: " + productsObject + " | " + countObject);
+  function DeleteProductFromDB(userId, id_produs) {
+    return new Promise(resolve => {
+      var xhttp;
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          resolve();
+        }
+      };
+      xhttp.open("GET", "PHP/delete_cart_product.php?userId=" + userId + "&id_produs=" + id_produs, true);
+      xhttp.send();
+    });
+  }
 
-      const index = Object.values(productsObject).indexOf(id_produs);
-      countObject[index] = quantity;
+  function ChangeQuantity(id_produs, quantity) {
+    productsObject = JSON.parse(localStorage.getItem("cartProducts"));;
+    countObject = JSON.parse(localStorage.getItem("countProducts"));;
 
-      //console.log("After: " + productsObject + " | " + countObject);
+    //console.log("Before: " + productsObject + " | " + countObject);
 
-      localStorage.setItem("cartProducts", JSON.stringify(productsObject));
-      localStorage.setItem("countProducts", JSON.stringify(countObject));
+    const index = Object.values(productsObject).indexOf(id_produs);
+    countObject[index] = quantity;
 
-      UpdateTotal();
+    //console.log("After: " + productsObject + " | " + countObject);
 
+    localStorage.setItem("cartProducts", JSON.stringify(productsObject));
+    localStorage.setItem("countProducts", JSON.stringify(countObject));
+
+    UpdateTotal();
+
+  }
+
+  function UpdateTotal() {
+
+    products = document.getElementsByClassName("produs");
+    if (products.length == 0)
+      document.getElementById("produse").innerHTML = '<h2 style="text-align: center;">Nu aveti niciun produs in cos<h2>';
+
+
+    total = 0;
+    preturi = document.getElementsByClassName("pret-value");
+    cantitati = document.getElementsByName("cantitate");
+    for (i = 0; i < preturi.length; i++) {
+      total += parseFloat(preturi[i].textContent) * parseFloat(cantitati[i].value);
     }
-
-    function UpdateTotal() {
-      total = 0;
-      preturi = document.getElementsByClassName("pret-value");
-      cantitati = document.getElementsByName("cantitate");
-      for (i = 0; i < preturi.length; i++) {
-        total += parseFloat(preturi[i].textContent) * parseFloat(cantitati[i].value);
-      }
-      document.getElementById("total-value").textContent = total.toFixed(2);
-    }
-  </script>
+    document.getElementById("total-value").textContent = total.toFixed(2);
+  }
+</script>

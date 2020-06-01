@@ -24,6 +24,7 @@ if (!in_array($_GET["c"], $c_array)) {
 <body>
   <?php
   include "header.php";
+  session_start();
   ?>
   <div id="section">
     <div class="filtre-container">

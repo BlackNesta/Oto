@@ -12,7 +12,9 @@
 </head>
 
 <body>
-  <?php include "header.php" ?>
+  <?php include "header.php";
+  session_start();
+  ?>
 
   <section>
     <div class="section-title">Cosul meu</div>
@@ -21,7 +23,7 @@
     </div>
     <div class="total-comanda">
       <div class="pret">
-        Total: <span id="total-value">900</span>Ron
+        Total: <span id="total-value">0</span>Ron
       </div>
       <div class="comanda-btn">
         <a href="comanda.php"><input type="submit" value="Finalizeaza comanda" class="button last-btn"></a>

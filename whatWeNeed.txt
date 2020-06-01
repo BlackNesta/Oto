@@ -34,3 +34,4 @@ Modificari BD:
 	+tabela produse_cos: (id_user(fk), id_produs(fk)) - cheie primara
 	+tabela produse_favorite: (id_user(fk), id_produs(fk)) - cheie primara
  produse_comanda: +cantitate
+ produse_cos: +cantitate

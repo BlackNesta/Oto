@@ -36,6 +36,7 @@ if (mysqli_num_rows($result_produs) == 0) {
 <body>
     <?php
     include "header.php";
+    session_start();
 
     if (mysqli_num_rows($result_produs) == 0) {
         echo '<h1 style="text-align:center;"> Produsul cu id ' . $id_produs . ' nu a fost gasit.';
