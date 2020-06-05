@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2020 at 11:11 PM
+-- Generation Time: Jun 05, 2020 at 02:29 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -158,8 +158,17 @@ CREATE TABLE `produse_comanda` (
 
 CREATE TABLE `produse_cos` (
   `id_user` int(11) NOT NULL,
-  `id_produs` int(11) NOT NULL
+  `id_produs` int(11) NOT NULL,
+  `cantitate` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `produse_cos`
+--
+
+INSERT INTO `produse_cos` (`id_user`, `id_produs`, `cantitate`) VALUES
+(1, 1, 2),
+(1, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -219,7 +228,7 @@ INSERT INTO `recenzii_produs` (`id`, `id_produs`, `autor`, `data`, `text`) VALUE
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(20) NOT NULL,
-  `parola` varchar(20) NOT NULL,
+  `parola` varchar(260) NOT NULL,
   `nume` varchar(30) NOT NULL,
   `prenume` varchar(50) NOT NULL,
   `telefon` varchar(20) DEFAULT NULL,
@@ -227,6 +236,13 @@ CREATE TABLE `users` (
   `adresa` varchar(150) DEFAULT NULL,
   `poza` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `parola`, `nume`, `prenume`, `telefon`, `email`, `adresa`, `poza`) VALUES
+(1, 'stefanxdan', 'parola', 'Danila', 'Stefan', '0747306795', 'stefandanila@gmail.com', 'Vaslui', NULL);
 
 --
 -- Indexes for dumped tables
@@ -329,7 +345,7 @@ ALTER TABLE `recenzii_produs`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables
