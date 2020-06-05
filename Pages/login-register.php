@@ -34,24 +34,24 @@
     <form class="box" action="#" method="post">
       <h1>Register</h1>
       <input type="text" name="rusername" placeholder="Nume de utilizator">
-      <div class="help-block"><?php echo $rusername_err; ?></div> 
+      <div class="help-block"><?php echo $err_rusername; ?></div> 
 
-      <input type="text" name="name" placeholder="Nume">
-      <div class="help-block"><?php echo $rlastname_err; ?></div> 
+      <input type="text" name="nume" placeholder="Nume">
+      <div class="help-block"><?php echo $err_nume; ?></div> 
 
-      <input type="text" name="first-name" placeholder="Prenume">
-      <div class="help-block"><?php echo $rfirstname_err; ?></div> 
+      <input type="text" name="prenume" placeholder="Prenume">
+      <div class="help-block"><?php echo $err_prenume; ?></div> 
 
-      <input type="text" name="first-name" placeholder="Email">
-      <div class="help-block"><?php echo $remail_err; ?></div> 
+      <input type="text" name="email" placeholder="Email">
+      <div class="help-block"><?php echo $err_email; ?></div> 
 
       <input type="password" name="rparola1" placeholder="Parola">
-      <div class="help-block"><?php echo $rpassworderr_err; ?></div> 
+      <div class="help-block"><?php echo $err_rparola; ?></div> 
 
       <input type="password" name="rparola2" placeholder="Confirma parola">
-      <div class="help-block"><?php echo $rpassword2_err; ?></div> 
+      <div class="help-block"><?php echo $err_crparola; ?></div> 
       
-      <input type="submit" name="Register" value="Register">
+      <input type="submit" name="register" value="Register">
     </form>
   </div>
 </body>

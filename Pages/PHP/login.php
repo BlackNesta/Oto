@@ -13,22 +13,22 @@ $lusername = $lpassword = "";
 $lusername_err = $lpassword_err = "";
 $nume = $prenume = $telefon = $email = $adresa = "";
  
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
+if(($_SERVER["REQUEST_METHOD"] == "POST") && (isset($_POST["login"]))){
+
     //verific daca s-a introdus un username
-    if(empty(($_POST["lusername"]))){
-        $lusername_err = "Introdu un username.";
+    if(empty(trim(($_POST["lusername"])))){
+        $lusername_err = "Nu ati introdus numele de utilizator.";
     } 
     else{
-        $lusername = ($_POST["lusername"]);
+        $lusername = trim($_POST["lusername"]);
     }
     
     // verific daca s-a introdus o parola
-    if(empty(($_POST["lparola"]))){
-        $lpassword_err = "Introdu o parola.";
+    if(empty(trim(($_POST["lparola"])))){
+        $lpassword_err = "Nu ati introdus parola.";
     } 
     else{
-        $lpassword = ($_POST["lparola"]);
+        $lpassword = trim($_POST["lparola"]);
     }
     
     // verific daca introducerea datelor s-a realizat
@@ -49,7 +49,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     mysqli_stmt_bind_result($stmt, $id, $lusername, $hashed_password, $nume, $prenume, $telefon, $email, $adresa);
                     if(mysqli_stmt_fetch($stmt)){
                         //verific daca parola introdusa este aceeasi cu parola hashuita din baza de date
-                        //if(password_verify($lpassword, $hashed_password)){
+                        if(password_verify($lpassword, $hashed_password)){
                             session_start();
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
@@ -61,9 +61,9 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["adresa"] = $adresa;        
                             
                             header("location: ./main.php");
-                        //} else{
-                            //$lpassword_err = "Ati introdus parola gresita.";
-                        //}
+                        } else{
+                            $lpassword_err = "Ati introdus parola gresita.";
+                        }
                     }
                 } else{
                     $lusername_err = "Nu exista un cont cu acest username.";
