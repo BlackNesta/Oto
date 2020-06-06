@@ -12,14 +12,15 @@
 </head>
 
 <body>
-    <?php include "header.php" ;
+    <?php 
         session_start();
- 
-        // Verific daca nu sunt deja logat
+        // Daca nu stun logat redirectionez spre login
         if(!isset($_SESSION["loggedin"])){
             header("location: ./login-register.php");
             exit;
         }
+        include "header.php" ;
+        include "./PHP/detalii_cont.php";
     ?>
     
     <section class="account">
@@ -37,39 +38,52 @@
                 </div>
             </section>
 
-            <form class="right" mathod="post" autocomplete="off">
+            <form class="right" action="#" method="post">
                 <div class="date">
                     <div class="linie-date">
                         <label for="nume">Nume: </label>
-                        <input type="text" name="nume" id="nume" value=<?php echo $_SESSION["nume"]?> disabled="disabled">
+                        <input type="text" name="nume" id="nume" value="<?php echo $_SESSION["nume"]?>" >
                     </div>
+                    <div class="help-block"><?php echo $err_nume; ?></div> 
+
                     <div class="linie-date">
                         <label for="prenume">Prenume: </label>
-                        <input type="text" name="prenume" id="prenume"  value=<?php echo $_SESSION["prenume"]?> disabled="disabled">
+                        <input type="text" name="prenume" id="prenume"  value="<?php echo $_SESSION["prenume"];?>">
                     </div>
+                    <div class="help-block"><?php echo $err_prenume; ?></div>
+
                     <div class="linie-date">
                         <label for="email">Email: </label>
-                        <input type="text" name="email" id="email"  value=<?php echo $_SESSION["email"]?>>
+                        <input type="text" name="email" id="email"  value="<?php echo $_SESSION["email"]?>">
                     </div>
+                    <div class="help-block"><?php echo $err_email; ?></div>
+
                     <div class="linie-date">
                         <label for="teleon">Telefon: </label>
-                        <input type="text" name="telefon" id="teleon" value=<?php echo $_SESSION["telefon"]?> >
+                        <input type="text" name="telefon" id="teleon" value="<?php echo $_SESSION["telefon"]?>" >
                     </div>
-                    
+                    <div class="help-block"><?php echo $err_telefon; ?></div>
+
                     <div class="linie-date">
                         <label for="adresa">Adresa: </label>
-                        <input type="text" name="adresa" id="adresa"value=<?php echo $_SESSION["adresa"]?> >
+                        <input type="text" name="adresa" id="adresa"value="<?php echo $_SESSION["adresa"]?> ">
                     </div>
+                    <div class="help-block"><?php echo $err_adresa; ?></div>
+
                     <div class="linie-date">
-                        <label for="parola">Parola: </label>
-                        <input type="password" name="parola" id="parola">
+                        <label for="parola1">Parola: </label>
+                        <input type="password" name="parola1" id="parola1">
                     </div>
+                    <div class="help-block"><?php echo $err_parola1; ?></div>
+
                     <div class="linie-date">
-                        <label for="reparola">Confirma parola: </label>
-                        <input type="password" name="reparola" id="reparola">
+                        <label for="parola2">Confirma parola: </label>
+                        <input type="password" name="parola2" id="parola2">
                     </div>
+                    <div class="help-block"><?php echo $err_parola2; ?></div>
+                    
                     <div class="btn">
-                        <input type="submit" value="Update" class="button">
+                        <input type="submit" name="update" value="Update" class="button">
                     </div>
                 </div>
             </form>
@@ -96,49 +110,25 @@
             </div>
             <div class="detalii-comanda">
                 <div class="produs produs-header">
-                    <div>Nume</div>
-                    <div>Cod produs</div>
+                    <div>ID Produs</div>
+                    <div>Nume Produs</div>
+                    <div>Cantitate</div>
                     <div>Pret</div>
                 </div>
                 <div class="produs">
-                    <div>Jucarie1</div>
                     <div>125356</div>
+                    <div>Jucarie1</div>
+                    <div>3</div>
                     <div>400.00</div>
                 </div>
                 <div class="produs">
-                    <div>Jucarie2</div>
                     <div>125356</div>
+                    <div>Jucarie2</div>
+                    <div>2</div>
                     <div>423.90</div>
                 </div>
             </div>
 
-        </div>
-        <div class="comanda-container">
-            <div class="comanda">
-                <span>122</span>
-                <span>09. 12. 2020</span>
-                <span class="align-center">62.49 Ron</span>
-                <span>Procesare</span>
-                <span class="align-center">Card</span>
-                <button class="button btn-comanda" onclick="displayComanda(2)">Vezi comanda</button>
-            </div>
-            <div class="detalii-comanda">
-                <div class="produs produs-header">
-                    <div>Nume</div>
-                    <div>Cod produs</div>
-                    <div>Pret</div>
-                </div>
-                <div class="produs">
-                    <div>Jucarie1</div>
-                    <div>125356</div>
-                    <div>400.00</div>
-                </div>
-                <div class="produs">
-                    <div>Jucarie2</div>
-                    <div>125356</div>
-                    <div>423.90</div>
-                </div>
-            </div>
         </div>
         <!-- 
             <div class="comandav2">
