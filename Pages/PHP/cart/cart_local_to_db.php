@@ -1,5 +1,5 @@
 <?php
-    include "db_connection.php";
+    include "../db_connection.php";
 
     $produse = explode(",", trim($_GET["items"], "[]"));
     $count = explode(",", trim($_GET["count"], "[]"));

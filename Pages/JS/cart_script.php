@@ -1,5 +1,4 @@
 <script>
-
   loggedin =
     <?php
     if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true)
@@ -8,17 +7,17 @@
       echo 'false';
     ?>;
   if (loggedin)
-      userId = 
-      <?php 
-      if (isset($_SESSION["id"]))
-        echo $_SESSION["id"];
-      else
-        echo 0;
-      ?>;
+    userId =
+    <?php
+    if (isset($_SESSION["id"]))
+      echo $_SESSION["id"];
+    else
+      echo 0;
+    ?>;
   var localProducts = localStorage.getItem("cartProducts");
   var localCount = localStorage.getItem("countProducts");
-  console.log("Local products: " + localProducts);
-  console.log("Local count: " + localCount);
+  //console.log("Local products: " + localProducts);
+  //console.log("Local count: " + localCount);
 
   if (loggedin) {
     if (localProducts != null && localProducts != '[]')
@@ -42,16 +41,18 @@
       xhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
           //document.getElementById("produse").innerHTML += this.responseText;
-          resolve();
+          setTimeout(() => {
+            resolve();
+          }, 200)
         }
       };
-      xhttp.open("GET", "PHP/cart_local_to_db.php?items=" + productsIds + "&count=" + count + "&userId=" + userId, true);
+      xhttp.open("GET", "PHP/cart/cart_local_to_db.php?items=" + productsIds + "&count=" + count + "&userId=" + userId, true);
       xhttp.send();
     });
   }
 
   function LoadUserCartProducts(userId) {
-    console.log("LoadUserCartProducts...");
+    //console.log("LoadUserCartProducts...");
     return new Promise(resolve => {
       var xhttp;
       xhttp = new XMLHttpRequest();
@@ -61,7 +62,7 @@
           resolve();
         }
       };
-      xhttp.open("GET", "PHP/get_user_cart_products.php?userId=" + userId, true);
+      xhttp.open("GET", "PHP/cart/get_user_cart_products.php?userId=" + userId, true);
       xhttp.send();
     });
   }
@@ -76,7 +77,7 @@
           resolve();
         }
       };
-      xhttp.open("GET", "PHP/get_local_cart_products.php?items=" + productsIds + "&count=" + count, true);
+      xhttp.open("GET", "PHP/cart/get_local_cart_products.php?items=" + productsIds + "&count=" + count, true);
       xhttp.send();
     });
   }
@@ -132,27 +133,49 @@
           resolve();
         }
       };
-      xhttp.open("GET", "PHP/delete_cart_product.php?userId=" + userId + "&id_produs=" + id_produs, true);
+      xhttp.open("GET", "PHP/cart/delete_cart_product.php?userId=" + userId + "&id_produs=" + id_produs, true);
       xhttp.send();
     });
   }
 
   function ChangeQuantity(id_produs, quantity) {
-    productsObject = JSON.parse(localStorage.getItem("cartProducts"));;
-    countObject = JSON.parse(localStorage.getItem("countProducts"));;
 
-    //console.log("Before: " + productsObject + " | " + countObject);
+    if (loggedin) {
+      ChangeQuantityFromDB(userId, id_produs, quantity);
+    } else {
 
-    const index = Object.values(productsObject).indexOf(id_produs);
-    countObject[index] = quantity;
+      productsObject = JSON.parse(localStorage.getItem("cartProducts"));;
+      countObject = JSON.parse(localStorage.getItem("countProducts"));;
 
-    //console.log("After: " + productsObject + " | " + countObject);
+      //console.log("Before: " + productsObject + " | " + countObject);
 
-    localStorage.setItem("cartProducts", JSON.stringify(productsObject));
-    localStorage.setItem("countProducts", JSON.stringify(countObject));
+      const index = Object.values(productsObject).indexOf(id_produs);
+      countObject[index] = quantity;
+
+      //console.log("After: " + productsObject + " | " + countObject);
+
+      localStorage.setItem("cartProducts", JSON.stringify(productsObject));
+      localStorage.setItem("countProducts", JSON.stringify(countObject));
+
+    }
 
     UpdateTotal();
 
+  }
+
+  function ChangeQuantityFromDB(userId, id_produs, quantity) {
+    return new Promise(resolve => {
+      var xhttp;
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          console.log(this.responseText);
+          resolve();
+        }
+      };
+      xhttp.open("GET", "PHP/cart/change_quantity_cart_product.php?userId=" + userId + "&id_produs=" + id_produs + "&quantity=" + quantity, true);
+      xhttp.send();
+    });
   }
 
   function UpdateTotal() {
