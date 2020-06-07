@@ -61,6 +61,7 @@
     var offset = 0;
 
     async function InitReviewsTab() {
+        console.log("init");
         var scrollHeight = document.documentElement.scrollHeight;
         var clientHeight = document.documentElement.clientHeight;
 
@@ -88,7 +89,7 @@
     }
 
     window.addEventListener('scroll', () => {
-        var recenzii = document.getElementById('recenzii');
+        var recenzii = document.getElementById('recenzii-container');
         if (recenzii.style.display == "block") {
 
             const {
@@ -96,7 +97,6 @@
                 scrollHeight,
                 clientHeight
             } = document.documentElement;
-
             if (clientHeight + scrollTop >= scrollHeight - 1) {
                 LoadReviews(<?php echo $id_produs ?>, 3, offset);
                 offset += 3;
@@ -148,5 +148,23 @@
             xhttp.open("GET", "PHP/insert_product_in_cartDB.php?userId=" + userId + "&id_produs=" + id_produs, true);
             xhttp.send();
         });
+    }
+
+    function postReview() {
+        textArea = document.getElementById("textarea");
+
+        var xhttp;
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                console.log(this.responseText);
+                document.getElementById("recenzii").innerHTML = "";
+                textArea.value = "";
+                offset = 0;
+                InitReviewsTab();
+            }
+        };
+        xhttp.open("GET", "PHP/post_review.php?userName=" + <?php echo '"' . $_SESSION["prenume"] . ' ' .  $_SESSION["nume"] . '"' ?> + "&id_produs=" + <?php echo $id_produs ?> + "&text=" + textArea.value, true);
+        xhttp.send();
     }
 </script>

@@ -2,8 +2,8 @@
     include "db_connection.php";
     $recenzii = mysqli_query(
         $conn,
-        "SELECT autor, data, text FROM  recenzii_produs where id_produs='" . $_GET['id'] . "'
-                 order by data desc limit ". $_GET['offset'] . "," . $_GET['n']
+        "SELECT id, autor, data, text FROM  recenzii_produs where id_produs='" . $_GET['id'] . "'
+                 order by id desc limit ". $_GET['offset'] . "," . $_GET['n']
     );
 
     while ($recenzie = mysqli_fetch_assoc($recenzii)) {

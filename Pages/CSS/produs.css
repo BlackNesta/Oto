@@ -269,6 +269,53 @@ body {
     margin: 20px;
 }
 
+.add-recenzie{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: blanchedalmond;
+    margin-bottom: 20px;
+    border-radius: 0.5em;
+}
+
+.add-recenzie textarea {
+    resize: none;
+    width: 100%;
+    padding: 10px;
+    background: none;
+    border: none;
+    border-radius: 10px;
+    background-color: wheat;
+}
+
+.add-recenzie textarea:focus {
+    outline: none !important;
+    border: none;
+    box-shadow: 0 0 10px grey;
+}
+
+.add-recenzie button {
+    margin: 20px;
+    padding: 0.5em;
+    font-size: 1em;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    background-color: brown;
+    color: white;
+    transition: 0.25s;
+}
+
+.add-recenzie button:hover {
+    background-color: wheat;
+    color: black;
+}
+
+button:focus {
+    outline: none !important;
+    border: none;
+}
+
 @media screen and (max-width: 600px) {
     .recenzie {
         flex-wrap: wrap;
@@ -276,5 +323,4 @@ body {
     .rec_header {
         margin-bottom: 0px;
     }
-    
 }
