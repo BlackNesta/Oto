@@ -34,6 +34,7 @@ img.logo {
 }
 
 .search-box {
+    position: relative;
     flex: 2;
     background-color: white;
     border-radius: 2em;
@@ -41,14 +42,6 @@ img.logo {
     padding: 0.5em;
     padding-right: 1em;
     min-width: 150px;
-}
-
-.search-box:hover {
-    height: 3.5em;
-}
-
-.search-box:hover .searchButton {
-    height: 3.5em;
 }
 
 .search-text {
@@ -64,13 +57,46 @@ img.logo {
     font-size: 1em;
 }
 
+.search-box:hover #search-results {
+    visibility: visible;
+}
+
 .searchButton {
-    height: 3em;
+    align-self: center;
+    height: 100%;
     background: none;
     border: none;
     color: red;
     float: right;
-    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.searchButton:hover {
+    color: black;
+}
+
+#search-results {
+    visibility: hidden;
+    background-color: white;
+    position: absolute;
+    top: 2.5em;
+    margin-left: 0.5em;
+    z-index: 1;
+    width: 90%;
+}
+
+#search-results a {
+    text-decoration: none;
+}
+
+.result {
+    padding: 5px;
+    color: black;
+}
+
+.result:hover {
+    background-color: lightslategrey;
 }
 
 .nav {
