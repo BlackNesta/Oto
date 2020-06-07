@@ -52,6 +52,7 @@
       <div class="help-block"><?php echo $err_crparola; ?></div> 
       
       <input type="submit" name="register" value="Register">
+      <div class="ok"><?php echo $message; ?></div> 
     </form>
   </div>
 </body>

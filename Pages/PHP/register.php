@@ -34,7 +34,7 @@
         if (empty(trim($_POST["rparola1"]))) {
             $err_rparola = "Introduceti o parola";
         } elseif (strlen(trim($_POST["rparola1"])) < 6) { 
-            $err_rparola = "Parola trebuie sa aibe cel putin 6 caractere";
+            $err_rparola = "Parola trebuie sa contina cel putin 6 caractere";
         } else {
             $rparola = trim($_POST['rparola1']);
         }
@@ -52,14 +52,14 @@
         } 
 
         // validare nume
-        if (empty(trim($_POST["nume"])) || !preg_match("/^[a-zA-Z ]*$/",$_POST["nume"])) {
+        if (empty(trim($_POST["nume"])) || !preg_match("/^[a-zA-Z\-\s\']{2,20}$/",$_POST["nume"])) {
             $err_nume = "Nu ati introdus un nume valid";
         } else {
             $nume = trim($_POST["nume"]);
         }
 
         // validare prenume
-        if (empty(trim($_POST["prenume"])) || !preg_match("/^[a-zA-Z ]*$/",$_POST["prenume"])) {
+        if (empty(trim($_POST["prenume"])) || !preg_match("/^[a-zA-Z\-\s\']{2,20}$/",$_POST["prenume"])) {
             $err_prenume = "Nu ati introdus un prenume valid";
         } else {
             $prenume = trim($_POST["prenume"]);
@@ -92,14 +92,15 @@
         }
 
         // verific daca nu sunt erori
-        if (empty($err_rusername) && empty($err_rparola) && empty($err_crparola) && empty($err_nume) && empty($err_prenume) && empty($err_email)) {
+        if (empty($err_rusername) && empty($err_rparola) && empty($err_crparola) && empty($err_nume) 
+                                                        && empty($err_prenume) && empty($err_email)) {
             $sql = "INSERT INTO users (username, parola, nume, prenume, email)  VALUES(?, ?, ?, ?, ?)";
             if ($stmt = mysqli_prepare($conn, $sql)) {
                 mysqli_stmt_bind_param($stmt, "sssss", $rusername, $rparola, $nume, $prenume, $email);
                 if (mysqli_stmt_execute($stmt)) {
-                    //$message = "Cont creat cu succes.";
+                    $message = "Cont creat cu succes.";
                     //echo "<script type='text/javascript'>alert('$message');</script>";
-                    header("location: ./login-register.php");
+                    //header("location: ./login-register.php");
                     //$message = "Cont creat cu succes.";
                     //echo "<script type='text/javascript'>alert('$message');</script>";
                 } else {
