@@ -83,7 +83,7 @@
         // validare adresa
         if ($_SESSION["adresa"] != ($_POST["adresa"]) && !empty(trim($_POST["adresa"]))) {
             $adresa = ($_POST["adresa"]);
-        } elseif ($_SESSION["adresa"] != ($_POST["adresa"])) {
+        } elseif ($_SESSION["adresa"] != trim($_POST["adresa"])) {
             $err_adresa = "Adresa invalida.";
         }
 
@@ -200,7 +200,7 @@
                         //$message = "Cont creat cu succes.";
                         //echo "<script type='text/javascript'>alert('$message');</script>";
                         $_SESSION["adresa"] = $adresa;
-                        $ok_email = "Adresa schimbata cu succes";
+                        $ok_adresa = "Adresa schimbata cu succes";
                         //$message = "Cont creat cu succes.";
                         //echo "<script type='text/javascript'>alert('$message');</script>";
                     } else {
