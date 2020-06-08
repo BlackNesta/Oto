@@ -1,5 +1,5 @@
 <?php
-    session_start();
+
     require_once "db_connection.php";
     $nume = $prenume = $email = $telefon = $parola1 = $adresa = $parola2 = "";
     $err_nume = $err_prenume = $err_email = $err_telefon = $err_adresa = $err_parola1 = $err_parola2 ="";

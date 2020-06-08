@@ -1,6 +1,5 @@
 <?php
 
-    session_start();
     include "db_connection.php";
 
     $id_user = $id_comanda = $data = $total = $status = $plata = $id_produs = $nume_produs = $cantitate = $pret = "";

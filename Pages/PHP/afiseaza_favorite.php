@@ -1,5 +1,4 @@
 <?php
-    session_start();
 
     include "db_connection.php";
 
@@ -18,7 +17,7 @@
         $nume = $produs["nume"];
         $pret = $produs["pret"];
 
-        echo "<div class='produs'>
+        echo "<div class='produs' id='$id_produs'>
                 <a href='./produs.php?id=" . $produs['id'] . "'><img src='img/toy" . $produs['id'] . "img1.png' /></a>
                 <div class='detalii-produs'>
                 <span class='produs-title'>$nume</span>
@@ -26,10 +25,10 @@
                 </div>
                 <div class='detalii-produs'>
                 <span>
-                    <input type='submit' value='Adauga in cos' class='button'>
+                    <input onclick='addProductInCart($id_produs)' type='submit' value='Adauga in cos' class='button'>
                 </span>
                 <span>
-                    <input type='submit' value='Sterge' class='button'>
+                    <input onclick='deleteProductFromFav($id_produs)' type='submit' value='Sterge' class='button'>
                 </span>
                 </div>
             </div>";
