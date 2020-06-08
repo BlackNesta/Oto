@@ -100,64 +100,11 @@
             <span>Detalii</span>
         </div>
         <div class="comanda-container">
-            <div class="comanda">
-                <span>112</span>
-                <span>29. 02. 1999</span>
-                <span class="align-center">426.90 Ron</span>
-                <span>Livrare</span>
-                <span class="align-center">Cash</span>
-                <button class="button btn-comanda" onclick="displayComanda(1)">Vezi comanda</button>
-            </div>
-            <div class="detalii-comanda">
-                <div class="produs produs-header">
-                    <div>ID Produs</div>
-                    <div>Nume Produs</div>
-                    <div>Cantitate</div>
-                    <div>Pret</div>
-                </div>
-                <div class="produs">
-                    <div>125356</div>
-                    <div>Jucarie1</div>
-                    <div>3</div>
-                    <div>400.00</div>
-                </div>
-                <div class="produs">
-                    <div>125356</div>
-                    <div>Jucarie2</div>
-                    <div>2</div>
-                    <div>423.90</div>
-                </div>
-            </div>
+            <?php
+                include "./PHP/comenzile_mele.php";
+            ?>
 
         </div>
-        <!-- 
-            <div class="comandav2">
-                <div>
-                    <span>ID Comanda</span>
-                    <span>123</span>
-                </div>
-                <div>
-                    <span>Data</span>
-                    <span>0.9.12.2019</span>
-                </div>
-                <div>
-                    <span>Total</span>
-                    <span>0.9.12.2019</span>
-                </div>
-                <div>
-                    <span>Status</span>
-                    <span>0.9.12.2019</span>
-                </div>
-                <div>
-                    <span>Plata</span>
-                    <span>0.9.12.2019</span>
-                </div>
-                <div>
-                    <span>Detalii</span>
-                    <span>0.9.12.2019</span>
-                </div>
-            </div>
-        -->
     </section>
 </body>
 <script>
