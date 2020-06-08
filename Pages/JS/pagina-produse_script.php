@@ -7,13 +7,13 @@
       echo 'false';
     ?>;
   if (loggedin)
-      userId = 
-      <?php 
-      if (isset($_SESSION["id"]))
-        echo $_SESSION["id"];
-      else
-        echo 0;
-      ?>;
+    userId =
+    <?php
+    if (isset($_SESSION["id"]))
+      echo $_SESSION["id"];
+    else
+      echo 0;
+    ?>;
 
   var categorie, pret, destinatar, varsta, nr_produse, nr_pagini, prod_per_pagina = 8,
     pagina_curenta = 1,
@@ -55,6 +55,7 @@
                       else
                         echo '"' . $_GET['page'] . '"' ?>;
     document.getElementById(categorie).checked = true;
+
     if (pret != null)
       pret.split(",").forEach(function(entry) {
         document.getElementById(entry).checked = true;
@@ -72,6 +73,7 @@
   }
 
   function setCategorie(value) {
+    console.log(value);
     categorie = value;
     pagina_curenta = 1;
     changeURL();
