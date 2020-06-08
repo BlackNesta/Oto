@@ -24,70 +24,11 @@
   <section>
     <div class="section-title">Favorite</div>
 
-    <div class="produs">
-      <a href="./produs.php"><img src="img/toy1.png" /></a>
-      <div class="detalii-produs">
-        <span class="produs-title">Ursulet de plus foarte dragalas</span>
-        <span class="pret">Pret:399</span>
-      </div>
-      <div class="detalii-produs">
-        <span>
-          <input type="submit" value="Adauga in cos" class="button">
-        </span>
-        <span>
-          <input type="submit" value="Sterge" class="button">
-        </span>
-      </div>
-    </div>
 
-    <div class="produs">
-      <a href="./produs.php"><img src="img/toy4.png" /></a>
-      <div class="detalii-produs">
-        <span class="produs-title">Ursulet de plus foarte dragalas</span>
-        <span class="pret">Pret: 299Ron</span>
-      </div>
-      <div class="detalii-produs">
-        <span>
-          <input type="submit" value="Adauga in cos" class="button">
-        </span>
-        <span>
-          <input type="submit" value="Sterge" class="button">
-        </span>
-      </div>
-    </div>
-
-
-    <div class="produs">
-      <a href="./produs.php"><img src="img/toy2.png" /></a>
-      <div class="detalii-produs">
-        <span class="produs-title">Ursulet de plus foarte pufos</span>
-        <span class="pret">Pret: 199Ron</span>
-      </div>
-      <div class="detalii-produs">
-        <span>
-          <input type="submit" value="Adauga in cos" class="button">
-        </span>
-        <span>
-          <input type="submit" value="Sterge" class="button">
-        </span>
-      </div>
-    </div>
-
-    <div class="produs">
-      <a href="./produs.php"><img src="img/toy3.png" /></a>
-      <div class="detalii-produs">
-        <span class="produs-title">Ursulet de plus pufos si dragalas</span>
-        <span class="pret">Pret: 499Ron</span>
-      </div>
-      <div class="detalii-produs">
-        <span>
-          <input type="submit" value="Adauga in cos" class="button">
-        </span>
-        <span>
-          <input type="submit" value="Sterge" class="button">
-        </span>
-      </div>
-    </div>
+    <?php
+      include "./PHP/afiseaza_favorite.php";
+      include "./PHP/delete_favorite.php";
+    ?>
   </section>
 </body>
 
