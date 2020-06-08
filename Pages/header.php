@@ -13,36 +13,41 @@
       </button>
     </div>
     <div id="search-results">
-      <a href="pagina-produse.php?c=toate">
-        <div class="result" id="toate">
-          Toate jucariile
-        </div>
-      </a>
-      <a href="pagina-produse.php?c=bebelusi">
-        <div class="result" id="bebelusi">
-          Categorie: bebelusi
-        </div>
-      </a>
-      <a href="pagina-produse.php?c=creative">
-        <div class="result" id="creative">
-          Categorie: creative
-        </div>
-      </a>
-      <a href="pagina-produse.php?c=plus">
-        <div class="result" id="plus">
-          Categorie: plus
-        </div>
-      </a>
-      <a href="pagina-produse.php?c=masini">
-        <div class="result" id="masini">
-          Categorie: masini
-        </div>
-      </a>
-      <a href="pagina-produse.php?c=papusi">
-        <div class="result" id="papusi">
-          Categorie: papusi
-        </div>
-      </a>
+      <div class="categorii">
+        <a href="pagina-produse.php?c=toate">
+          <div class="result" id="toate">
+            Toate jucariile
+          </div>
+        </a>
+        <a href="pagina-produse.php?c=bebelusi">
+          <div class="result" id="bebelusi">
+            Categorie: bebelusi
+          </div>
+        </a>
+        <a href="pagina-produse.php?c=creative">
+          <div class="result" id="creative">
+            Categorie: creative
+          </div>
+        </a>
+        <a href="pagina-produse.php?c=plus">
+          <div class="result" id="plus">
+            Categorie: plus
+          </div>
+        </a>
+        <a href="pagina-produse.php?c=masini">
+          <div class="result" id="masini">
+            Categorie: masini
+          </div>
+        </a>
+        <a href="pagina-produse.php?c=papusi">
+          <div class="result" id="papusi">
+            Categorie: papusi
+          </div>
+        </a>
+      </div>
+      <div id="produse-result">
+
+      </div>
     </div>
   </div>
   <div class="nav">
@@ -72,10 +77,23 @@
           document.getElementById(categorii[i]).style.display = "block";
         else
           document.getElementById(categorii[i]).style.display = "none";
-    }
-    else{
+      LoadResults(searchString);
+    } else {
+      document.getElementById("produse-result").innerHTML = "";
       for (i = 0; i < 6; i++)
-          document.getElementById(categorii[i]).style.display = "block";
+        document.getElementById(categorii[i]).style.display = "block";
     }
   });
+
+  function LoadResults(searchString) {
+    var xhttp;
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("produse-result").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "PHP/get_search_results.php?searchString=" + searchString, true);
+    xhttp.send();
+  };
 </script>
