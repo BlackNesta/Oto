@@ -269,7 +269,7 @@ body {
     margin: 20px;
 }
 
-.add-recenzie{
+#add-recenzie{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -278,7 +278,7 @@ body {
     border-radius: 0.5em;
 }
 
-.add-recenzie textarea {
+#add-recenzie textarea {
     resize: none;
     width: 100%;
     padding: 10px;
@@ -288,13 +288,13 @@ body {
     background-color: wheat;
 }
 
-.add-recenzie textarea:focus {
+#add-recenzie textarea:focus {
     outline: none !important;
     border: none;
     box-shadow: 0 0 10px grey;
 }
 
-.add-recenzie button {
+#add-recenzie button {
     margin: 20px;
     padding: 0.5em;
     font-size: 1em;
@@ -306,7 +306,7 @@ body {
     transition: 0.25s;
 }
 
-.add-recenzie button:hover {
+#add-recenzie button:hover {
     background-color: wheat;
     color: black;
 }

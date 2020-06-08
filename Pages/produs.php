@@ -106,12 +106,17 @@ if (mysqli_num_rows($result_produs) == 0) {
                 <div>Varsta:&nbsp; <?php echo $produs['varsta'] ?></div>
             </div>
             <div class="tab-content" id="recenzii-container">
-                <div class="add-recenzie">
+                <div id="add-recenzie">
                     <div class="rec_header autor">
                         Adauga o recenzie:
                     </div>
                     <textarea id="textarea" class="text" name="textarea" rows="5" maxlength="500"></textarea>
                     <button onclick="postReview()"> Posteaza </button>
+                </div>
+                <div id="message-notloeggedin" class="recenzie" style="justify-content:center">
+                    <div class="text">
+                        Pentru a posta o recenzie trebuie sa fii logat
+                    </div>
                 </div>
                 <div id="recenzii">
 

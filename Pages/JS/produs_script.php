@@ -6,14 +6,19 @@
         else
             echo 'false';
         ?>;
-    if (loggedin)
+    if (loggedin) {
+
         userId =
-        <?php
-        if (isset($_SESSION["id"]))
-            echo $_SESSION["id"];
-        else
-            echo 0;
-        ?>;
+            <?php
+            if (isset($_SESSION["id"]))
+                echo $_SESSION["id"];
+            else
+                echo 0;
+            ?>;
+        document.getElementById("message-notloeggedin").style.display = "none";
+    } else {
+        document.getElementById("add-recenzie").style.display = "none";
+    }
 
     /* source pt slideshow: https://www.w3schools.com/w3css/w3css_slideshow.asp  */
     function currentDiv(n) {
@@ -61,7 +66,6 @@
     var offset = 0;
 
     async function InitReviewsTab() {
-        console.log("init");
         var scrollHeight = document.documentElement.scrollHeight;
         var clientHeight = document.documentElement.clientHeight;
 
@@ -157,14 +161,23 @@
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                console.log(this.responseText);
+                //console.log(this.responseText);
                 document.getElementById("recenzii").innerHTML = "";
                 textArea.value = "";
                 offset = 0;
                 InitReviewsTab();
             }
         };
-        xhttp.open("GET", "PHP/post_review.php?userName=" + <?php echo '"' . $_SESSION["prenume"] . ' ' .  $_SESSION["nume"] . '"' ?> + "&id_produs=" + <?php echo $id_produs ?> + "&text=" + textArea.value, true);
+
+        const prenume = <?php 
+            if (isset($_SESSION['prenume']))
+                echo '"' . $_SESSION['prenume'] . '"';
+            else echo '""'; ?>;
+        const nume = <?php 
+            if (isset($_SESSION['nume']))
+                echo  '"' . $_SESSION['nume'] . '"';
+            else echo '""'; ?>;
+        xhttp.open("GET", "PHP/post_review.php?userName=" + prenume + " " + nume + "&id_produs=" + <?php echo $id_produs ?> + "&text=" + textArea.value, true);
         xhttp.send();
     }
 </script>
