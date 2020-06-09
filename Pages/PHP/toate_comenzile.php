@@ -3,14 +3,14 @@
     include "db_connection.php";
 
     $id_user = $id_comanda = $data = $total = $status = $plata = $id_produs = $nume_produs = $cantitate = $pret = "";
-
-    $id_user = $_SESSION["id"];
-
-    $sql = "SELECT id, data, total, status, plata FROM comenzi WHERE id_user = $id_user";
+    
+    $sql = "SELECT * FROM comenzi";
 
     $comenzi = mysqli_query($conn, $sql);
 
+    $index = 0;
     while ($comanda = mysqli_fetch_assoc($comenzi)) {
+        $index++;
         $id_comanda = $comanda["id"];
         $data = $comanda["data"];
         $total = $comanda["total"];
@@ -23,7 +23,7 @@
                     <span class='align-center'>$total Ron</span>
                     <span>$status</span>
                     <span class='align-center'>$plata</span>
-                    <button class='button btn-comanda' onclick='displayComanda(1)'>Vezi comanda</button>
+                    <button class='button btn-comanda' onclick='displayComanda($index)'>Vezi comanda</button>
                 </div>";
 
         echo "<div class='detalii-comanda'>";

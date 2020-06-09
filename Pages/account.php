@@ -12,20 +12,25 @@
 </head>
 
 <body>
-    <?php 
-        session_start();
-        // Daca nu stun logat redirectionez spre login
-        if(!isset($_SESSION["loggedin"])){
-            header("location: ./login-register.php");
+    <?php
+    session_start();
+    // Daca nu stun logat redirectionez spre login
+    if (!isset($_SESSION["loggedin"])) {
+        header("location: ./login-register.php");
+        exit;
+    }
+    if (isset($_SESSION["id"]))
+        if ($_SESSION["id"] == 1) {
+            header("location: ./admin.php");
             exit;
         }
-        include "header.php" ;
-        include "./PHP/detalii_cont.php";
+    include "header.php";
+    include "./PHP/detalii_cont.php";
     ?>
-    
+
     <section class="account">
         <div class="title">
-            Contul meu: 
+            Contul meu:
             <span class="username"><?php echo $_SESSION["username"] ?></span>
         </div>
         <div class="date-flex">
@@ -42,31 +47,31 @@
                 <div class="date">
                     <div class="linie-date">
                         <label for="nume">Nume: </label>
-                        <input type="text" name="nume" id="nume" value="<?php echo $_SESSION["nume"]?>" >
+                        <input type="text" name="nume" id="nume" value="<?php echo $_SESSION["nume"] ?>">
                     </div>
-                    <div class="help-block"><?php echo $err_nume; ?></div> 
+                    <div class="help-block"><?php echo $err_nume; ?></div>
 
                     <div class="linie-date">
                         <label for="prenume">Prenume: </label>
-                        <input type="text" name="prenume" id="prenume"  value="<?php echo $_SESSION["prenume"];?>">
+                        <input type="text" name="prenume" id="prenume" value="<?php echo $_SESSION["prenume"]; ?>">
                     </div>
                     <div class="help-block"><?php echo $err_prenume; ?></div>
 
                     <div class="linie-date">
                         <label for="email">Email: </label>
-                        <input type="text" name="email" id="email"  value="<?php echo $_SESSION["email"]?>">
+                        <input type="text" name="email" id="email" value="<?php echo $_SESSION["email"] ?>">
                     </div>
                     <div class="help-block"><?php echo $err_email; ?></div>
 
                     <div class="linie-date">
                         <label for="teleon">Telefon: </label>
-                        <input type="text" name="telefon" id="teleon" value="<?php echo $_SESSION["telefon"]?>" >
+                        <input type="text" name="telefon" id="teleon" value="<?php echo $_SESSION["telefon"] ?>">
                     </div>
                     <div class="help-block"><?php echo $err_telefon; ?></div>
 
                     <div class="linie-date">
                         <label for="adresa">Adresa: </label>
-                        <input type="text" name="adresa" id="adresa"value="<?php echo $_SESSION["adresa"]?> ">
+                        <input type="text" name="adresa" id="adresa" value="<?php echo $_SESSION["adresa"] ?> ">
                     </div>
                     <div class="help-block"><?php echo $err_adresa; ?></div>
 
@@ -81,7 +86,7 @@
                         <input type="password" name="parola2" id="parola2">
                     </div>
                     <div class="help-block"><?php echo $err_parola2; ?></div>
-                    
+
                     <div class="btn">
                         <input type="submit" name="update" value="Update" class="button">
                     </div>
@@ -101,7 +106,7 @@
         </div>
         <div class="comanda-container">
             <?php
-                include "./PHP/comenzile_mele.php";
+            include "./PHP/comenzile_mele.php";
             ?>
 
         </div>

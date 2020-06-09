@@ -12,11 +12,11 @@
 </head>
 
 <body>
-  <?php 
-    include "header.php";
-    include "./PHP/db_connection.php"; 
-    include "./PHP/login.php"; 
-    include "./PHP/register.php"; 
+  <?php
+  include "header.php";
+  include "./PHP/db_connection.php";
+  include "./PHP/login.php";
+  include "./PHP/register.php";
   ?>
 
 
@@ -24,7 +24,7 @@
     <form class="box" action="#" method="post">
       <h1>Login</h1>
       <input type="text" name="lusername" class="form-control" value="" placeholder="Nume de utilizator">
-      <div class="help-block"><?php echo $lusername_err; ?></div> 
+      <div class="help-block"><?php echo $lusername_err; ?></div>
 
       <input type="password" name="lparola" placeholder="Parola" value="">
       <div class="help-block"><?php echo $lpassword_err; ?></div>
@@ -34,25 +34,25 @@
     <form class="box" action="#" method="post">
       <h1>Register</h1>
       <input type="text" name="rusername" placeholder="Nume de utilizator">
-      <div class="help-block"><?php echo $err_rusername; ?></div> 
+      <div class="help-block"><?php echo $err_rusername; ?></div>
 
       <input type="text" name="nume" placeholder="Nume">
-      <div class="help-block"><?php echo $err_nume; ?></div> 
+      <div class="help-block"><?php echo $err_nume; ?></div>
 
       <input type="text" name="prenume" placeholder="Prenume">
-      <div class="help-block"><?php echo $err_prenume; ?></div> 
+      <div class="help-block"><?php echo $err_prenume; ?></div>
 
       <input type="text" name="email" placeholder="Email">
-      <div class="help-block"><?php echo $err_email; ?></div> 
+      <div class="help-block"><?php echo $err_email; ?></div>
 
       <input type="password" name="rparola1" placeholder="Parola">
-      <div class="help-block"><?php echo $err_rparola; ?></div> 
+      <div class="help-block"><?php echo $err_rparola; ?></div>
 
       <input type="password" name="rparola2" placeholder="Confirma parola">
-      <div class="help-block"><?php echo $err_crparola; ?></div> 
-      
+      <div class="help-block"><?php echo $err_crparola; ?></div>
+
       <input type="submit" name="register" value="Register">
-      <div class="ok"><?php echo $message; ?></div> 
+      <div class="ok"><?php if (isset($message)) echo $message; ?></div>
     </form>
   </div>
 </body>
