@@ -10,8 +10,9 @@
     $sql = "SELECT id, data, total, status, plata FROM comenzi WHERE id_user = $id_user";
     
     $comenzi = mysqli_query($conn, $sql);
-
+    $i = 0;
     while ($comanda = mysqli_fetch_assoc($comenzi)) {
+        $i++;
         $id_comanda = $comanda["id"];
         $data = $comanda["data"];
         $total = $comanda["total"];
@@ -24,7 +25,7 @@
                 <span class='align-center'>$total Ron</span>
                 <span>$status</span>
                 <span class='align-center'>$plata</span>
-                <button class='button btn-comanda' onclick='displayComanda(1)'>Vezi comanda</button>
+                <button class='button btn-comanda' onclick='displayComanda($i)'>Vezi comanda</button>
             </div>";
 
         echo "<div class='detalii-comanda'>";
