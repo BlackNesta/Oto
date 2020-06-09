@@ -12,24 +12,23 @@
 </head>
 
 <body>
-<?php include "header.php" ;
-        session_start();
- 
-        // Verific daca nu sunt deja logat
-        if(!isset($_SESSION["loggedin"])){
-            header("location: ./login-register.php");
-            exit;
-        }
-    ?>
+  <?php include "header.php";
+  session_start();
+
+  // Verific daca nu sunt deja logat
+  if (!isset($_SESSION["loggedin"])) {
+    header("location: ./login-register.php");
+    exit;
+  }
+  ?>
   <section>
     <div class="section-title">Favorite</div>
 
-
     <?php
-      include "./PHP/afiseaza_favorite.php";
-      include "./PHP/delete_favorite.php";
+    include "./PHP/afiseaza_favorite.php";
     ?>
   </section>
+  <?php include "JS/favorite_script.php" ?>
 </body>
 
 </html>

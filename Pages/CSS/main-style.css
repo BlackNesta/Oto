@@ -146,7 +146,7 @@ body {
 
 /*####### Produse #######*/
 
-#title-produse{
+#title-produse {
     margin: auto;
     max-width: 1300px;
     font-size: 2em;
@@ -179,7 +179,7 @@ body {
     padding-bottom: 60px;
 }
 
-.produs a{
+.produs a {
     text-decoration: none;
     color: black;
 }
@@ -216,8 +216,26 @@ body {
 .produs button:hover {
     background-color: lightsalmon;
 }
+
 @media screen and (max-width: 1300px) {
-    #title-produse{
+    #title-produse {
         text-align: center;
     }
+}
+
+.rss-feed {
+    font-size: 1.5em;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 50px;
+    background-color: wheat;
+}
+
+.rss-feed a {
+    text-decoration: none;
+    color: black;
+}
+
+.rss-feed a:hover {
+    color: white;
 }

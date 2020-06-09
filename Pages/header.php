@@ -15,32 +15,32 @@
     <div id="search-results">
       <div class="categorii">
         <a href="pagina-produse.php?c=toate">
-          <div class="result" id="toate">
+          <div class="result" id="c-toate">
             Toate jucariile
           </div>
         </a>
         <a href="pagina-produse.php?c=bebelusi">
-          <div class="result" id="bebelusi">
+          <div class="result" id="c-bebelusi">
             Categorie: bebelusi
           </div>
         </a>
         <a href="pagina-produse.php?c=creative">
-          <div class="result" id="creative">
+          <div class="result" id="c-creative">
             Categorie: creative
           </div>
         </a>
         <a href="pagina-produse.php?c=plus">
-          <div class="result" id="plus">
+          <div class="result" id="c-plus">
             Categorie: plus
           </div>
         </a>
         <a href="pagina-produse.php?c=masini">
-          <div class="result" id="masini">
+          <div class="result" id="c-masini">
             Categorie: masini
           </div>
         </a>
         <a href="pagina-produse.php?c=papusi">
-          <div class="result" id="papusi">
+          <div class="result" id="c-papusi">
             Categorie: papusi
           </div>
         </a>
@@ -67,7 +67,7 @@
 </header>
 <script>
   const searchInput = document.getElementById("searchInput");
-  const categorii = ["toate", "bebelusi", "creative", "plus", "masini", "papusi"];
+  const categorii = ["c-toate", "c-bebelusi", "c-creative", "c-plus", "c-masini", "c-papusi"];
 
   searchInput.addEventListener('keyup', (e) => {
     const searchString = e.target.value.toLowerCase();

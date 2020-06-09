@@ -1,0 +1,175 @@
+body {
+    background-color: blanchedalmond;
+}
+
+.title {
+    text-align: center;
+    font-size: 3em;
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+}
+
+.logout {
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.logout .button{
+    font-size: 1em;
+    padding: 10px;
+    padding: .67em .67em;
+    cursor: pointer;
+    color: white;
+    background-color: brown;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.logout .button:hover {
+    background-color: lightsalmon;
+}
+
+.container {
+    background-color: wheat;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 50px;
+    padding-bottom: 10px;
+}
+
+.title-container {
+    font-size: 1.5em;
+    padding: 0.5em;
+    color: white;
+    background-color: brown;
+}
+
+.list {
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.recenzie {
+    width: 95%;
+    margin: 20px auto;
+    background-color: blanchedalmond;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    border-radius: 0.5em;
+}
+
+.recenzie button {
+    text-align: center;
+    align-self: center;
+    padding: 10px;
+    margin: 0px 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 1em;
+    cursor: pointer;
+    background-color: brown;
+    color: white;
+    transition: 0.25s;
+}
+
+.recenzie button:hover {
+    background-color: wheat;
+    color: black;
+}
+
+.recenzie button:focus {
+    outline: none !important;
+    border: none;
+}
+
+.rec_header {
+    text-align: center;
+    margin: 20px 0px;
+    min-width: 150px;
+}
+
+.autor {
+    font-weight: bold;
+}
+
+.data {
+    font-size: 0.8em;
+}
+
+.text {
+    margin: 20px;
+}
+
+.header-comenzi {
+    display: flex;
+    justify-content: space-around;
+    background-color: brown;
+    color: white;
+    padding: 10px 0px;
+}
+
+.header-comenzi span {
+    width: 150px;
+    text-align: center;
+}
+
+.align-center {
+    align-self: center;
+}
+
+.comanda {
+    display: flex;
+    justify-content: space-around;
+    background-color: wheat;
+    padding: 10px 0px;
+    border-top: 1px solid brown;
+}
+
+.comanda span {
+    width: 150px;
+    text-align: center;
+}
+
+.detalii-comanda {
+    transition: 0.5s;
+    display: none;
+    transition: all 0.5s ease;
+}
+
+.detalii-comanda .produs-header {
+    background-color: wheat;
+}
+
+.detalii-comanda .produs {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px 0px;
+}
+
+.detalii-comanda .produs div {
+    width: 150px;
+    text-align: center;
+}
+
+.comanda .button {
+    text-align: center;
+    vertical-align: middle;
+    padding: .67em .67em;
+    cursor: pointer;
+    color: white;
+    background-color: brown;
+    border: none;
+    border-radius: .3em;
+    font-weight: bold;
+}
+
+.comanda .button:hover {
+    background-color: lightsalmon;
+}
+
+.pret {
+    font-size: 1.3em;
+    margin-bottom: 2em;
+}

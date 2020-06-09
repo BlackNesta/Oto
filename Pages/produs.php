@@ -74,7 +74,7 @@ if (mysqli_num_rows($result_produs) == 0) {
                     <button onclick="addProductInCart(<?php echo $id_produs ?>)">Adauga in Cos</button>
                 </div>
                 <div>
-                    <button>Adauga la Favorite</button>
+                    <button onclick="addProductInFav(<?php echo $id_produs ?>)">Adauga la Favorite</button>
                 </div>
             </div>
         </div>

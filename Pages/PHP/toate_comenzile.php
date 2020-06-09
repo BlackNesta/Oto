@@ -3,15 +3,15 @@
     include "db_connection.php";
 
     $id_user = $id_comanda = $data = $total = $status = $plata = $id_produs = $nume_produs = $cantitate = $pret = "";
-
-    $id_user = $_SESSION["id"];
-
-    $sql = "SELECT id, data, total, status, plata FROM comenzi WHERE id_user = $id_user";
+    
+    $sql = "SELECT * FROM comenzi";
 
     $comenzi = mysqli_query($conn, $sql);
-    $i = 0;
+
+    $index = 0;
     while ($comanda = mysqli_fetch_assoc($comenzi)) {
-        $i++;
+        $index++;
+        $id_user = $comanda["id_user"];
         $id_comanda = $comanda["id"];
         $data = $comanda["data"];
         $total = $comanda["total"];
@@ -19,23 +19,13 @@
         $plata = $comanda["plata"];
 
         echo "<div class='comanda'>
-<<<<<<< HEAD
-                <span>$id_comanda</span>
-                <span>$data</span>
-                <span class='align-center'>$total Ron</span>
-                <span>$status</span>
-                <span class='align-center'>$plata</span>
-                <button class='button btn-comanda' onclick='displayComanda($i)'>Vezi comanda</button>
-            </div>";
-=======
                     <span>$id_comanda</span>
+                    <span>$id_user</span>
                     <span>$data</span>
                     <span class='align-center'>$total Ron</span>
-                    <span>$status</span>
                     <span class='align-center'>$plata</span>
-                    <button class='button btn-comanda' onclick='displayComanda(1)'>Vezi comanda</button>
+                    <button class='button btn-comanda' onclick='displayComanda($index)'>Vezi comanda</button>
                 </div>";
->>>>>>> 2f7d90592f648bf68c3189262a38465cfd746c06
 
         echo "<div class='detalii-comanda'>";
 

@@ -154,6 +154,23 @@
         });
     }
 
+    function addProductInFav(id_produs){
+        if (!loggedin) {
+            window.location.href = "/login-register.php";
+        }
+        else{
+            var xhttp;
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function() {
+                if (this.readyState == 4 && this.status == 200) {
+                    //console.log(this.responseText);
+                }
+            };
+            xhttp.open("GET", "PHP/insert_product_in_FavDB.php?userId=" + userId + "&id_produs=" + id_produs, true);
+            xhttp.send();
+        }
+    }
+
     function postReview() {
         textArea = document.getElementById("textarea");
 
