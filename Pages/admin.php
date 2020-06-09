@@ -32,12 +32,24 @@
         <a href="logout.php"><input type="submit" name="" value="Logout" class="button"></a>
     </div>
     <div class='container'>
-        <div class="title-container">Recenzii</div>
+        <div class="title-container">
+            <span>Recenzii:</span>
+            <span class="stacs">
+            <span> <a href="PHP/statistics/csv.php?type=recenzii">CSV</a> </span>
+                <span><a href="PHP/statistics/pdf.php?type=recenzii">PDF</a></span>
+            </span>
+        </div>
         <div class="list" id="recenzii">
         </div>
     </div>
     <div class='container'>
-        <div class="title-container">Comenzi</div>
+        <div class="title-container">
+            <span>Comenzi:</span>
+            <span class="stacs">
+                <span> <a href="PHP/statistics/csv.php?type=comenzi">CSV</a> </span>
+                <span><a href="PHP/statistics/pdf.php?type=comenzi">PDF</a></span>
+            </span>
+        </div>
         <div class="header-comenzi">
             <span>ID Comanda</span>
             <span>ID user</span>
