@@ -11,6 +11,7 @@
     $index = 0;
     while ($comanda = mysqli_fetch_assoc($comenzi)) {
         $index++;
+        $id_user = $comanda["id_user"];
         $id_comanda = $comanda["id"];
         $data = $comanda["data"];
         $total = $comanda["total"];
@@ -19,9 +20,9 @@
 
         echo "<div class='comanda'>
                     <span>$id_comanda</span>
+                    <span>$id_user</span>
                     <span>$data</span>
                     <span class='align-center'>$total Ron</span>
-                    <span>$status</span>
                     <span class='align-center'>$plata</span>
                     <button class='button btn-comanda' onclick='displayComanda($index)'>Vezi comanda</button>
                 </div>";
