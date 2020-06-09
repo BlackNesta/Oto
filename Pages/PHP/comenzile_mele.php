@@ -19,7 +19,6 @@
         $plata = $comanda["plata"];
 
         echo "<div class='comanda'>
-<<<<<<< HEAD
                 <span>$id_comanda</span>
                 <span>$data</span>
                 <span class='align-center'>$total Ron</span>
@@ -27,15 +26,6 @@
                 <span class='align-center'>$plata</span>
                 <button class='button btn-comanda' onclick='displayComanda($i)'>Vezi comanda</button>
             </div>";
-=======
-                    <span>$id_comanda</span>
-                    <span>$data</span>
-                    <span class='align-center'>$total Ron</span>
-                    <span>$status</span>
-                    <span class='align-center'>$plata</span>
-                    <button class='button btn-comanda' onclick='displayComanda(1)'>Vezi comanda</button>
-                </div>";
->>>>>>> 2f7d90592f648bf68c3189262a38465cfd746c06
 
         echo "<div class='detalii-comanda'>";
 

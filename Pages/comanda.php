@@ -12,15 +12,18 @@
 </head>
 
 <body>
-    <?php include "header.php" ?>
+    <?php 
+            include "header.php"; 
+            include "./PHP/finalizare_comanda.php";       
+    ?>
     
     <section>
         <div class="title">Detalii comanda</div>
 
         <div class="client">
-            <div class="selector-container">
+            <form class="selector-container" action = "#" method = "post">
                 <div class="selector" onclick="hidePJ()">
-                    <input type="radio" name="tip-persoana" id="fizica" checked>
+                    <input type="radio" name="tip-persoana" id="fizica" value = "PF" checked>
                     <label for="fizica">
                         <span class="filtre-title">
                             <div>Persoana fizica</div>
@@ -28,14 +31,14 @@
                     </label>
                 </div>
                 <div class="selector" onclick="showPJ()">
-                    <input type="radio" name="tip-persoana" id="juridica">
+                    <input type="radio" name="tip-persoana" id="juridica" value = "PJ">
                     <label for="juridica">
                         <span class="filtre-title">
                             <div>Persoana juridica</div>
                         </span>
                     </label>
                 </div>
-            </div>
+            </form>
 
             <div class="date">
                 <div class="linie-date">
@@ -81,7 +84,7 @@
             </div>
         </div>
 
-        <div class="options-container">
+        <form class="options-container">
             <div class="title">Metoda de plata </div>
             <div class="selector">
                 <input type="radio" name="plata" id="card" checked>
@@ -101,7 +104,7 @@
                     <div> ramburs la curier</div>
                 </label>
             </div>
-        </div>
+        </form>
 
         <div class="options-container">
             <div class="title">Livrare </div>
