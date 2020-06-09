@@ -68,7 +68,9 @@
 
     mysqli_close($conn);
     ?>
+
   </div>
+  <div class="rss-feed"><a href="PHP/statistics/rss-feed.php">RSS-feed</a></div>
   <script>
     loggedin =
       <?php
@@ -78,8 +80,8 @@
         echo 'false';
       ?>;
     if (loggedin)
-      userId = 
-      <?php 
+      userId =
+      <?php
       if (isset($_SESSION["id"]))
         echo $_SESSION["id"];
       else
