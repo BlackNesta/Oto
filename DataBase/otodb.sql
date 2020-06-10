@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 05, 2020 at 02:29 PM
+-- Generation Time: Jun 10, 2020 at 02:41 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.3
 
@@ -32,10 +32,26 @@ CREATE TABLE `comenzi` (
   `id` int(11) NOT NULL,
   `id_user` int(11) NOT NULL,
   `data` date NOT NULL,
-  `total` decimal(10,0) NOT NULL,
+  `total` float NOT NULL,
   `status` varchar(15) NOT NULL,
   `plata` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `comenzi`
+--
+
+INSERT INTO `comenzi` (`id`, `id_user`, `data`, `total`, `status`, `plata`) VALUES
+(1, 3, '2020-05-01', 100, 'Livrat', 'card'),
+(2, 3, '2020-05-07', 200, 'Livrat', 'cash'),
+(3, 3, '2020-06-10', 629.97, 'procesare', 'card'),
+(4, 0, '2020-06-10', 222.98, 'procesare', 'cash'),
+(5, 0, '2020-06-10', 222.98, 'procesare', 'card'),
+(6, 0, '2020-06-10', 202.98, 'procesare', 'card'),
+(7, 0, '2020-06-10', 222.98, 'procesare', 'card'),
+(8, 0, '2020-06-10', 222.98, 'procesare', 'cash'),
+(9, 0, '2020-06-10', 299.98, 'procesare', 'card'),
+(10, 0, '2020-06-10', 275.97, 'procesare', 'card');
 
 -- --------------------------------------------------------
 
@@ -108,14 +124,14 @@ CREATE TABLE `produse` (
 --
 
 INSERT INTO `produse` (`id`, `nume`, `pret`, `stoc`, `vandute`, `categorie`, `destinatar`, `varsta`, `descriere`) VALUES
-(1, 'Jucarie de plus Mappy Fluffy Friends', 149.99, 50, 15, 'plus', 'baieti,fete', 'vprescolari, vscolari, vadolescenti', 'Ursul cu pui Mappy Fluffy Friends, maro, 130 cm poate sa fie o mascota, un cadou sau un prieten de joaca al copilului dumneavoastra, in acelasi timp stimuland creativitatea si dezvoltarea sa personala'),
+(1, 'Jucarie de plus Mappy Fluffy Friends', 149.99, 50, 17, 'plus', 'baieti,fete', 'vprescolari, vscolari, vadolescenti', 'Ursul cu pui Mappy Fluffy Friends, maro, 130 cm poate sa fie o mascota, un cadou sau un prieten de joaca al copilului dumneavoastra, in acelasi timp stimuland creativitatea si dezvoltarea sa personala'),
 (2, 'Tractor John Deere cu lumini si sunete', 77.99, 50, 2, 'masini', 'baieti', 'vprescolari, vscolari', 'Acest vehicul este pregatit sa faca fata oricarui obstacol care ii sta in cale. Tractorul dispune de lumini si actiune sonora.\r\n\r\nFunctioneaza cu 3 baterii LR44 (AG13)- incluse.'),
 (3, 'Papusa Truli, multicolor', 74.99, 50, 4, 'papusi', 'fete', 'vprescolari', 'Papusa Truli 45cm , cel mai nou produs Zurli. Completeaza-ti colectia de papusi cu cele doua noi personaje: Truli si Clopotel. '),
 (4, 'LEGO City Police - Centru de comanda mobil ', 143.99, 50, 5, 'creative', 'baieti', 'vscolari', 'Din centrul de comanda mobil LEGO City a evadat un infractor periculos. Toti membrii echipei de politie, adica micii constructori cu varsta cuprinsa intre 6 si 12 ani, sunt rugati sa se prezinte la datorie pentru a prinde evadatul.\r\n\r\nEchipamentul din dotare – cabina de camion detasabila, biroul celor doi ofiteri, camerele de monitorizare cu ecrane mari, antena-satelit, acoperisul cu deschidere larga, usile laterale, rampa din spatele statiei, motocicletele si ATV-urile'),
 (5, 'Set cuburi Baby Clemmy – Farm animals', 64.99, 50, 5, 'bebelusi', 'baieti,fete', 'vprescolari', 'Setul de joaca Clemmy este ideal pentru cei mici. Include 6 cuburi moi printre care 3 animalute cu puiutii lor si o brosura de ilustratii pentru a stimula inventivitatea copiilor.\r\n\r\nDa frau liber imaginatiei cu setul Ferma Animalelor si carte de ilustratii de la Clemmy. Produsul stimuleaza dexteritatea, imaginatia si emotia.'),
 (6, 'LEGO DUPLO Town - Animalele de la ferma', 34.99, 50, 13, 'creative', 'baieti,fete', 'vprescolari', 'Animalele de la ferma este un set de jucarii pentru copiii de 2 ani, maxim 5 ani. Acesta este compus din doar 16 piese dragute, printre care si patru figurine animale: un vitel, un purcelus, un pui si o pisica.\r\n\r\nSi cum micutul tau iubeste animalele, cu siguranta va fi incantat de aceasta inedita ferma cu animale de jucarie. Ajuta-l sa puna puisorul in cuibar, sa hraneasca purcelul si vitelul in spatiul special amenajat in acest sens si, nu in ultimul rand, sa aiba grija de pisicuta iubitoare!'),
 (7, 'LEGO Creator Expert - Ford Mustang', 329.99, 50, 14, 'creative', 'baieti', 'vadolescenti', 'Construieste-ti propriul tau Ford Mustang, completat cu caroserie albastru-inchis, dungi de curse albe, priza de aer agresiva si jante grozave cu 5 spite cu anvelope aderente la sol! Dezvoltat in parteneriat cu Ford, acest model formidabil surprinde vraja automobil american din anii 1960, si vine cu o colectie de accesorii optionale pentru personalizare, incluzand un supra-alimentator, un spoiler posterior ridicat, tevi de esapament masive, o masca frontala si un rezervor de protoxid de azot.'),
-(8, 'LEGO Friends - Casa Miei', 129.99, 50, 9, 'creative', 'fete', 'vscolari', 'O vizita linistita in natura, acasa la familia Miei, intr-un weekend relaxat, il va incarca pe micul tau aventurier cu multa energie pozitiva. Nu-i de mirare ca aceasta casa de jucarie este numita de mai toata lumea Casa Prieteniei!\r\n\r\nLocalizata in apropierea padurii, casuta de jucarie este dotata cu bucatarie, baie, sufragerie, dar si cu un dormitor special, pentru momentele in care Mia vrea sa se relaxeze singura, in care se poate ajunge urcand pe o scara exterioara.\r\n'),
+(8, 'LEGO Friends - Casa Miei', 129.99, 50, 15, 'creative', 'fete', 'vscolari', 'O vizita linistita in natura, acasa la familia Miei, intr-un weekend relaxat, il va incarca pe micul tau aventurier cu multa energie pozitiva. Nu-i de mirare ca aceasta casa de jucarie este numita de mai toata lumea Casa Prieteniei!\r\n\r\nLocalizata in apropierea padurii, casuta de jucarie este dotata cu bucatarie, baie, sufragerie, dar si cu un dormitor special, pentru momentele in care Mia vrea sa se relaxeze singura, in care se poate ajunge urcand pe o scara exterioara.\r\n'),
 (9, 'Jucarie Clementoni Autobuz de sortat forme Mickey', 54.99, 50, 5, 'bebelusi', 'baieti,fete', 'vprescolari', 'Autobuzul Mickey Mouse pentru sortat forme include 9 cuburi noi, colorate, prezente in 6 forme diferite. Autobuzul Mickey are un capac de sortat forme, perfect pentru dezvoltarea capacitatii manuale si pentru predarea diferitelor forme si culori.\r\n\r\nPovestea Clementoni incepe in 1963 si astazi au peste 50 de ani de cand pun la dispozitia clientilor o gama variata de produse.\r\n\r\nMisiunea Clementoni este aceea de a-i conduce pe micuti catre un viitor mai bun prin dedicatie, creativitate si pasiune'),
 (10, 'Jucarie Tomy - Cofrajul cu oua colorate', 59.99, 50, 2, 'bebelusi', 'baieti,fete', 'vprescolari', 'Ascunzandu-se in interiorul casutei lor puternice si stralucitoare, acum ouale prezinta nuante de roz, mov, verde, galben si portocaliu. \r\nFiecare ou va piui atunci cand bebelusul apasa. Dar asta nu e tot, copiii pot potrivi cochilii dupa culoarea fetelor sau dupa culoarea bazelor. \r\nSau amestecati culorile pentru o varietate infinita de combinatii. Apoi pot face alte descoperiri, fiecare ou isi are locul desemnat in cutie, cu o baza care se potriveste unei forme diferite.'),
 (11, 'Jucarie Tomy - Gaseste puiul', 54.99, 50, 5, 'bebelusi', 'baieti,fete', 'vprescolari', ' Fiecare ou are o dimensiune si o culoare diferita. Exista un ou tatic, mamica, frate, sora si un bebelus, fiecare cu un chip fericit diferit. In mijloc se afla puiul galben care piuie cand apesi pe el. Cuibareste bazele si apoi partile de sus pentru a forma un ou mare care sa le includa pe toate celelalte. Cu aceste jucarii va puteti juca si in baie.\r\n\r\nCaracteristici: joc de rol; sortare forme; potrivire culori; ascultare sunete; joc de stivuire.'),
@@ -128,11 +144,11 @@ INSERT INTO `produse` (`id`, `nume`, `pret`, `stoc`, `vandute`, `categorie`, `de
 (18, 'Jucarie zornaitoare lemn bebe,  model Arici', 39.99, 54, 8, 'bebelusi', 'baieti,fete', 'vprescolari', 'Jucariile zornaitoare sunt indispensabile pentru micuti. Ele declanseaza reflexul de apucare si sporeste procesul de dezvoltare. Ele transmit senzatii care ajuta copilul sa descopere mediul.'),
 (19, 'LEGO City - Tren de calatori', 354.99, 50, 12, 'creative', 'baieti', 'vscolari', 'Porneste spre gara pentru o calatorie distractiva!\r\n\r\nUrca-te in elegantul Tren de calatori 60197 LEGO City si du-te in vagonul cafenea pentru o gustare in timpul calatoriei. Uita-te pe fereastra la peisaj, apoi ia loc ca sa tragi un pui de somn.\r\n\r\nDing ding!\r\n\r\nTrezeste-te, trenul intra in gara.\r\n\r\nEste timpul sa pornesti in urmatoarea aventura din LEGO City!'),
 (20, 'LEGO DUPLO - Camion si excavator pe senile', 79.99, 50, 9, 'creative', 'baieti', 'vprescolari', 'Micii sapatori vor adora sa manevreze aceste masini de lucrari usor de construit. Deplaseaza Excavatorul pe sine pe teren neregulat si excaveaza cu cupa sa mare. Demonteaza bratul sau flexibil si functional pentru a-l scurta, apoi incarca Camionul cu functia de basculare pentru a cara molozul! Caramizile LEGO DUPLO sunt concepute special pentru a fi lipsite de risc pentru manutele mici. Include 2 figurine muncitori constructori DUPLO.\r\n\r\nProdusul nu necesita baterii.'),
-(21, 'LEGO Speed Champions - McLaren Senna', 72.99, 50, 8, 'creative', 'baieti', 'vscolari', 'LEGO masinuta McLaren Senna V29, este reinterpretare la scara mai mica a automobilului care face furori in circuitele de curse din viata reala, este o piesa must-have pentru orice mic colectionar (si nu numai, am spune noi)!\r\n\r\nAceasta masinuta de curse este inspirata de legendarul pilot de Formula 1 Ayrton Senna si vine la pachet cu o superba caroserie aerodinamica, cu jante intersanjabile, parbriz detasabil si discuri de franare, care le imita pe cele reale pana in cele mai mici detalii.'),
+(21, 'LEGO Speed Champions - McLaren Senna', 72.99, 50, 18, 'creative', 'baieti', 'vscolari', 'LEGO masinuta McLaren Senna V29, este reinterpretare la scara mai mica a automobilului care face furori in circuitele de curse din viata reala, este o piesa must-have pentru orice mic colectionar (si nu numai, am spune noi)!\r\n\r\nAceasta masinuta de curse este inspirata de legendarul pilot de Formula 1 Ayrton Senna si vine la pachet cu o superba caroserie aerodinamica, cu jante intersanjabile, parbriz detasabil si discuri de franare, care le imita pe cele reale pana in cele mai mici detalii.'),
 (22, 'LEGO DUPLO - Petrecerea lui Minnie', 79.99, 50, 7, 'creative', 'fete', 'vprescolari', 'Micuta ta tocmai a primit o invitatie la ziua lui Minnie Mouse, insa aceasta o roaga sa o ajute putin la partea de organizare. Ce spui, o lasi sa-i dea o mana de ajutor si sa-i organizeze o super petrecere lui Minnie Mouse?\r\n\r\nFetitele care sunt fane Disney vor adora sa se joace cu setul de jucarii pentru fete din gama DUPLO, mai ales ca toate piesele sunt colorate in roz, o culoare care stim cat de mult le place micutelor domnisoare.'),
 (23, 'LEGO DUPLO - Primul meu camion cu litere', 96.99, 50, 6, 'creative', 'baieti,fete', 'vprescolari', 'Inspira copiii sa construiasca, sa se joace si sa invete cu Camionul cu alfabet LEGO DUPLO… Construieste! Ai 26 de caramizi litere de sortat, stivuit si transportat cu camionul. Joaca-te! Copiii impart aventuri cu baiatul, fata si ursul simpatic, transportand blocurile in camion. Invata! Prescolarii se familiarizeaza cu toate literele alfabetului si invata repede sa scrie cuvinte scurte (J-O-C)!'),
 (24, 'LEGO Friends - Salonul de coafura', 69.99, 50, 5, 'creative', 'fete', 'vscolari', 'Te-ai plictisit sa arati mereu la fel? Mergi la salonul de coafura din orasul Heartlake pentru a-ti reinventa coafura! Alatura-te Emmei LEGO Friends cand aceasta o viziteaza pe stilista Nina pentru un nou „look”. Spala-i mai intai parul in chiuveta in forma de scoica, apoi ia foarfeca pentru a o ajuta la tuns. Bea o cafea impreuna cu ea in timp ce asteapta sa i se fixeze coafura. Adauga o funda pentru a-i completa infatisarea. Este un loc elegant unde poti zabovi cu prietenii!\r\n'),
-(25, 'LEGO Creator Expert - London Bus', 359.99, 50, 12, 'creative', 'baieti', 'vadolescenti', 'Urcati cu totii in autobuzul londonez! Porneste intr-o calatorie nostalgica cu aceasta replica LEGO Creator Expert a faimosului autobuz londonez cu etaj. \r\nApuca bara de sprijin si urca pe platforma de imbarcare deschisa din spate, completata cu o cutie pentru bilete folosite si un extinctor. Apoi ia-o pe scarile in spirala spre puntea de vizionare, unde vei gasi o zona cu scaune confortabile si un numar de alte obiecte'),
+(25, 'LEGO Creator Expert - London Bus', 359.99, 50, 15, 'creative', 'baieti', 'vadolescenti', 'Urcati cu totii in autobuzul londonez! Porneste intr-o calatorie nostalgica cu aceasta replica LEGO Creator Expert a faimosului autobuz londonez cu etaj. \r\nApuca bara de sprijin si urca pe platforma de imbarcare deschisa din spate, completata cu o cutie pentru bilete folosite si un extinctor. Apoi ia-o pe scarile in spirala spre puntea de vizionare, unde vei gasi o zona cu scaune confortabile si un numar de alte obiecte'),
 (26, 'LEGO Creator Expert - Winter Village Fire Station', 344.99, 50, 13, 'creative', 'baieti,fete', 'vadolescenti', 'Bine ai venit in cladirea pompierilor din satul de iarna (10263 – Winter Village Fire Station), unde pompierii se bucura de linistea sezonului de sarbatori. Acest set LEGO incantator contine o cladire cu 2 niveluri, decorata pentru Craciun. La etaj are o bucatarie cu telefon rosu, masa, pat si o caramida LEGO luminoasa. In spatele usilor mari si rosii ale statiei vei descoperi echipament de pompieri si o bara, iar afara se afla un patinoar cu o statuie decorativa din gheata.');
 
 -- --------------------------------------------------------
@@ -146,9 +162,33 @@ CREATE TABLE `produse_comanda` (
   `id_comanda` int(11) NOT NULL,
   `id_produs` int(11) NOT NULL,
   `nume` varchar(50) NOT NULL,
-  `pret` decimal(10,0) NOT NULL,
+  `pret` float NOT NULL,
   `cantitate` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `produse_comanda`
+--
+
+INSERT INTO `produse_comanda` (`id`, `id_comanda`, `id_produs`, `nume`, `pret`, `cantitate`) VALUES
+(1, 1, 1, 'Jucarie de plus Mappy Fluffy Friends', 150, 2),
+(2, 1, 2, 'Tractor John Deere cu lumini si sunete', 78, 1),
+(3, 2, 19, 'LEGO City - Tren de calatori', 150, 1),
+(4, 3, 1, 'Jucarie de plus Mappy Fluffy Friends', 149.99, 2),
+(5, 3, 7, 'LEGO Creator Expert - Ford Mustang', 329.99, 1),
+(6, 4, 21, 'LEGO Speed Champions - McLaren Senna', 72.99, 2),
+(7, 4, 8, 'LEGO Friends - Casa Miei', 129.99, 1),
+(8, 5, 21, 'LEGO Speed Champions - McLaren Senna', 72.99, 2),
+(9, 5, 8, 'LEGO Friends - Casa Miei', 129.99, 1),
+(10, 6, 21, 'LEGO Speed Champions - McLaren Senna', 72.99, 1),
+(11, 6, 8, 'LEGO Friends - Casa Miei', 129.99, 1),
+(12, 7, 21, 'LEGO Speed Champions - McLaren Senna', 72.99, 2),
+(13, 7, 8, 'LEGO Friends - Casa Miei', 129.99, 1),
+(14, 8, 21, 'LEGO Speed Champions - McLaren Senna', 72.99, 1),
+(15, 8, 8, 'LEGO Friends - Casa Miei', 129.99, 1),
+(16, 9, 1, 'Jucarie de plus Mappy Fluffy Friends', 149.99, 2),
+(17, 10, 21, 'LEGO Speed Champions - McLaren Senna', 72.99, 2),
+(18, 10, 8, 'LEGO Friends - Casa Miei', 129.99, 1);
 
 -- --------------------------------------------------------
 
@@ -167,8 +207,9 @@ CREATE TABLE `produse_cos` (
 --
 
 INSERT INTO `produse_cos` (`id_user`, `id_produs`, `cantitate`) VALUES
-(1, 1, 2),
-(1, 3, 1);
+(1, 8, 1),
+(1, 21, 1),
+(3, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -180,6 +221,14 @@ CREATE TABLE `produse_favorite` (
   `id_user` int(11) NOT NULL,
   `id_produs` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `produse_favorite`
+--
+
+INSERT INTO `produse_favorite` (`id_user`, `id_produs`) VALUES
+(1, 1),
+(3, 1);
 
 -- --------------------------------------------------------
 
@@ -217,7 +266,8 @@ INSERT INTO `recenzii_produs` (`id`, `id_produs`, `autor`, `data`, `text`) VALUE
 (15, 1, 'Oriana Stamp', '2020-05-15', 'Definitely worth the investment. No matter where you go, this toy is the coolest, most happening thing around! I love this toy. I couldn\'t have asked for more than this.'),
 (16, 1, 'Isabell Munoz', '2020-05-16', 'Best. Product. Ever! I have gotten at least 50 times the value from this toy.'),
 (17, 1, 'Edward Glover', '2020-05-17', 'I was amazed at the quality of this toy. Without this toy, we would have gone bankrupt by now. This toy is the real deal! '),
-(18, 1, 'Yahya Rice', '2020-05-18', 'I would also like to say thank you to all your staff. You won\'t regret it.');
+(18, 1, 'Yahya Rice', '2020-05-18', 'I would also like to say thank you to all your staff. You won\'t regret it.'),
+(19, 1, 'Danila Stefan', '2020-06-10', 'Recenzia mea');
 
 -- --------------------------------------------------------
 
@@ -242,7 +292,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `parola`, `nume`, `prenume`, `telefon`, `email`, `adresa`, `poza`) VALUES
-(1, 'stefanxdan', 'parola', 'Danila', 'Stefan', '0747306795', 'stefandanila@gmail.com', 'Vaslui', NULL);
+(0, 'vizitator', 'vizitator', 'vizitator', 'vizitator', NULL, 'vizitator', NULL, NULL),
+(1, 'admin', '$2y$10$aZy7v1kVed5fwQflTmyOl.lO/8/7vFni6chL2Q48UaeslcKUOP7YS', 'admin', 'admin', NULL, 'admin@admin.com', NULL, NULL),
+(2, 'stefanxd', '$2y$10$/pC3qTppX0rFM5FtlkZM/eU3S1k4Clbq8cEy60vt8v9pJBXzPXAj.', 'Danila', 'Stefan', '0747306795', 'stefan_danila2001@yahoo.com', 'str castanilor nr 63 C vaslui', NULL),
+(3, 'stefanxdan', '$2y$10$vtSXu3P/xE7B.rORIMeEN.Z2vBlabths2uLkNr4HAA9SWM.9YmqtW', 'Danila', 'Stefan', '0747306796', 'stefandanila67@gmail.com', 'str castanilor nr 63 C vaslui', NULL);
 
 --
 -- Indexes for dumped tables
@@ -315,7 +368,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comenzi`
 --
 ALTER TABLE `comenzi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `imagini_produs`
@@ -333,19 +386,19 @@ ALTER TABLE `produse`
 -- AUTO_INCREMENT for table `produse_comanda`
 --
 ALTER TABLE `produse_comanda`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `recenzii_produs`
 --
 ALTER TABLE `recenzii_produs`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=121;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
