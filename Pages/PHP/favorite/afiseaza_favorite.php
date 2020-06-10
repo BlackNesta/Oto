@@ -1,6 +1,6 @@
 <?php
 
-    include "db_connection.php";
+    include "PHP/db_connection.php";
 
     $id_user = $_SESSION["id"];
     $sql = "SELECT id_produs FROM produse_favorite where id_user = $id_user";

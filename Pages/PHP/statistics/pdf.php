@@ -51,14 +51,12 @@ if ($_GET["type"] == "recenzii") {
         $sql = "SELECT * FROM produse_comanda WHERE id_comanda = " . $comanda['id'];
 
         $produse = mysqli_query($conn, $sql);
-        //$pdf->Cell(0, 6, "id_produs                                              nume                                                   pret                 cantitate: ", 0, 1);
         $pdf->Cell(30, 6, "id_produs", 0, 0, "C");
         $pdf->Cell(80, 6, "nume", 0, 0, "C");
         $pdf->Cell(40, 6, "pret", 0, 0, "C");
         $pdf->Cell(20, 6, "cantitate", 0, 0, "C");
         $pdf->Cell(0, 5, "", 0, 1);
         while ($produs = mysqli_fetch_assoc($produse)) {
-            // $pdf->Cell(0, 6, "   " . $produs['id_produs'] . "                           " .  $produs['nume'] . "                              " .  $produs['pret'] . "                        " .  $produs['cantitate'], 0, 1);
             $pdf->Cell(30, 6, $produs['id_produs'], 0, 0, "C");
             $pdf->Cell(80, 6, $produs['nume'], 0, 0, "C");
             $pdf->Cell(40, 6, $produs['pret'], 0, 0, "C");

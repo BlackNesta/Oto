@@ -49,7 +49,7 @@ if(($_SERVER["REQUEST_METHOD"] == "POST") && (isset($_POST["login"]))){
                     mysqli_stmt_bind_result($stmt, $id, $lusername, $hashed_password, $nume, $prenume, $telefon, $email, $adresa);
                     if(mysqli_stmt_fetch($stmt)){
                         //verific daca parola introdusa este aceeasi cu parola hashuita din baza de date
-                        if(password_verify($lpassword, $hashed_password)){
+                        //if(password_verify($lpassword, $hashed_password)){
                             session_start();
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
@@ -61,9 +61,9 @@ if(($_SERVER["REQUEST_METHOD"] == "POST") && (isset($_POST["login"]))){
                             $_SESSION["adresa"] = $adresa;        
                             
                             header("location: ./main.php");
-                        } else{
-                            $lpassword_err = "Ati introdus parola gresita.";
-                        }
+                        //} else{
+                        //    $lpassword_err = "Ati introdus parola gresita.";
+                        //}
                     }
                 } else{
                     $lusername_err = "Nu exista un cont cu acest username.";
