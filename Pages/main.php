@@ -71,6 +71,7 @@
 
   </div>
   <div class="rss-feed"><a href="PHP/statistics/rss-feed.php">RSS-feed</a></div>
+  <div class="rss-feed"><a href="documentatie.html">Documentatie</a></div>
   <script>
     loggedin =
       <?php

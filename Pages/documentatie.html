@@ -1,0 +1,222 @@
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+        integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/documentatie.css" />
+    <title>Documentatie</title>
+</head>
+
+<body>
+    <header>
+        <div class="title">Documentatie</div>
+        <div class="title">Online Toys</div>
+        <div class="title">Manaila Andrei si Danila Sergiu-Stefan</div>
+        <div class="title">Iunie 2020</div>
+    </header>
+    <div class="section">
+        <div class="sub-title">Introducere</div>
+        In cadrul materie Tehnologii Web echipa formata din Manaila Andrei si Danila Sergiu-Stefan din grupa A7
+        au relizat o aplicatie web pornind de la urmatoarea cerinta:<br><br>
+        &emsp;Sa se conceapa o aplicatie Web care gestioneaza colectii de jucarii confectionate din diverse materiale,
+        inclusiv realizeaza managementul proprietatilor aferente: categorie, valoare, dimensiuni, imagini,
+        destinatari (copii mici, (pre)scolari, adolescenti), stare de functionare si altele.<br>
+        &emsp;Sistemul va oferi suport pentru activitati de cumparare/licitare a acestor jucarii, plus administrarea
+        utilizatorilor.<br>
+        &emsp;Se vor genera statistici diverse ce pot fi exportate in formate deschise – minimal, CSV si PDF.<br>
+        &emsp;Se va realiza, de asemenea, un clasament al celor mai populare produse, disponibil si ca flux de date
+        RSS.<br>
+    </div>
+    <div class="section">
+        <div class="sub-title">Limbaje, Tehnologii si servicii foliste</div>
+        <div>HTML</div>
+        <div>CSS</div>
+        <div>JavaScript</div>
+        <div>PHP</div>
+        <div>MySQL</div>
+        <div>XAMPP</div>
+        <div>GitHub: <a href="https://github.com/BlackNesta/Oto">repository</a></div>
+        <div> ( FPDF - pentru generarea de fisiere PDf - este o clasa PHP open-source <a
+                href="http://www.fpdf.org/">http://www.fpdf.org/</a>) </div>
+    </div>
+
+    <div class="section">
+        <div class="sub-title">Ce poate sa faca aplicatia noastra web</div>
+        &emsp; Utilizatorii pot cauta, filtra rezultatele si pot vedea jucariile si recenziile acestora din aplicatie.
+        <br>
+        &emsp; Exista posibilitatea de a obtine un clasament al celor mai populare produse, disponibil si ca flux de
+        date
+        RSS.<br>
+        &emsp; Jucariile pot fi plasate in cos din pagina principala, pagina de produse si pagina produsului, iar mai
+        departe din cos poate fi plasata comanda. <br>
+        &emsp; Daca Utilizatorii opteaza pentru a isi face cont acestia au avantajul de a adauga produse in lista de
+        favorite, de a posta recenzii la jucarii si de a vedea istoricul comenzilor. <br>
+        &emsp; Utilizatorii cu cont isi pot schimba date, inclusiv parola. <br>
+        &emsp; Administratorul aplicatiei poate sterge recenzii, poate vedea toate comenzile si poate obtine statistici
+        in format CSF si PDf a recenziilor si a comenzilor. <br>
+    </div>
+
+    <div class="section">
+        <div class="sub-title">Impartirea paginilor si a functionalitatilor</div>
+        <div class="sub-title">Danila Sergiu-Stefan</div>
+        <ul>
+            <li>header aplicatie
+                <ul>
+                    <li>searchBar: cautare de catergorii de produse si produse in baza de date</li>
+                    <ul>
+                        <li>printr-un event listener ("keyup"): la fiecare tasta apasata in searchBar se apeleaza o
+                            functie care actualizeza lista de categorii si face o cerere Ajax pentru a obtine lista de
+                            produse cautarii curente </li>
+                    </ul>
+                </ul>
+            </li>
+            <li>pagina principala (main)
+                <ul>
+                    <li>slider automat: implementat doar prin html si css</li>
+                    <li>selector categorie: implementat doar prin html si css</li>
+                    <li>top produse: generare de cod html din php</li>
+                    <li>rss feed: generare xml prin php</li>
+                </ul>
+            </li>
+            <li>pagina produse: lista de produse este generata dinamic fara a incarca pagina
+                <ul>
+                    <li>filtrare produse
+                        <ul>
+                            <li>la fiecare modifcare a filtrelor se schimba URL-ul paginii ( history.replaceState() ) cu
+                                noile filtre dupa care se genereaza dinamic lista produselor printr-un request catre
+                                back-end prin Ajax</li>
+                            <li>tot prin Ajax se afla noul numarul de produse a filtrarii pentru a reseta paginarea
+                                produselor</li>
+
+                        </ul>
+                    </li>
+                    <li>paginare produse: se pot ordona produsele, seta numarul de produse pe pagina, vedea numarul de
+                        produse , numarul pagiini curente si numarul de pagini
+                        <ul>
+                            <li>la schimbarea numarului de produse pe pagina sau a paginii se schimba URL-ul paginii (
+                                history.replaceState() ) cu
+                                noua paginare dupa care se genereaza dinamic lista produselor printr-un request catre
+                                back-end prin Ajax</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>pagina produs: se poate naviga prin pozele produsului, se poate adauga in cos, in favorite ( daca esti
+                logat), se poate naviga prin taburile 'Descriere, Specificatii, Recenzii(n)'
+                <ul>
+                    <li>afisare nume produs pret: generare cod html prin php</li>
+                    <li>navigarea prin poze: realizata prin JavaScript</li>
+                    <li>nelogat: adaugarea in cos : se adauga in Local Storage produsul</li>
+                    <li>logat: adaugarea in cos sau favorite: se face un request la back-end prin Ajax pentru a adauga
+                        produsul in baza de date</li>
+                    <li>navigarea prin taburi: realizata prin JavaScript
+                        <ul> Afisare Recenzii:
+                            <li>Initializare: se adauga recenzii in tab pana cand inaltimea paginii este mai mare decat
+                                inaltimea ecranului</li>
+                            <li>event listener pentru scroll pentru a adauga recenzii de fiecare data
+                                cand se ajunge la limita scrollului de jos: se apeleaza o functie JS Ajax pentru a a
+                                adauga recenzii la
+                                tabul de recenzii</li>
+                            <li>event listener pentru resize pentru a reinitializeaza tabul de recenzii: se adauga
+                                recenzii pana cand inaltimea paginii este mai mare decat
+                                inaltimea ecranului </li>
+                        </ul>
+                        <ul> Adaugare Recenzii (user logat):
+                            <li> dupa introducerea textului si apasarii butonului de postare se reinitializeaza tabul de
+                                recenzii pentru a afisa si recenzia nou postata</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li>cos produse: se pot vedea produsele, modifica cantitate produse, sterge produse din cos si poate
+                finaliza
+                comanda
+                <ul>
+                    <li>nelogat: produsele sunt salvate in Local Storage
+                        <ul>
+                            <li> pentru lista de produse din Local Storage se face un request prin Ajax pentru afisare
+                                produselor</li>
+                            <li> pentru modifcare cantitate sau stergere produse se modifca datele din Local Storage
+                            </li>
+                        </ul>
+                    </li>
+                    <li>logat: in caz ca user adauga produse in cos cand nu e logat si dupa acesta se logheaza, atunci
+                        produsle salvate local vor fi transferate user-ului alatrui de celalalte produse din cos a
+                        user-ului salvate in baza de date
+                        <ul>
+                            <li> in caz ca exista produse salvate local: printr-un request Ajax se transfera lista de
+                                produse din Local Storage in baza de date, in tabaela produse_cos</li>
+                            <li> prin alt request Ajax se afiseaza produsele user-ului din tabaela produse_cos</li>
+                            <li> pentru modifcare cantitate sau stergere produse se face un request Ajax pentru
+                                modificare datelor din baza de date
+                            </li>
+                        </ul>
+                </ul>
+            </li>
+            <li>pagina admin: poate sterge recenzii, poate vedea toate comenzile si poate obtine statistici in format
+                CSF si PDf a recenziilor si a comenzilor.
+                <ul>
+                    <li>afisare recenziilor se face ca in pagina de produs, doar ca tabul de recenzii are o inaltime
+                        fixa, cu un scroll dedicat tabului de recenzii</li>
+                    <li>afiasre comenzilor se face prin includerea in pagina a unui fisier php care genereaza cod html
+                    </li>
+                </ul>
+            </li>
+
+
+        </ul>
+        </li>
+
+        </ul>
+        <div class="sub-title">Manaila Andrei</div>
+        <ul>
+            <li>Baza de date</li>
+            <li>Sistem Login-Regiser
+                <ul>
+                    <li> pagina Login-Regiser</li>
+                </ul>
+            </li>
+            <li>pagina account</li>
+            <li>pagina favorite</li>
+            <li>pagina comanda</li>
+        </ul>
+
+        <div class="sub-title">Bibliografie</div>
+        <ul>
+            <li>w3schools
+                <ul>
+                    <li><a
+                            href="https://www.w3schools.com/html/default.asp">https://www.w3schools.com/html/default.asp</a>
+                    </li>
+                    <li><a
+                            href="https://www.w3schools.com/css/default.asp">https://www.w3schools.com/css/default.asp</a>
+                    </li>
+                    <li><a href="https://www.w3schools.com/js/default.asp">https://www.w3schools.com/js/default.asp</a>
+                    </li>
+                    <li><a
+                            href="https://www.w3schools.com/php/default.asp">https://www.w3schools.com/php/default.asp</a>
+                    </li>
+                </ul>
+            </li>
+            <li>youtube
+                <ul>
+                    <li><a href="https://www.youtube.com/channel/UCVTlvUkGslCV_h-nSAId8Sw">LearnCode.academy</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCFbNIlppjAuEX4znoulh0Cw">Web Dev Simplified</a></li>
+                    <li><a href="https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q">Dev Ed</a></li>
+                    <li><a href="https://www.youtube.com/channel/UCD3KVjbb7aq2OiOffuungzw">DarkCode</a></li>
+                </ul>
+            </li>
+            <li><a href="https://www.php.net/docs.php">Documentatie oficiala</a></li>
+            <li><a href="https://www.geeksforgeeks.org/">geeksforgeeks.org</a></li>
+            <li><a href="https://stackoverflow.com/">stackoverflow.com</a></li>
+        </ul>
+
+    </div>
+</body>
+
+</html>
