@@ -12,18 +12,32 @@
 </head>
 
 <body>
-    <?php 
-            include "header.php"; 
-            include "./PHP/finalizare_comanda.php";       
+    <?php
+    include "header.php";
+    include "./PHP/finalizare_comanda.php";
+
+    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+        $nume = $_SESSION["nume"];
+        $prenume = $_SESSION["prenume"];
+        $telefon = $_SESSION["telefon"];
+        $email = $_SESSION["email"];
+        $adresa = $_SESSION["adresa"];
+    }else{
+        $nume = "";
+        $prenume = "";
+        $telefon = "";
+        $email = "";
+        $adresa = "";
+    }
     ?>
-    
+
     <section>
         <div class="title">Detalii comanda</div>
 
         <div class="client">
-            <form class="selector-container" action = "#" method = "post">
+            <form class="selector-container" action="#" method="post">
                 <div class="selector" onclick="hidePJ()">
-                    <input type="radio" name="tip-persoana" id="fizica" value = "PF" checked>
+                    <input type="radio" name="tip-persoana" id="fizica" value="PF" checked>
                     <label for="fizica">
                         <span class="filtre-title">
                             <div>Persoana fizica</div>
@@ -31,7 +45,7 @@
                     </label>
                 </div>
                 <div class="selector" onclick="showPJ()">
-                    <input type="radio" name="tip-persoana" id="juridica" value = "PJ">
+                    <input type="radio" name="tip-persoana" id="juridica" value="PJ">
                     <label for="juridica">
                         <span class="filtre-title">
                             <div>Persoana juridica</div>
@@ -43,23 +57,23 @@
             <div class="date">
                 <div class="linie-date">
                     <label for="nume">Nume: </label>
-                    <input type="text" name="nume" id="nume" value="Popescu">
+                    <input type="text" name="nume" id="nume" value="<?php echo $nume ?>">
                 </div>
                 <div class="linie-date">
                     <label for="prenume">Prenume: </label>
-                    <input type="text" name="prenume" id="prenume" value="Ion">
+                    <input type="text" name="prenume" id="prenume" value="<?php echo $prenume ?>">
                 </div>
                 <div class="linie-date">
                     <label for="teleon">Telefon: </label>
-                    <input type="tel" name="telefon" id="teleon" value="+40">
+                    <input type="tel" name="telefon" id="teleon" value="<?php echo $telefon ?>">
                 </div>
                 <div class="linie-date">
                     <label for="email">Email: </label>
-                    <input type="email" name="email" id="email" value="yonutz_boss@yahoo.com">
+                    <input type="email" name="email" id="email" value="<?php echo $email ?>">
                 </div>
                 <div class="linie-date">
                     <label for="adresa">Adresa: </label>
-                    <input type="text" name="adresa" id="adresa">
+                    <input type="text" name="adresa" id="adresa" value="<?php echo $adresa ?>">
                 </div>
                 <div class="linie-date PJ">
                     <label for="numecompanie">Nume companie: </label>
@@ -87,19 +101,19 @@
         <form class="options-container">
             <div class="title">Metoda de plata </div>
             <div class="selector">
-                <input type="radio" name="plata" id="card" checked>
+                <input type="radio" name="plata" id="card" value="card" checked>
                 <label for="card">
                     <div>Plata cu cardul</div>
                 </label>
             </div>
             <div class="selector">
-                <input type="radio" name="plata" id="ordin">
-                <label for="ordin">
+                <input type="radio" name="plata" id="cash" value="cash">
+                <label for="cash">
                     <div>Ordin de plata</div>
                 </label>
             </div>
             <div class="selector">
-                <input type="radio" name="plata" id="ramburs">
+                <input type="radio" name="plata" id="ramburs" value="ramburs">
                 <label for="ramburs">
                     <div> ramburs la curier</div>
                 </label>
@@ -109,13 +123,13 @@
         <div class="options-container">
             <div class="title">Livrare </div>
             <div class="selector">
-                <input type="radio" name="livrare" id="standard" checked>
+                <input type="radio" name="livrare" id="standard" value="0" checked>
                 <label for="standard">
                     <div>Standard (Gratuit)</div>
                 </label>
             </div>
             <div class="selector">
-                <input type="radio" name="livrare" id="rapida">
+                <input type="radio" name="livrare" id="rapida" value="20">
                 <label for="rapida">
                     <div>Livrare rapida (20Ron)</div>
                 </label>
@@ -126,26 +140,10 @@
             <div>Pret produse: 480Ron</div>
             <div>Pret Livare: 20Ron</div>
             <div>Total: 500 Ron</div>
-            <input type="submit" value="Plaseaza comanda">
+            <input onclick="plaseazaComanda()" type="submit" value="Plaseaza comanda">
         </div>
     </section>
+    <?php include "JS/comanda_script.php" ?>
 </body>
-<script>
-    function hidePJ() {
-        var PJ = document.getElementsByClassName("PJ");
-        for (i = 0; i < PJ.length; i++) {
-            PJ[i].style.visibility = "hidden";
-            PJ[i].style.position = "absolute";
-        }
-    }
-
-    function showPJ() {
-        var PJ = document.getElementsByClassName("PJ");
-        for (i = 0; i < PJ.length; i++) {
-            PJ[i].style.visibility = "visible";
-            PJ[i].style.position = "static";
-        }
-    }
-</script>
 
 </html>
