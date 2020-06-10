@@ -156,7 +156,7 @@
 
     function addProductInFav(id_produs){
         if (!loggedin) {
-            window.location.href = "/login-register.php";
+            window.location.href = "./login-register.php";
         }
         else{
             var xhttp;
