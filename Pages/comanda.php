@@ -137,9 +137,6 @@
         </div>
 
         <div class="rezumat">
-            <div>Pret produse: 480Ron</div>
-            <div>Pret Livare: 20Ron</div>
-            <div>Total: 500 Ron</div>
             <input onclick="plaseazaComanda()" type="submit" value="Plaseaza comanda">
         </div>
     </section>

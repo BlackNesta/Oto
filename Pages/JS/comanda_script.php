@@ -52,6 +52,7 @@
             comandaUser(plata, livrare);
         else
             comandaVizitator(plata, livrare).then(clearLocalStorage());
+        window.location.href = "./main.php"
     }
 
     function comandaUser(plata, livrare) {
