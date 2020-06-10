@@ -25,7 +25,7 @@
     <div class="section-title">Favorite</div>
 
     <?php
-    include "./PHP/afiseaza_favorite.php";
+    include "./PHP/favorite/afiseaza_favorite.php";
     ?>
   </section>
   <?php include "JS/favorite_script.php" ?>
